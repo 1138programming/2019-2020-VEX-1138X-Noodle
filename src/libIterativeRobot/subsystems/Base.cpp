@@ -3,13 +3,13 @@
 
 Base::Base() {
   // Set up motors
-  frontLeftMotor = Motor::getMotor(frontLeftBasePort);
-  frontRightMotor = Motor::getMotor(frontRightBasePort);
-  backLeftMotor = Motor::getMotor(backLeftBasePort);
-  backRightMotor = Motor::getMotor(backRightBasePort);
+  frontLeftMotor = Motor::getMotor(frontLeftBasePort, baseMotorGearset);
+  frontRightMotor = Motor::getMotor(frontRightBasePort, baseMotorGearset);
+  backLeftMotor = Motor::getMotor(backLeftBasePort, baseMotorGearset);
+  backRightMotor = Motor::getMotor(backRightBasePort, baseMotorGearset);
 
   frontRightMotor->reverse();
-  backRightMotor->reverse();
+  frontLeftMotor->reverse();
 }
 
 void Base::initDefaultCommand() {
@@ -22,9 +22,9 @@ void Base::initDefaultCommand() {
  * @param left - speed of the left side
  * @param right - speed of the right side
  */
-void Base::move(int left, int right) {
-  frontLeftMotor->setSpeed(left);
-  frontRightMotor->setSpeed(right);
-  backLeftMotor->setSpeed(left);
-  backRightMotor->setSpeed(right);
+void Base::moveAtSpeed(int leftSpeed, int rightSpeed) {
+  frontLeftMotor->setSpeed(leftSpeed);
+  frontRightMotor->setSpeed(rightSpeed);
+  backLeftMotor->setSpeed(leftSpeed);
+  backRightMotor->setSpeed(rightSpeed);
 }

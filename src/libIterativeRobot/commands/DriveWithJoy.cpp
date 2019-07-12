@@ -14,14 +14,12 @@ bool DriveWithJoy::canRun() {
 void DriveWithJoy::initialize() {
   // Perform any initialization steps for this command here, not in the
   // constructor
-  xSpeed = Robot::mainController->get_analog(pros::E_CONTROLLER_ANALOG_LEFT_X);
-  ySpeed = Robot::mainController->get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y);
+  rightSideSpeed = Robot::mainController->get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_Y);
+  leftSideSpeed = Robot::mainController->get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y);
 }
 
 void DriveWithJoy::execute() {
-  //printf("Drive with joy is running\n");
-  Robot::base->move(ySpeed + xSpeed, ySpeed - xSpeed);
-  printf("ySpeed is %d and xSpeed is %d\n", ySpeed, xSpeed);
+  Robot::base->moveAtSpeed(leftSideSpeed, rightSideSpeed);
 }
 
 bool DriveWithJoy::isFinished() {

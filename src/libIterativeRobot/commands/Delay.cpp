@@ -20,7 +20,7 @@ void Delay::initialize() {
 
 void Delay::execute() {
   //printf("Claw control running\n");
-  //printf("Time at: %d\n", pros::millis() - startTime);
+  printf("Time at: %d\n", pros::millis() - startTime);
 }
 
 bool Delay::isFinished() {
@@ -29,7 +29,7 @@ bool Delay::isFinished() {
 
 void Delay::end() {
   // Code that runs when isFinished() returns true.
-  //printf("Finished delay\n");
+  printf("Finished delay\n");
 }
 
 void Delay::interrupted() {

@@ -1,39 +1,38 @@
-#include "libIterativeRobot/commands/ClawControl.h"
+#include "libIterativeRobot/commands/IntakeControl.h"
 #include "libIterativeRobot/Robot.h"
 #include "Constants.h"
 
-ClawControl::ClawControl(bool Open) {
+IntakeControl::IntakeControl(bool Open) {
   this->Open = Open;
-  requires(Robot::claw);
+  requires(Robot::intake);
   this->priority = 2;
 }
 
-bool ClawControl::canRun() {
+bool IntakeControl::canRun() {
   return true; // This is the default value anyways, so this method can be removed
 }
 
-void ClawControl::initialize() {
+void IntakeControl::initialize() {
   // Perform any initialization steps for this command here, not in the
   // constructor
-}
-
-void ClawControl::execute() {
-  //printf("Claw control running\n");
   if (this->Open)
-    Robot::claw->move(KMaxMotorSpeed);
+    Robot::intake->move(KMaxMotorSpeed);
   else
-    Robot::claw->move(-KMaxMotorSpeed);
+    Robot::intake->move(-KMaxMotorSpeed);
 }
 
-bool ClawControl::isFinished() {
-  return true;
+void IntakeControl::execute() {
 }
 
-void ClawControl::end() {
+bool IntakeControl::isFinished() {
+  return false;
+}
+
+void IntakeControl::end() {
   // Code that runs when isFinished() returns true.
 }
 
-void ClawControl::interrupted() {
+void IntakeControl::interrupted() {
   // Code that runs when this command is interrupted by another one
   // with a higher priority.
 }

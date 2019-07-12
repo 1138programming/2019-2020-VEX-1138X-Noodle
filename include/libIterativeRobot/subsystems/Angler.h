@@ -4,12 +4,12 @@
 #include "./Subsystem.h"
 #include "api.h"
 
-class Arm : public libIterativeRobot::Subsystem {
+class Angler : public libIterativeRobot::Subsystem {
   private:
-    // Arm motors
-    Motor* armMotor;
+    // Angler motors
+    Motor* anglerMotor;
 
-    PIDController* armController;
+    PIDController* anglerController;
 
   public:
     void initDefaultCommand();
@@ -20,7 +20,7 @@ class Arm : public libIterativeRobot::Subsystem {
     void lock();
     void disablePID();
     void enablePID();
-    Arm();
+    Angler();
 };
 
 #endif // _SUBSYSTEMS_ARM_H_

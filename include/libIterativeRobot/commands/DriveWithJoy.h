@@ -13,8 +13,8 @@ class DriveWithJoy: public libIterativeRobot::Command {
     void interrupted();
     DriveWithJoy();
   private:
-    int xSpeed;
-    int ySpeed;
+    int rightSideSpeed;
+    int leftSideSpeed;
 };
 
 #endif // _COMMANDS_DRIVEWITHJOY_H_

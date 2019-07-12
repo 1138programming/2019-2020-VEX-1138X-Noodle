@@ -1,9 +1,9 @@
-#ifndef _COMMANDS_ARMCONTROL_H_
-#define _COMMANDS_ARMCONTROL_H_
+#ifndef _COMMANDS_STOPCLAW_H_
+#define _COMMANDS_STOPCLAW_H_
 
 #include "libIterativeRobot/commands/Command.h"
 
-class ArmControl: public libIterativeRobot::Command {
+class StopIntake: public libIterativeRobot::Command {
   public:
     bool canRun();
     void initialize();
@@ -11,9 +11,8 @@ class ArmControl: public libIterativeRobot::Command {
     bool isFinished();
     void end();
     void interrupted();
-    ArmControl(bool Up);
+    StopIntake();
   private:
-    bool Up;
 };
 
-#endif // _COMMANDS_ARMCONTROL_H_
+#endif // _COMMANDS_STOPCLAW_H_

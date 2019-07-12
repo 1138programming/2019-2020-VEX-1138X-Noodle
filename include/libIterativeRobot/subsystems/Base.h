@@ -14,7 +14,7 @@ class Base : public libIterativeRobot::Subsystem {
 
   public:
     void initDefaultCommand();
-    void move(int left, int right);
+    void moveAtSpeed(int leftSpeed, int rightSpeed);
     Base();
 };
 

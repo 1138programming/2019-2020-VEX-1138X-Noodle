@@ -1,9 +1,9 @@
-#ifndef _COMMANDS_MOVECLAWFOR_H_
-#define _COMMANDS_MOVECLAWFOR_H_
+#ifndef _COMMANDS_MOVEARMFOR_H_
+#define _COMMANDS_MOVEARMFOR_H_
 
 #include "libIterativeRobot/commands/Command.h"
 
-class MoveClawFor: public libIterativeRobot::Command {
+class MoveAnglerFor: public libIterativeRobot::Command {
   public:
     bool canRun();
     void initialize();
@@ -11,11 +11,11 @@ class MoveClawFor: public libIterativeRobot::Command {
     bool isFinished();
     void end();
     void interrupted();
-    MoveClawFor(unsigned int duration, int speed = 127);
+    MoveAnglerFor(unsigned int duration, int speed = 127);
   private:
     unsigned int duration;
-    int speed;
+    unsigned int speed;
     unsigned int startTime;
 };
 
-#endif // _COMMANDS_MOVECLAWFOR_H_
+#endif // _COMMANDS_MOVEARMFOR_H_

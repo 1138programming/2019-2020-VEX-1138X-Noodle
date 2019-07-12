@@ -1,34 +1,38 @@
-#include "libIterativeRobot/commands/StopBase.h"
+#include "libIterativeRobot/commands/StopAngler.h"
 #include "libIterativeRobot/Robot.h"
 #include "Constants.h"
 
-StopBase::StopBase() {
-  //requires(Robot::base);
+StopAngler::StopAngler() {
+  //requires(Robot::angler);
   //this->priority = DefaultCommandPriority; // Lowest priority
 }
 
-bool StopBase::canRun() {
+bool StopAngler::canRun() {
   return true; // This is the default value anyways, so this method can be removed
 }
 
-void StopBase::initialize() {
+void StopAngler::initialize() {
   // Perform any initialization steps for this command here, not in the
   // constructor
+  Robot::angler->move(0);
+  //Robot::angler->lock();
+  //Robot::angler->enablePID();
 }
 
-void StopBase::execute() {
-  Robot::base->moveAtSpeed(0, 0);
+void StopAngler::execute() {
+  Robot::angler->move(0);
+  //printf("Stopping angler\n");
 }
 
-bool StopBase::isFinished() {
+bool StopAngler::isFinished() {
   return false;
 }
 
-void StopBase::end() {
+void StopAngler::end() {
   // Code that runs when isFinished() returns true.
 }
 
-void StopBase::interrupted() {
+void StopAngler::interrupted() {
   // Code that runs when this command is interrupted by another one
   // with a higher priority.
 }

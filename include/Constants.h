@@ -14,22 +14,30 @@
 #define MAX_FOLLOWERS 3
 
 // Motor ports
-const int frontRightBasePort = 1;
-const int frontLeftBasePort = 2;
-const int backRightBasePort = 9;
-const int backLeftBasePort = 10;
+const int frontLeftBasePort = 3;
+const int frontRightBasePort = 2;
+const int backLeftBasePort = 4;
+const int backRightBasePort = 5;
 
-const int armPort = 5;
-const int clawPort = 6;
+const int anglerPort = 1;
+const int leftIntakeMotorPort = 10;
+const int rightIntakeMotorPort = 9;
+
+// Motor gearsets
+const pros::motor_gearset_e_t baseMotorGearset = pros::E_MOTOR_GEARSET_18;
+const pros::motor_gearset_e_t anglerMotorGearset = pros::E_MOTOR_GEARSET_18;
+const pros::motor_gearset_e_t intakeMotorGearset = pros::E_MOTOR_GEARSET_18;
+
+// Global configurations
+const pros::motor_encoder_units_e_t globalEncoderUnits = pros::E_MOTOR_ENCODER_COUNTS;
+const pros::motor_brake_mode_e_t globalBrakeMode = pros::E_MOTOR_BRAKE_COAST;
+const int globalSlewStep = 14;
 
 //Motor and encoder constants
 const int KMaxMotorSpeed = 127;
 const int KMaxJoystickValue = 127;
 const int encoderTicks = 360; // Encoder ticks in one revolution
 const float rotationsPerInch = 31.400156410256; // TODO check if this is correct
-
-// IME addresses
-const unsigned char exampleIMEAddress = 0;
 
 // Encoder ports
 const int exampleEncoderTopPort = 0;
