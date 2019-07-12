@@ -37,4 +37,5 @@
 
 # Binaries + Libraries
 bin/*
+!libIterativeRobot.o
 libIterativeRobot@*.zip
