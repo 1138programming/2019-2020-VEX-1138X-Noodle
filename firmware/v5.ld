@@ -59,7 +59,7 @@ SECTIONS
    *(.glue_7t)
    *(.vfp11_veneer)
    *(.ARM.extab)
-   *(.gnu.linkonce.anglerextab.*)
+   *(.gnu.linkonce.armextab.*)
 } > COLD_MEMORY
 
 .init : {
@@ -174,7 +174,7 @@ SECTIONS
 .ARM.exidx : {
    __exidx_start = .;
    *(.ARM.exidx*)
-   *(.gnu.linkonce.anglerexidix.*.*)
+   *(.gnu.linkonce.armexidix.*.*)
    __exidx_end = .;
 } > COLD_MEMORY
 
