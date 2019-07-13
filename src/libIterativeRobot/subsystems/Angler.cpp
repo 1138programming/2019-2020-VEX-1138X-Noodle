@@ -17,9 +17,18 @@ void Angler::initDefaultCommand() {
  * @param left - speed of the left side
  * @param right - speed of the right side
  */
+pros::ADIDigitalIn bumper ('a');
 void Angler::move(int speed) {
   //printf("Angler speed is %d\n", speed);
-  anglerMotor->setSpeed(speed);
+  if (bumper.get_value())
+  {
+    anglerMotor->setSpeed(KMaxMotorSpeed);
+    printf("Motor speed reversed.");
+  }
+  else
+  {
+    anglerMotor->setSpeed(speed);
+  }
 }
 
 void Angler::setSetpoint(int setpoint) {

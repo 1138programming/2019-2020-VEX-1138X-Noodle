@@ -38,8 +38,8 @@ Robot::Robot() {
   partnerController = new pros::Controller(pros::E_CONTROLLER_PARTNER);
 
   // Define buttons and channels
-  libIterativeRobot::JoystickChannel* RightY = new libIterativeRobot::JoystickChannel(mainController, pros::E_CONTROLLER_ANALOG_RIGHT_Y);
   libIterativeRobot::JoystickChannel* LeftY = new libIterativeRobot::JoystickChannel(mainController, pros::E_CONTROLLER_ANALOG_LEFT_Y);
+  libIterativeRobot::JoystickChannel* LeftX = new libIterativeRobot::JoystickChannel(mainController, pros::E_CONTROLLER_ANALOG_LEFT_X);
   libIterativeRobot::JoystickButton* AnglerUp = new libIterativeRobot::JoystickButton(mainController, pros::E_CONTROLLER_DIGITAL_R1);
   libIterativeRobot::JoystickButton* AnglerDown = new libIterativeRobot::JoystickButton(mainController, pros::E_CONTROLLER_DIGITAL_R2);
   libIterativeRobot::JoystickButton* IntakeOpen = new libIterativeRobot::JoystickButton(mainController, pros::E_CONTROLLER_DIGITAL_L1);
@@ -50,11 +50,11 @@ Robot::Robot() {
   libIterativeRobot::JoystickButton* AnglerToBack = new libIterativeRobot::JoystickButton(mainController, pros::E_CONTROLLER_DIGITAL_LEFT);
 
   // Add commands to be run to buttons
-  RightY->setThreshold(50);
   LeftY->setThreshold(50);
+  LeftX->setThreshold(50);
   DriveWithJoy* driveCommand = new DriveWithJoy();
-  RightY->whilePastThreshold(driveCommand);
   LeftY->whilePastThreshold(driveCommand);
+  LeftX->whilePastThreshold(driveCommand);
 
   AnglerUp->whileHeld(new AnglerControl(true));
   AnglerDown->whileHeld(new AnglerControl(false));

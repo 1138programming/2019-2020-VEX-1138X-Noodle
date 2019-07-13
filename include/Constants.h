@@ -23,6 +23,8 @@ const int anglerPort = 1;
 const int leftIntakeMotorPort = 10;
 const int rightIntakeMotorPort = 9;
 
+const char bumperPort = 'a';
+
 // Motor gearsets
 const pros::motor_gearset_e_t baseMotorGearset = pros::E_MOTOR_GEARSET_18;
 const pros::motor_gearset_e_t anglerMotorGearset = pros::E_MOTOR_GEARSET_18;
@@ -30,7 +32,7 @@ const pros::motor_gearset_e_t intakeMotorGearset = pros::E_MOTOR_GEARSET_18;
 
 // Global configurations
 const pros::motor_encoder_units_e_t globalEncoderUnits = pros::E_MOTOR_ENCODER_COUNTS;
-const pros::motor_brake_mode_e_t globalBrakeMode = pros::E_MOTOR_BRAKE_COAST;
+const pros::motor_brake_mode_e_t globalBrakeMode = pros::E_MOTOR_BRAKE_HOLD;
 const int globalSlewStep = 14;
 
 //Motor and encoder constants
