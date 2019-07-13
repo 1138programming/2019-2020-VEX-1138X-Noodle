@@ -8,8 +8,8 @@ Base::Base() {
   backLeftMotor = Motor::getMotor(backLeftBasePort, baseMotorGearset);
   backRightMotor = Motor::getMotor(backRightBasePort, baseMotorGearset);
 
-  backRightMotor->reverse();
-  frontRightMotor->reverse();
+  backLeftMotor->reverse();
+  frontLeftMotor->reverse();
 }
 
 void Base::initDefaultCommand() {
