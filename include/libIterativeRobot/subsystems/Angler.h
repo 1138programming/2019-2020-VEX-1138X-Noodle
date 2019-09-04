@@ -11,6 +11,8 @@ class Angler : public libIterativeRobot::Subsystem {
 
     PIDController* anglerController;
 
+    pros::ADIDigitalIn* bumper;
+
   public:
     void initDefaultCommand();
     void move(int speed);

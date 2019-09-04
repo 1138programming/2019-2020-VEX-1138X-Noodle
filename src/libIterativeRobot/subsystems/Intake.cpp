@@ -7,6 +7,8 @@ Intake::Intake() {
   rightIntakeMotor = Motor::getMotor(rightIntakeMotorPort, intakeMotorGearset);
 
   rightIntakeMotor->reverse();
+  leftIntakeMotor->getMotorObject()->set_brake_mode(pros::E_MOTOR_BRAKE_BRAKE);
+  rightIntakeMotor->getMotorObject()->set_brake_mode(pros::E_MOTOR_BRAKE_BRAKE);
 }
 
 void Intake::initDefaultCommand() {
