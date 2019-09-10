@@ -7,6 +7,7 @@
 #include "libIterativeRobot/commands/StopAngler.h"
 #include "libIterativeRobot/commands/StopIntake.h"
 #include "libIterativeRobot/commands/DriveWithJoy.h"
+#include "libIterativeRobot/commands/BaseLinearMovement.h"
 #include "libIterativeRobot/commands/AnglerControl.h"
 #include "libIterativeRobot/commands/IntakeControl.h"
 #include "libIterativeRobot/commands/MoveAnglerFor.h"
@@ -14,6 +15,8 @@
 
 #include "libIterativeRobot/commands/AutonGroup1.h"
 #include "libIterativeRobot/commands/AutonGroup2.h"
+
+Robot* Robot::instance = 0;
 
 Base*  Robot::base = 0;
 Angler*   Robot::angler = 0;
@@ -26,7 +29,7 @@ pros::Controller* Robot::partnerController = 0;
 
 Robot::Robot() {
   printf("Overridden robot constructor!\n");
-  autonGroup = NULL;
+
   // Initialize any subsystems
   base = new Base();
   angler  = new Angler();
@@ -62,11 +65,11 @@ Robot::Robot() {
   IntakeControl* intakeOpen = new IntakeControl(true);
   IntakeControl* intakeClose = new IntakeControl(false);
   IntakeOpen->whenPressed(intakeOpen);
-  IntakeOpen->whenPressed(intakeClose, libIterativeRobot::STOP);
+  IntakeOpen->whenPressed(intakeClose, libIterativeRobot::Action::STOP);
   IntakeClose->whenPressed(intakeClose);
-  IntakeClose->whenPressed(intakeOpen, libIterativeRobot::STOP);
-  IntakeOpen->whenReleased(intakeOpen, libIterativeRobot::STOP);
-  IntakeClose->whenReleased(intakeClose, libIterativeRobot::STOP);
+  IntakeClose->whenPressed(intakeOpen, libIterativeRobot::Action::STOP);
+  IntakeOpen->whenReleased(intakeOpen, libIterativeRobot::Action::STOP);
+  IntakeClose->whenReleased(intakeClose, libIterativeRobot::Action::STOP);
 
   AnglerToStart->whenPressed(new MoveAnglerTo(0));
   AnglerToHorizontal->whenPressed(new MoveAnglerTo(680));
@@ -76,64 +79,41 @@ Robot::Robot() {
 
 void Robot::robotInit() {
   printf("Robot created.\n");
+  //autonChooser->addAutonCommand(new AutonGroup1(), "AutonGroup1");
+  autonChooser->addAutonCommand(new BaseLinearMovement(1000, 1000), "Linear movement test");
 }
 
 void Robot::autonInit() {
-  printf("Default autonInit() function\n");
-  libIterativeRobot::EventScheduler::getInstance()->initialize();
-  autonChooser->uninit();
-
-  switch (autonChooser->getAutonChoice()) {
-    case 0:
-      printf("Running group %d\n", 1);
-      autonGroup = new AutonGroup1();
-      break;
-    case 1:
-      printf("Running group %d\n", 2);
-      autonGroup = new AutonGroup2();
-      break;
-  }
-  autonGroup->run();
+  // autonChooser->uninit();
+  // autonChooser->getAutonCommand()->run();
 }
 
 void Robot::autonPeriodic() {
-  //printf("Default autonPeriodic() function\n");
-  libIterativeRobot::EventScheduler::getInstance()->update();
   Motor::periodicUpdate();
   PIDController::loopAll();
 }
 
-lv_res_t Robot::print(lv_obj_t* roller) {
-  char* optionName = new char[128]();
-  lv_roller_get_selected_str(roller, optionName);
-  printf("Option selected is called ");
-  printf(optionName);
-  printf("\n");
-  return LV_RES_OK;
-}
-
 void Robot::teleopInit() {
-  printf("Default teleopInit() function\n");
-  libIterativeRobot::EventScheduler::getInstance()->initialize();
-  //autonChooser->init();
-
-  //autonGroup = new AutonGroup1();
-  //autonGroup->run();
+  BaseLinearMovement* c = new BaseLinearMovement(1000, 1000);
+  c->run();
 }
 
 void Robot::teleopPeriodic() {
-  //printf("Default teleopPeriodic() function\n");
-  libIterativeRobot::EventScheduler::getInstance()->update();
+  //printf("Teleop periodic\n");
   Motor::periodicUpdate();
   PIDController::loopAll();
 }
 
 void Robot::disabledInit() {
-  printf("Default disabledInit() function\n");
-  libIterativeRobot::EventScheduler::getInstance()->initialize();
   autonChooser->uninit();
 }
 
 void Robot::disabledPeriodic() {
-  //printf("Default disabledPeriodic() function\n");
+}
+
+Robot* Robot::getInstance() {
+    if (instance == NULL) {
+        instance = new Robot();
+    }
+    return instance;
 }

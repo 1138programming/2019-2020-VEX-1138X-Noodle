@@ -10,6 +10,12 @@ Base::Base() {
 
   backLeftMotor->reverse();
   frontLeftMotor->reverse();
+
+  frontLeftMotor->addFollower(backLeftMotor);
+  frontRightMotor->addFollower(backRightMotor);
+
+  leftProfiler = new LinearProfiler(frontLeftMotor, 10, 0.17, 0.45, 0, 0);
+  rightProfiler = new LinearProfiler(frontRightMotor, 10, 0.17, 0.45, 0, 0);
 }
 
 void Base::initDefaultCommand() {
@@ -25,6 +31,33 @@ void Base::initDefaultCommand() {
 void Base::moveAtSpeed(int leftSpeed, int rightSpeed) {
   frontLeftMotor->setSpeed(leftSpeed);
   frontRightMotor->setSpeed(rightSpeed);
-  backLeftMotor->setSpeed(leftSpeed);
-  backRightMotor->setSpeed(rightSpeed);
+}
+
+void Base::setLinearTarget(int leftTarget, int rightTarget) {
+  leftProfiler->setTarget(leftTarget);
+  rightProfiler->setTarget(rightTarget);
+}
+
+void Base::setLinearTargetRelative(int leftTarget, int rightTarget) {
+  leftProfiler->setTargetRelative(leftTarget);
+  rightProfiler->setTargetRelative(rightTarget);
+}
+
+void Base::initLinearMovement() {
+  leftProfiler->init();
+  rightProfiler->init();
+}
+
+void Base::updateLinearMovement() {
+  leftProfiler->update();
+  rightProfiler->update();
+}
+
+bool Base::atLinearTarget() {
+  return leftProfiler->atTarget() && rightProfiler->atTarget();
+}
+
+void Base::stopLinearMovement() {
+  leftProfiler->stop();
+  rightProfiler->stop();
 }

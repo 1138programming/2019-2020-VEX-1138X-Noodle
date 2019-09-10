@@ -24,5 +24,5 @@ void Intake::initDefaultCommand() {
 void Intake::move(int speed) {
   leftIntakeMotor->setSpeed(speed);
   rightIntakeMotor->setSpeed(speed);
-  printf("Motor speed set to %d\n", speed);
+  //printf("Motor speed set to %d\n", speed);
 }

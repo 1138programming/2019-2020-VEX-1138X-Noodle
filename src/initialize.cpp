@@ -1,5 +1,5 @@
 #include "main.h"
-#include "libIterativeRobot/Robot.h"
+#include "libIterativeRobot/RobotBase.h"
 /*
 void on_center_button() {
 	static bool pressed = false;
@@ -19,7 +19,7 @@ void on_center_button() {
  */
 void initialize() {
   Motor::init();
-  libIterativeRobot::RobotBase::runRobot<Robot>();
+  libIterativeRobot::RobotBase::initializeRobot();
 }
 
 /**

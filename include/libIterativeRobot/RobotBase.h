@@ -5,81 +5,80 @@
 #include "pros/rtos.hpp"
 
 namespace libIterativeRobot {
+  class RobotBase {
+    private:
+      /**
+       * @brief Possible robot states are None, Auton, Teleop, and Disabled
+       */
+      enum class RobotState {
+        None,
+        Auton,
+        Teleop,
+        Disabled,
+      };
 
-class RobotBase {
-  private:
-    enum class RobotState {
-      None,
-      Auton,
-      Teleop,
-      Disabled,
-    };
-    RobotState lastState = RobotState::None;
-    template<class RobotMain> static void _privateRunRobot() {
-      RobotMain* robotInstance = new RobotMain();
-      while (true) {
-        robotInstance->doOneCycle();
-      }
-    };
-    void doOneCycle();
-  protected:
-    /**
-      * This runs once when the robot starts up.
-      */
-    virtual void robotInit();
+      /**
+       * @brief Stores the last state of the robot
+       */
+      RobotState lastState = RobotState::None;
 
-    /**
-      * This runs once each time the autonomous period begins.
-      */
-    virtual void autonInit();
+      /**
+       * @brief
+       */
+      void doOneCycle();
 
-    /**
-      * This runs in a loop during the autonomous period.
-      */
-    virtual void autonPeriodic();
+      //void _privateRunRobot(void* param);
+      //void my_task_fn(void* param);
+      static void _privateRunRobot(void* param);
+      void printStuff();
+    protected:
+      /**
+        * @brief Runs when the robot starts up.
+        */
+      virtual void robotInit() = 0;
 
-    /**
-      * This runs once each time the teleoperated period begins.
-      */
-    virtual void teleopInit();
+      /**
+        * @brief Runs once each time the autonomous period begins.
+        */
+      virtual void autonInit() = 0;
 
-    /**
-      * This runs in a loop during the teleoperated period.
-      */
-    virtual void teleopPeriodic();
+      /**
+        * @brief Runs in a loop during the autonomous period.
+        */
+      virtual void autonPeriodic() = 0;
 
-    /**
-      * This runs once each time the robot is disabled.
-      */
-    virtual void disabledInit();
+      /**
+        * @brief Runs once each time the teleoperated period begins.
+        */
+      virtual void teleopInit() = 0;
 
-    /**
-      * This runs in a loop whenever the robot is disabled.
-      */
-    virtual void disabledPeriodic();
+      /**
+        * @brief Runs in a loop during the teleoperated period.
+        */
+      virtual void teleopPeriodic() = 0;
 
-  public:
-    RobotBase();
+      /**
+        * @brief Runs once each time the robot is disabled.
+        */
+      virtual void disabledInit() = 0;
 
-    /**
-      * Run the robot.
-      *
-      * This should be called with the main robot class as the template argument.
-      * For example, if your robot is named `ExampleRobot`, you would call
-      * it with `RobotBase::runRobot<ExampleRobot>()`
-      */
-    template <class RobotMain> static void runRobot() {
-      // Just saying, if this doesn't work, try using the reinterepret cast on the method instead, instead of its pointer
-      // reinterpret_cast<void (*)(void*)>(&_privateRunRobot<RobotMain>)
-      pros::Task(
-        reinterpret_cast<void (*)(void*)>(&_privateRunRobot<RobotMain>),
-        NULL,
-        TASK_PRIORITY_DEFAULT,
-        TASK_STACK_DEPTH_DEFAULT,
-        "libIterativeRobot Task"
-      );
-    };
-};
+      /**
+        * @brief Runs in a loop while the robot is disabled.
+        */
+      virtual void disabledPeriodic() = 0;
 
-};
+      /**
+        * Run the robot.
+        *
+        * This should be called with the main robot class as the template argument.
+        * For example, if your robot is named `ExampleRobot`, you would call
+        * it with `RobotBase::runRobot<ExampleRobot>()`
+        */
+      void runRobot();
+
+      RobotBase();
+    public:
+      static void initializeRobot();
+  };
+}
 #endif // _ROBOTBASE_H_
