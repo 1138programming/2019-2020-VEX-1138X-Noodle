@@ -40,3 +40,7 @@ void MoveAnglerFor::interrupted() {
   // with a higher priority.
   Robot::angler->move(0);
 }
+
+void MoveAnglerFor::blocked() {
+
+}

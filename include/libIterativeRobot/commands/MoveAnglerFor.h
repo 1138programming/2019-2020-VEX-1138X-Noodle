@@ -11,6 +11,7 @@ class MoveAnglerFor: public libIterativeRobot::Command {
     bool isFinished();
     void end();
     void interrupted();
+    void blocked();
     MoveAnglerFor(unsigned int duration, int speed = 127);
   private:
     unsigned int duration;
