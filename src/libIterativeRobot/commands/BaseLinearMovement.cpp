@@ -47,5 +47,5 @@ void BaseLinearMovement::interrupted() {
 }
 
 void BaseLinearMovement::blocked() {
-
+  printf("Linear movement blocked\n");
 }
