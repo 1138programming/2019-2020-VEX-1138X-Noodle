@@ -43,8 +43,10 @@ Robot::Robot() {
   // Define buttons and channels
   libIterativeRobot::JoystickChannel* RightY = new libIterativeRobot::JoystickChannel(mainController, pros::E_CONTROLLER_ANALOG_RIGHT_Y);
   libIterativeRobot::JoystickChannel* LeftY = new libIterativeRobot::JoystickChannel(mainController, pros::E_CONTROLLER_ANALOG_LEFT_Y);
-  libIterativeRobot::JoystickButton* AnglerUp = new libIterativeRobot::JoystickButton(mainController, pros::E_CONTROLLER_DIGITAL_R1);
-  libIterativeRobot::JoystickButton* AnglerDown = new libIterativeRobot::JoystickButton(mainController, pros::E_CONTROLLER_DIGITAL_R2);
+  libIterativeRobot::JoystickChannel* RightX = new libIterativeRobot::JoystickChannel(mainController, pros::E_CONTROLLER_ANALOG_RIGHT_X);
+  libIterativeRobot::JoystickChannel* LeftX = new libIterativeRobot::JoystickChannel(mainController, pros::E_CONTROLLER_ANALOG_LEFT_X);
+  libIterativeRobot::JoystickButton* AnglerDown = new libIterativeRobot::JoystickButton(mainController, pros::E_CONTROLLER_DIGITAL_R1);
+  libIterativeRobot::JoystickButton* AnglerUp = new libIterativeRobot::JoystickButton(mainController, pros::E_CONTROLLER_DIGITAL_R2);
   libIterativeRobot::JoystickButton* IntakeOpen = new libIterativeRobot::JoystickButton(mainController, pros::E_CONTROLLER_DIGITAL_L1);
   libIterativeRobot::JoystickButton* IntakeClose = new libIterativeRobot::JoystickButton(mainController, pros::E_CONTROLLER_DIGITAL_L2);
   libIterativeRobot::JoystickButton* AnglerToStart = new libIterativeRobot::JoystickButton(mainController, pros::E_CONTROLLER_DIGITAL_DOWN);
@@ -53,10 +55,10 @@ Robot::Robot() {
   libIterativeRobot::JoystickButton* AnglerToBack = new libIterativeRobot::JoystickButton(mainController, pros::E_CONTROLLER_DIGITAL_LEFT);
 
   // Add commands to be run to buttons
-  RightY->setThreshold(50);
+  LeftX->setThreshold(50);
   LeftY->setThreshold(50);
   DriveWithJoy* driveCommand = new DriveWithJoy();
-  RightY->whilePastThreshold(driveCommand);
+  LeftX->whilePastThreshold(driveCommand);
   LeftY->whilePastThreshold(driveCommand);
 
   AnglerUp->whileHeld(new AnglerControl(true));
@@ -94,8 +96,8 @@ void Robot::autonPeriodic() {
 }
 
 void Robot::teleopInit() {
-  BaseLinearMovement* c = new BaseLinearMovement(1000, 1000);
-  c->run();
+  //BaseLinearMovement* c = new BaseLinearMovement(1000, 1000);
+  //c->run();
 }
 
 void Robot::teleopPeriodic() {

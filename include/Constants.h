@@ -14,10 +14,10 @@
 #define MAX_FOLLOWERS 3
 
 // Motor ports
-const int frontLeftBasePort = 2;
-const int frontRightBasePort = 3;
-const int backLeftBasePort = 5;
-const int backRightBasePort = 4;
+const int frontLeftBasePort = 3;
+const int frontRightBasePort = 2;
+const int backLeftBasePort = 4;
+const int backRightBasePort = 5;
 
 const int anglerPort = 1;
 const int leftIntakeMotorPort = 10;
@@ -37,6 +37,7 @@ const int globalSlewStep = 14;
 
 //Motor and encoder constants
 const int KMaxMotorSpeed = 200;
+const int K65MotorSpeed = 200*.65;
 const int KMaxJoystickValue = 127;
 const int encoderTicks = 360; // Encoder ticks in one revolution
 const float rotationsPerInch = 31.400156410256; // TODO check if this is correct

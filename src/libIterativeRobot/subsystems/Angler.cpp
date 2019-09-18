@@ -24,8 +24,12 @@ void Angler::move(int speed) {
   //printf("Angler speed is %d\n", speed);
   if (bumper->get_value())
   {
-    anglerMotor->setSpeed(KMaxMotorSpeed);
-    pros::delay(500);
+    if (speed > 0) {
+      anglerMotor->setSpeed(0);
+    } else if (speed < 0) {
+      anglerMotor->setSpeed(-500);
+    }
+    //pros::delay(500);
     printf("Motor speed reversed.");
   }
   else
