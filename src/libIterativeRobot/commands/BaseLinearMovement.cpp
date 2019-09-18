@@ -45,3 +45,7 @@ void BaseLinearMovement::interrupted() {
   printf("Linear movement interrupted\n");
   Robot::base->stopLinearMovement();
 }
+
+void BaseLinearMovement::blocked() {
+  printf("Linear movement blocked\n");
+}

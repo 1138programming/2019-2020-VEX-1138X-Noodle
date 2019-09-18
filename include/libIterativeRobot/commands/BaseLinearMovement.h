@@ -11,6 +11,7 @@ class BaseLinearMovement : public libIterativeRobot::Command {
     bool isFinished();
     void end();
     void interrupted();
+    void blocked();
     BaseLinearMovement(int leftTarget, int rightTarget, bool absolute = false);
   private:
     int leftTarget;
