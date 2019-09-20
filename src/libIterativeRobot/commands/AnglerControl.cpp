@@ -22,9 +22,9 @@ void AnglerControl::initialize() {
 void AnglerControl::execute() {
   //printf("Angler control running\n");
   if (this->Up)
-    Robot::angler->move(K65MotorSpeed);
+    Robot::angler->move(K50MotorSpeed);
   else
-    Robot::angler->move(-K65MotorSpeed);
+    Robot::angler->move(-K50MotorSpeed);
 }
 
 bool AnglerControl::isFinished() {

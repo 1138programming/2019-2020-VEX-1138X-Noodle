@@ -9,8 +9,8 @@ AutonGroup1::AutonGroup1() {
   addSequentialCommand(new BaseLinearMovement(1000, 1000));
   addParallelCommand(new MoveIntakeFor(2000));
   addSequentialCommand(new Delay(500));
-  addSequentialCommand(new BaseLinearMovement(-1000, -1000));
-  addSequentialCommand(new Delay(500));
-  addSequentialCommand(new BaseLinearMovement(1000, -1000));
-  addSequentialCommand(new MoveAnglerFor(1000));
+  // addSequentialCommand(new BaseLinearMovement(-1000, -1000));
+  // addSequentialCommand(new Delay(500));
+  // addSequentialCommand(new BaseLinearMovement(1000, -1000));
+  // addSequentialCommand(new MoveAnglerFor(1000));
 }

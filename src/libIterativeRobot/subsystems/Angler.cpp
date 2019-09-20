@@ -27,7 +27,7 @@ void Angler::move(int speed) {
     if (speed > 0) {
       anglerMotor->setSpeed(0);
     } else if (speed < 0) {
-      anglerMotor->setSpeed(-500);
+      anglerMotor->setSpeed(-K50MotorSpeed);
     }
     //pros::delay(500);
     printf("Motor speed reversed.");

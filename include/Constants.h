@@ -37,7 +37,7 @@ const int globalSlewStep = 14;
 
 //Motor and encoder constants
 const int KMaxMotorSpeed = 200;
-const int K65MotorSpeed = 200*.65;
+const int K50MotorSpeed = KMaxMotorSpeed*.50;
 const int KMaxJoystickValue = 127;
 const int encoderTicks = 360; // Encoder ticks in one revolution
 const float rotationsPerInch = 31.400156410256; // TODO check if this is correct
