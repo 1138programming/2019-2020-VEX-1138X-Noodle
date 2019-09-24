@@ -87,8 +87,8 @@ void Robot::robotInit() {
 }
 
 void Robot::autonInit() {
-  // autonChooser->uninit();
-  // autonChooser->getAutonCommand()->run();
+  autonChooser->uninit();
+  autonChooser->getAutonCommand()->run();
 }
 
 void Robot::autonPeriodic() {
