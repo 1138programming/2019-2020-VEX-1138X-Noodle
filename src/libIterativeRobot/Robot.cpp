@@ -97,8 +97,8 @@ void Robot::autonPeriodic() {
 }
 
 void Robot::teleopInit() {
-  //BaseLinearMovement* c = new BaseLinearMovement(1000, 1000);
-  //c->run();
+  BaseLinearMovement* c = new BaseLinearMovement(1000, 1000);
+  c->run();
 }
 
 void Robot::teleopPeriodic() {

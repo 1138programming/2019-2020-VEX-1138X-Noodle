@@ -12,7 +12,7 @@ BaseLinearMovement::BaseLinearMovement(int leftTarget, int rightTarget, bool abs
 }
 
 bool BaseLinearMovement::canRun() {
-  printf("Checking if linear movement can run\n");
+  //printf("Checking if linear movement can run\n");
   return true;
 }
 
@@ -28,7 +28,7 @@ void BaseLinearMovement::initialize() {
 }
 
 void BaseLinearMovement::execute() {
-  printf("Running base linear movement\n");
+  //printf("Running base linear movement\n");
   Robot::base->updateLinearMovement();
 }
 

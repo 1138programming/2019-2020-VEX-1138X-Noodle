@@ -86,22 +86,30 @@ void LinearProfiler::init() {
 }
 
 void LinearProfiler::update() {
-  if (abs(pidSetpoint) < flatPoint) {
+  printf("%p: PID setpoint is %f, sensor value is %d, vel is %f, accel is %f\n", this, pidSetpoint, getSensorValue(), vel, accel);
+
+  if (fabs(pidSetpoint) < flatPoint) {
     accel = maxAccel * dir;
-  } else if (abs(pidSetpoint) < deccelPoint) {
+  } else if (fabs(pidSetpoint) < deccelPoint) {
     accel = 0;
   } else {
     accel = -maxAccel * dir;
   }
 
   vel += accel;
-  if (abs(vel) > maxVel) {
+  if (fabs(vel) > maxVel) {
     vel = maxVel * dir;
+  }
+  if (vel * dir < 0) {
+    vel = 0;
+    accel = 0;
   }
 
   pidSetpoint += vel;
 
   posPID->setSetpoint((int)pidSetpoint);
+
+  //printf("%p: %d\n", this, (int)pidSetpoint);
 }
 
 bool LinearProfiler::atTarget() {

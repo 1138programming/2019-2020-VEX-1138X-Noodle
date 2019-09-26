@@ -14,8 +14,8 @@ Base::Base() {
   frontLeftMotor->addFollower(backLeftMotor);
   frontRightMotor->addFollower(backRightMotor);
 
-  leftProfiler = new LinearProfiler(frontLeftMotor, 10, 0.17, 0.45, 0, 0);
-  rightProfiler = new LinearProfiler(frontRightMotor, 10, 0.17, 0.45, 0, 0);
+  leftProfiler = new LinearProfiler(frontLeftMotor, 10, 0.17, 0.7, 0, 0);
+  rightProfiler = new LinearProfiler(frontRightMotor, 10, 0.17, 0.7, 0, 0);
 }
 
 void Base::initDefaultCommand() {

@@ -12,7 +12,7 @@ class LinearProfiler {
     std::uint32_t lastTime = 0;
 
     double maxAccel = 0.17;
-    double maxVel = 10;
+    double maxVel = 10.0;
 
     double accel = 0;
     double vel = 0;
