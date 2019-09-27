@@ -10,6 +10,8 @@ Base::Base() {
 
   backLeftMotor->reverse();
   frontLeftMotor->reverse();
+  backRightMotor->reverse();
+  frontRightMotor->reverse();
 
   frontLeftMotor->addFollower(backLeftMotor);
   frontRightMotor->addFollower(backRightMotor);

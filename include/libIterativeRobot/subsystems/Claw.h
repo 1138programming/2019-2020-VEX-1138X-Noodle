@@ -4,16 +4,15 @@
 #include "./Subsystem.h"
 #include "api.h"
 
-class Intake : public libIterativeRobot::Subsystem {
+class Claw : public libIterativeRobot::Subsystem {
   private:
     // Claw motors
-    Motor* leftIntakeMotor;
-    Motor* rightIntakeMotor;
-    
+    Motor* clawMotor;
+
   public:
     void initDefaultCommand();
     void move(int speed);
-    Intake();
+    Claw();
 };
 
 #endif // _SUBSYSTEMS_CLAW_H_

@@ -1,38 +1,38 @@
-#include "libIterativeRobot/commands/StopIntake.h"
+#include "libIterativeRobot/commands/StopClaw.h"
 #include "libIterativeRobot/Robot.h"
 #include "Constants.h"
 
-StopIntake::StopIntake() {
-  //requires(Robot::intake);
+StopClaw::StopClaw() {
+  //requires(Robot::claw);
   //this->priority = DefaultCommandPriority; // Lowest priority
 }
 
-bool StopIntake::canRun() {
+bool StopClaw::canRun() {
   return true; // This is the default value anyways, so this method can be removed
 }
 
-void StopIntake::initialize() {
+void StopClaw::initialize() {
   // Perform any initialization steps for this command here, not in the
   // constructor
-  Robot::intake->move(0);
+  Robot::claw->move(0);
 }
 
-void StopIntake::execute() {
+void StopClaw::execute() {
 }
 
-bool StopIntake::isFinished() {
+bool StopClaw::isFinished() {
   return false;
 }
 
-void StopIntake::end() {
+void StopClaw::end() {
   // Code that runs when isFinished() returns true.
 }
 
-void StopIntake::interrupted() {
+void StopClaw::interrupted() {
   // Code that runs when this command is interrupted by another one
   // with a higher priority.
 }
 
-void StopIntake::blocked() {
+void StopClaw::blocked() {
 
 }

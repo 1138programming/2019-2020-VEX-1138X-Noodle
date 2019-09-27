@@ -14,21 +14,22 @@
 #define MAX_FOLLOWERS 3
 
 // Motor ports
-const int frontLeftBasePort = 3;
-const int frontRightBasePort = 2;
-const int backLeftBasePort = 4;
-const int backRightBasePort = 5;
+const int frontLeftBasePort = 11;
+const int frontRightBasePort = 1;
+const int backLeftBasePort = 12;
+const int backRightBasePort = 2;
 
-const int clawPort = 1;
-const int leftIntakeMotorPort = 10;
-const int rightIntakeMotorPort = 9;
+const int clawMotorPort = 14;
+const int leftLiftMotorPort = 13;
+const int rightLiftMotorPort = 3;
 
-const std::uint8_t bumperPort = 'a';
+const std::uint8_t leftLiftBumperPort = 'a';
+const std::uint8_t rightLiftBumperPort = 'b';
 
 // Motor gearsets
 const pros::motor_gearset_e_t baseMotorGearset = pros::E_MOTOR_GEARSET_18;
 const pros::motor_gearset_e_t clawMotorGearset = pros::E_MOTOR_GEARSET_18;
-const pros::motor_gearset_e_t intakeMotorGearset = pros::E_MOTOR_GEARSET_18;
+const pros::motor_gearset_e_t liftMotorGearset = pros::E_MOTOR_GEARSET_18;
 
 // Global configurations
 const pros::motor_encoder_units_e_t globalEncoderUnits = pros::E_MOTOR_ENCODER_COUNTS;

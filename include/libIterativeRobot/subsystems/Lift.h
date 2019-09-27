@@ -4,14 +4,17 @@
 #include "./Subsystem.h"
 #include "api.h"
 
-class Claw : public libIterativeRobot::Subsystem {
+class Lift : public libIterativeRobot::Subsystem {
   private:
-    // Claw motors
-    Motor* clawMotor;
+    // Lift motors
+    Motor* leftLiftMotor;
+    Motor* rightLiftMotor;
 
-    PIDController* clawController;
+    PIDController* leftLiftController;
+    PIDController* rightLiftController;
 
-    pros::ADIDigitalIn* bumper;
+    pros::ADIDigitalIn* leftLiftBumper;
+    pros::ADIDigitalIn* rightLiftBumper;
 
   public:
     void initDefaultCommand();
@@ -22,7 +25,7 @@ class Claw : public libIterativeRobot::Subsystem {
     void lock();
     void disablePID();
     void enablePID();
-    Claw();
+    Lift();
 };
 
 #endif // _SUBSYSTEMS_ARM_H_

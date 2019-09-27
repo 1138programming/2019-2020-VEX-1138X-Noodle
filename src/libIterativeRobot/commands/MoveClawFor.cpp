@@ -1,46 +1,46 @@
-#include "libIterativeRobot/commands/MoveIntakeFor.h"
+#include "libIterativeRobot/commands/MoveClawFor.h"
 #include "libIterativeRobot/Robot.h"
 #include "Constants.h"
 
-MoveIntakeFor::MoveIntakeFor(unsigned int duration, int speed) {
+MoveClawFor::MoveClawFor(unsigned int duration, int speed) {
   this->duration = duration;
   this->speed = speed;
 
-  requires(Robot::intake);
+  requires(Robot::claw);
   this->priority = 1;
 }
 
-bool MoveIntakeFor::canRun() {
+bool MoveClawFor::canRun() {
   return true; // This is the default value anyways, so this method can be removed
 }
 
-void MoveIntakeFor::initialize() {
+void MoveClawFor::initialize() {
   // Perform any initialization steps for this command here, not in the
   // constructor
-  //printf("Initializing intake\n");
+  //printf("Initializing claw\n");
   startTime = pros::millis();
 }
 
-void MoveIntakeFor::execute() {
-    //printf("Moving intake\n");
-    Robot::intake->move(speed);
+void MoveClawFor::execute() {
+    //printf("Moving claw\n");
+    Robot::claw->move(speed);
 }
 
-bool MoveIntakeFor::isFinished() {
+bool MoveClawFor::isFinished() {
   return pros::millis() > (startTime + duration);
 }
 
-void MoveIntakeFor::end() {
+void MoveClawFor::end() {
   // Code that runs when isFinished() returns true.
-  Robot::intake->move(0);
+  Robot::claw->move(0);
 }
 
-void MoveIntakeFor::interrupted() {
+void MoveClawFor::interrupted() {
   // Code that runs when this command is interrupted by another one
   // with a higher priority.
-  Robot::intake->move(0);
+  Robot::claw->move(0);
 }
 
-void MoveIntakeFor::blocked() {
+void MoveClawFor::blocked() {
 
 }

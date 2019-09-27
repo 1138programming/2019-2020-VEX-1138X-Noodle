@@ -1,42 +1,42 @@
-#include "libIterativeRobot/commands/StopClaw.h"
+#include "libIterativeRobot/commands/StopLift.h"
 #include "libIterativeRobot/Robot.h"
 #include "Constants.h"
 
-StopClaw::StopClaw() {
-  //requires(Robot::claw);
+StopLift::StopLift() {
+  //requires(Robot::lift);
   //this->priority = DefaultCommandPriority; // Lowest priority
 }
 
-bool StopClaw::canRun() {
+bool StopLift::canRun() {
   return true; // This is the default value anyways, so this method can be removed
 }
 
-void StopClaw::initialize() {
+void StopLift::initialize() {
   // Perform any initialization steps for this command here, not in the
   // constructor
-  Robot::claw->move(0);
-  //Robot::claw->lock();
-  //Robot::claw->enablePID();
+  Robot::lift->move(0);
+  //Robot::lift->lock();
+  //Robot::lift->enablePID();
 }
 
-void StopClaw::execute() {
-  Robot::claw->move(0);
-  //printf("Stopping claw\n");
+void StopLift::execute() {
+  Robot::lift->move(0);
+  //printf("Stopping lift\n");
 }
 
-bool StopClaw::isFinished() {
+bool StopLift::isFinished() {
   return false;
 }
 
-void StopClaw::end() {
+void StopLift::end() {
   // Code that runs when isFinished() returns true.
 }
 
-void StopClaw::interrupted() {
+void StopLift::interrupted() {
   // Code that runs when this command is interrupted by another one
   // with a higher priority.
 }
 
-void StopClaw::blocked() {
+void StopLift::blocked() {
 
 }

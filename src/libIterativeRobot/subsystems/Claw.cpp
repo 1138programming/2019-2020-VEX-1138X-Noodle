@@ -1,18 +1,15 @@
 #include "main.h"
-#include "libIterativeRobot/commands/StopIntake.h"
+#include "libIterativeRobot/commands/StopClaw.h"
 
-Intake::Intake() {
+Claw::Claw() {
   // Get intake motors
-  leftIntakeMotor = Motor::getMotor(leftIntakeMotorPort, intakeMotorGearset);
-  rightIntakeMotor = Motor::getMotor(rightIntakeMotorPort, intakeMotorGearset);
+  clawMotor = Motor::getMotor(clawMotorPort, clawMotorGearset);
 
-  rightIntakeMotor->reverse();
-  leftIntakeMotor->getMotorObject()->set_brake_mode(pros::E_MOTOR_BRAKE_BRAKE);
-  rightIntakeMotor->getMotorObject()->set_brake_mode(pros::E_MOTOR_BRAKE_BRAKE);
+  clawMotor->getMotorObject()->set_brake_mode(pros::E_MOTOR_BRAKE_BRAKE);
 }
 
-void Intake::initDefaultCommand() {
-  setDefaultCommand(new StopIntake());
+void Claw::initDefaultCommand() {
+  setDefaultCommand(new StopClaw());
 }
 
 /**
@@ -21,8 +18,7 @@ void Intake::initDefaultCommand() {
  * @param right - speed of the right side
  */
 
-void Intake::move(int speed) {
-  leftIntakeMotor->setSpeed(speed);
-  rightIntakeMotor->setSpeed(speed);
+void Claw::move(int speed) {
+  clawMotor->setSpeed(speed);
   //printf("Motor speed set to %d\n", speed);
 }

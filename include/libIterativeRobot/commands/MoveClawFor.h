@@ -3,7 +3,7 @@
 
 #include "libIterativeRobot/commands/Command.h"
 
-class MoveIntakeFor: public libIterativeRobot::Command {
+class MoveClawFor: public libIterativeRobot::Command {
   public:
     bool canRun();
     void initialize();
@@ -12,7 +12,7 @@ class MoveIntakeFor: public libIterativeRobot::Command {
     void end();
     void interrupted();
     void blocked();
-    MoveIntakeFor(unsigned int duration, int speed = 127);
+    MoveClawFor(unsigned int duration, int speed = 127);
   private:
     unsigned int duration;
     int speed;

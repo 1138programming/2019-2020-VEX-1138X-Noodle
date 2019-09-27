@@ -46,7 +46,7 @@
 #include "libIterativeRobot/subsystems/Subsystem.h"
 #include "libIterativeRobot/subsystems/Claw.h"
 #include "libIterativeRobot/subsystems/Base.h"
-#include "libIterativeRobot/subsystems/Intake.h"
+#include "libIterativeRobot/subsystems/Lift.h"
 
 #include "libIterativeRobot/AutonChooser.h"
 

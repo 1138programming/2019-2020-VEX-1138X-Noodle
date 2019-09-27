@@ -1,9 +1,9 @@
-#ifndef _COMMANDS_MOVEARMTO_H_
-#define _COMMANDS_MOVEARMTO_H_
+#ifndef _COMMANDS_MOVELIFTTO_H_
+#define _COMMANDS_MOVELIFTTO_H_
 
 #include "libIterativeRobot/commands/Command.h"
 
-class MoveClawTo: public libIterativeRobot::Command {
+class MoveLiftTo: public libIterativeRobot::Command {
   public:
     bool canRun();
     void initialize();
@@ -12,9 +12,9 @@ class MoveClawTo: public libIterativeRobot::Command {
     void end();
     void interrupted();
     void blocked();
-    MoveClawTo(int target);
+    MoveLiftTo(int target);
   private:
     int target = 0;
 };
 
-#endif // _COMMANDS_MOVEARMTO_H_
+#endif // _COMMANDS_MOVELIFTTO_H_

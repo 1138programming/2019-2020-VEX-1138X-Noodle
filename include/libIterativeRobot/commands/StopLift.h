@@ -3,7 +3,7 @@
 
 #include "libIterativeRobot/commands/Command.h"
 
-class StopClaw: public libIterativeRobot::Command {
+class StopLift: public libIterativeRobot::Command {
   public:
     bool canRun();
     void initialize();
@@ -12,7 +12,7 @@ class StopClaw: public libIterativeRobot::Command {
     void end();
     void interrupted();
     void blocked();
-    StopClaw();
+    StopLift();
   private:
 };
 

@@ -3,11 +3,16 @@
 
 Lift::Lift() {
   // Get lift motors
-  liftMotor = Motor::getMotor(liftPort, liftMotorGearset);
+  leftLiftMotor = Motor::getMotor(leftLiftMotorPort, liftMotorGearset);
+  rightLiftMotor = Motor::getMotor(rightLiftMotorPort, liftMotorGearset);
 
-  liftController = new PIDController(liftMotor, 0.32, 0, 0.05);
+  rightLiftMotor->reverse();
 
-  bumper = new pros::ADIDigitalIn(bumperPort);
+  leftLiftController = new PIDController(leftLiftMotor, 0.32, 0, 0.05);
+  rightLiftController = new PIDController(leftLiftMotor, 0.32, 0, 0.05);
+
+  leftLiftBumper = new pros::ADIDigitalIn(leftLiftBumperPort);
+  rightLiftBumper = new pros::ADIDigitalIn(rightLiftBumperPort);
 }
 
 void Lift::initDefaultCommand() {
@@ -22,42 +27,50 @@ void Lift::initDefaultCommand() {
 //pros::ADIDigitalIn bumper ('a');
 void Lift::move(int speed) {
   //printf("Lift speed is %d\n", speed);
-  if (bumper->get_value())
+  if (leftLiftBumper->get_value() || rightLiftBumper->get_value())
   {
     if (speed > 0) {
-      liftMotor->setSpeed(0);
+      leftLiftMotor->setSpeed(0);
+      rightLiftMotor->setSpeed(0);
     } else if (speed < 0) {
-      liftMotor->setSpeed(-K50MotorSpeed);
+      leftLiftMotor->setSpeed(-K50MotorSpeed);
+      rightLiftMotor->setSpeed(-K50MotorSpeed);
     }
     //pros::delay(500);
     //printf("Motor speed reversed.");
   }
   else
   {
-    liftMotor->setSpeed(speed);
+    leftLiftMotor->setSpeed(speed);
+    rightLiftMotor->setSpeed(speed);
   }
 }
 
 void Lift::setSetpoint(int setpoint) {
-  liftController->setSetpoint(setpoint);
+  leftLiftController->setSetpoint(setpoint);
+  rightLiftController->setSetpoint(setpoint);
 }
 
 bool Lift::atSetpoint() {
-  return liftController->atSetpoint();
+  return leftLiftController->atSetpoint() && rightLiftController->atSetpoint();
 }
 
 void Lift::loop() {
-  liftController->loop();
+  leftLiftController->loop();
+  rightLiftController->loop();
 }
 
 void Lift::lock() {
-  liftController->lock();
+  leftLiftController->lock();
+  rightLiftController->lock();
 }
 
 void Lift::disablePID() {
-  liftController->disable();
+  leftLiftController->disable();
+  rightLiftController->disable();
 }
 
 void Lift::enablePID() {
-  liftController->enable();
+  leftLiftController->enable();
+  rightLiftController->enable();
 }

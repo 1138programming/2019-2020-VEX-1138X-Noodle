@@ -3,7 +3,7 @@
 
 #include "libIterativeRobot/commands/Command.h"
 
-class IntakeControl: public libIterativeRobot::Command {
+class ClawControl: public libIterativeRobot::Command {
   public:
     bool canRun();
     void initialize();
@@ -12,9 +12,8 @@ class IntakeControl: public libIterativeRobot::Command {
     void end();
     void interrupted();
     void blocked();
-    IntakeControl(bool Open);
+    ClawControl();
   private:
-    bool Open;
 };
 
 #endif // _COMMANDS_CLAWCONTROL_H_
