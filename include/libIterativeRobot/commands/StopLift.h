@@ -1,9 +1,9 @@
-#ifndef _COMMANDS_MOVEARMTO_H_
-#define _COMMANDS_MOVEARMTO_H_
+#ifndef _COMMANDS_STOPARM_H_
+#define _COMMANDS_STOPARM_H_
 
 #include "libIterativeRobot/commands/Command.h"
 
-class MoveAnglerTo: public libIterativeRobot::Command {
+class StopClaw: public libIterativeRobot::Command {
   public:
     bool canRun();
     void initialize();
@@ -12,9 +12,8 @@ class MoveAnglerTo: public libIterativeRobot::Command {
     void end();
     void interrupted();
     void blocked();
-    MoveAnglerTo(int target);
+    StopClaw();
   private:
-    int target = 0;
 };
 
-#endif // _COMMANDS_MOVEARMTO_H_
+#endif // _COMMANDS_STOPARM_H_

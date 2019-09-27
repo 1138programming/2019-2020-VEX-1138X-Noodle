@@ -98,11 +98,11 @@
             "-fdiagnostics-color",
             "--std=gnu++17",
             "-o",
-            "bin/libIterativeRobot/commands/AnglerControl.cpp.o",
-            "src\\libIterativeRobot\\commands\\AnglerControl.cpp"
+            "bin/libIterativeRobot/commands/ClawControl.cpp.o",
+            "src\\libIterativeRobot\\commands\\ClawControl.cpp"
         ],
         "directory": "C:\\Users\\CIHerrera20\\Desktop\\PROSv5\\Noodle",
-        "file": "src\\libIterativeRobot\\commands\\AnglerControl.cpp"
+        "file": "src\\libIterativeRobot\\commands\\ClawControl.cpp"
     },
     {
         "arguments": [
@@ -168,11 +168,11 @@
             "-fdiagnostics-color",
             "--std=gnu++17",
             "-o",
-            "bin/libIterativeRobot/commands/StopAngler.cpp.o",
-            "src\\libIterativeRobot\\commands\\StopAngler.cpp"
+            "bin/libIterativeRobot/commands/StopClaw.cpp.o",
+            "src\\libIterativeRobot\\commands\\StopClaw.cpp"
         ],
         "directory": "C:\\Users\\CIHerrera20\\Desktop\\PROSv5\\Noodle",
-        "file": "src\\libIterativeRobot\\commands\\StopAngler.cpp"
+        "file": "src\\libIterativeRobot\\commands\\StopClaw.cpp"
     },
     {
         "arguments": [
@@ -518,11 +518,11 @@
             "-fdiagnostics-color",
             "--std=gnu++17",
             "-o",
-            "bin/libIterativeRobot/commands/MoveAnglerTo.cpp.o",
-            "src\\libIterativeRobot\\commands\\MoveAnglerTo.cpp"
+            "bin/libIterativeRobot/commands/MoveClawTo.cpp.o",
+            "src\\libIterativeRobot\\commands\\MoveClawTo.cpp"
         ],
         "directory": "C:\\Users\\CIHerrera20\\Desktop\\PROSv5\\Noodle",
-        "file": "src\\libIterativeRobot\\commands\\MoveAnglerTo.cpp"
+        "file": "src\\libIterativeRobot\\commands\\MoveClawTo.cpp"
     },
     {
         "arguments": [
@@ -658,11 +658,11 @@
             "-fdiagnostics-color",
             "--std=gnu++17",
             "-o",
-            "bin/libIterativeRobot/commands/MoveAnglerFor.cpp.o",
-            "src\\libIterativeRobot\\commands\\MoveAnglerFor.cpp"
+            "bin/libIterativeRobot/commands/MoveClawFor.cpp.o",
+            "src\\libIterativeRobot\\commands\\MoveClawFor.cpp"
         ],
         "directory": "C:\\Users\\CIHerrera20\\Desktop\\PROSv5\\Noodle",
-        "file": "src\\libIterativeRobot\\commands\\MoveAnglerFor.cpp"
+        "file": "src\\libIterativeRobot\\commands\\MoveClawFor.cpp"
     },
     {
         "arguments": [
@@ -798,11 +798,11 @@
             "-fdiagnostics-color",
             "--std=gnu++17",
             "-o",
-            "bin/libIterativeRobot/subsystems/Angler.cpp.o",
-            "src\\libIterativeRobot\\subsystems\\Angler.cpp"
+            "bin/libIterativeRobot/subsystems/Claw.cpp.o",
+            "src\\libIterativeRobot\\subsystems\\Claw.cpp"
         ],
         "directory": "C:\\Users\\CIHerrera20\\Desktop\\PROSv5\\Noodle",
-        "file": "src\\libIterativeRobot\\subsystems\\Angler.cpp"
+        "file": "src\\libIterativeRobot\\subsystems\\Claw.cpp"
     },
     {
         "arguments": [

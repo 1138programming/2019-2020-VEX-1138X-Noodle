@@ -4,14 +4,14 @@
 #include "libIterativeRobot/events/JoystickChannel.h"
 
 #include "libIterativeRobot/commands/StopBase.h"
-#include "libIterativeRobot/commands/StopAngler.h"
+#include "libIterativeRobot/commands/StopClaw.h"
 #include "libIterativeRobot/commands/StopIntake.h"
 #include "libIterativeRobot/commands/DriveWithJoy.h"
 #include "libIterativeRobot/commands/BaseLinearMovement.h"
-#include "libIterativeRobot/commands/AnglerControl.h"
+#include "libIterativeRobot/commands/ClawControl.h"
 #include "libIterativeRobot/commands/IntakeControl.h"
-#include "libIterativeRobot/commands/MoveAnglerFor.h"
-#include "libIterativeRobot/commands/MoveAnglerTo.h"
+#include "libIterativeRobot/commands/MoveClawFor.h"
+#include "libIterativeRobot/commands/MoveClawTo.h"
 
 #include "libIterativeRobot/commands/AutonGroup1.h"
 #include "libIterativeRobot/commands/AutonGroup2.h"
@@ -19,7 +19,7 @@
 Robot* Robot::instance = 0;
 
 Base*  Robot::base = 0;
-Angler*   Robot::angler = 0;
+Claw*   Robot::claw = 0;
 Intake*  Robot::intake = 0;
 
 AutonChooser* Robot::autonChooser = 0;
@@ -32,7 +32,7 @@ Robot::Robot() {
 
   // Initialize any subsystems
   base = new Base();
-  angler  = new Angler();
+  claw  = new Claw();
   intake = new Intake();
 
   autonChooser = AutonChooser::getInstance();
@@ -45,14 +45,14 @@ Robot::Robot() {
   libIterativeRobot::JoystickChannel* LeftY = new libIterativeRobot::JoystickChannel(mainController, pros::E_CONTROLLER_ANALOG_LEFT_Y);
   libIterativeRobot::JoystickChannel* RightX = new libIterativeRobot::JoystickChannel(mainController, pros::E_CONTROLLER_ANALOG_RIGHT_X);
   libIterativeRobot::JoystickChannel* LeftX = new libIterativeRobot::JoystickChannel(mainController, pros::E_CONTROLLER_ANALOG_LEFT_X);
-  libIterativeRobot::JoystickButton* AnglerDown = new libIterativeRobot::JoystickButton(mainController, pros::E_CONTROLLER_DIGITAL_R1);
-  libIterativeRobot::JoystickButton* AnglerUp = new libIterativeRobot::JoystickButton(mainController, pros::E_CONTROLLER_DIGITAL_R2);
+  libIterativeRobot::JoystickButton* ClawDown = new libIterativeRobot::JoystickButton(mainController, pros::E_CONTROLLER_DIGITAL_R1);
+  libIterativeRobot::JoystickButton* ClawUp = new libIterativeRobot::JoystickButton(mainController, pros::E_CONTROLLER_DIGITAL_R2);
   libIterativeRobot::JoystickButton* IntakeOpen = new libIterativeRobot::JoystickButton(mainController, pros::E_CONTROLLER_DIGITAL_L1);
   libIterativeRobot::JoystickButton* IntakeClose = new libIterativeRobot::JoystickButton(mainController, pros::E_CONTROLLER_DIGITAL_L2);
-  libIterativeRobot::JoystickButton* AnglerToStart = new libIterativeRobot::JoystickButton(mainController, pros::E_CONTROLLER_DIGITAL_DOWN);
-  libIterativeRobot::JoystickButton* AnglerToHorizontal = new libIterativeRobot::JoystickButton(mainController, pros::E_CONTROLLER_DIGITAL_RIGHT);
-  libIterativeRobot::JoystickButton* AnglerToTop = new libIterativeRobot::JoystickButton(mainController, pros::E_CONTROLLER_DIGITAL_UP);
-  libIterativeRobot::JoystickButton* AnglerToBack = new libIterativeRobot::JoystickButton(mainController, pros::E_CONTROLLER_DIGITAL_LEFT);
+  libIterativeRobot::JoystickButton* ClawToStart = new libIterativeRobot::JoystickButton(mainController, pros::E_CONTROLLER_DIGITAL_DOWN);
+  libIterativeRobot::JoystickButton* ClawToHorizontal = new libIterativeRobot::JoystickButton(mainController, pros::E_CONTROLLER_DIGITAL_RIGHT);
+  libIterativeRobot::JoystickButton* ClawToTop = new libIterativeRobot::JoystickButton(mainController, pros::E_CONTROLLER_DIGITAL_UP);
+  libIterativeRobot::JoystickButton* ClawToBack = new libIterativeRobot::JoystickButton(mainController, pros::E_CONTROLLER_DIGITAL_LEFT);
 
   // Add commands to be run to buttons
   LeftX->setThreshold(50);
@@ -61,8 +61,8 @@ Robot::Robot() {
   LeftX->whilePastThreshold(driveCommand);
   LeftY->whilePastThreshold(driveCommand);
 
-  AnglerUp->whileHeld(new AnglerControl(true));
-  AnglerDown->whileHeld(new AnglerControl(false));
+  ClawUp->whileHeld(new ClawControl(true));
+  ClawDown->whileHeld(new ClawControl(false));
 
   IntakeControl* intakeOpen = new IntakeControl(true);
   IntakeControl* intakeClose = new IntakeControl(false);
@@ -73,10 +73,10 @@ Robot::Robot() {
   IntakeOpen->whenReleased(intakeOpen, libIterativeRobot::Action::STOP);
   IntakeClose->whenReleased(intakeClose, libIterativeRobot::Action::STOP);
 
-  AnglerToStart->whenPressed(new MoveAnglerTo(0));
-  AnglerToHorizontal->whenPressed(new MoveAnglerTo(680));
-  AnglerToTop->whenPressed(new MoveAnglerTo(1520));
-  AnglerToBack->whenPressed(new MoveAnglerTo(2360));
+  ClawToStart->whenPressed(new MoveClawTo(0));
+  ClawToHorizontal->whenPressed(new MoveClawTo(680));
+  ClawToTop->whenPressed(new MoveClawTo(1520));
+  ClawToBack->whenPressed(new MoveClawTo(2360));
 }
 
 void Robot::robotInit() {

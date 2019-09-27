@@ -44,7 +44,7 @@
 
 // Subsystems
 #include "libIterativeRobot/subsystems/Subsystem.h"
-#include "libIterativeRobot/subsystems/Angler.h"
+#include "libIterativeRobot/subsystems/Claw.h"
 #include "libIterativeRobot/subsystems/Base.h"
 #include "libIterativeRobot/subsystems/Intake.h"
 

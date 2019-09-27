@@ -1,9 +1,9 @@
-#ifndef _COMMANDS_ARMCONTROL_H_
-#define _COMMANDS_ARMCONTROL_H_
+#ifndef _COMMANDS_MOVEARMTO_H_
+#define _COMMANDS_MOVEARMTO_H_
 
 #include "libIterativeRobot/commands/Command.h"
 
-class AnglerControl: public libIterativeRobot::Command {
+class MoveClawTo: public libIterativeRobot::Command {
   public:
     bool canRun();
     void initialize();
@@ -12,9 +12,9 @@ class AnglerControl: public libIterativeRobot::Command {
     void end();
     void interrupted();
     void blocked();
-    AnglerControl(bool Up);
+    MoveClawTo(int target);
   private:
-    bool Up;
+    int target = 0;
 };
 
-#endif // _COMMANDS_ARMCONTROL_H_
+#endif // _COMMANDS_MOVEARMTO_H_

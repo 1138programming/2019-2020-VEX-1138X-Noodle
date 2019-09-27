@@ -1,9 +1,9 @@
-#ifndef _COMMANDS_STOPARM_H_
-#define _COMMANDS_STOPARM_H_
+#ifndef _COMMANDS_ARMCONTROL_H_
+#define _COMMANDS_ARMCONTROL_H_
 
 #include "libIterativeRobot/commands/Command.h"
 
-class StopAngler: public libIterativeRobot::Command {
+class ClawControl: public libIterativeRobot::Command {
   public:
     bool canRun();
     void initialize();
@@ -12,8 +12,9 @@ class StopAngler: public libIterativeRobot::Command {
     void end();
     void interrupted();
     void blocked();
-    StopAngler();
+    ClawControl(bool Up);
   private:
+    bool Up;
 };
 
-#endif // _COMMANDS_STOPARM_H_
+#endif // _COMMANDS_ARMCONTROL_H_
