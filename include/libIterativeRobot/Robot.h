@@ -5,6 +5,7 @@
 #include "RobotBase.h"
 #include "subsystems/Base.h"
 #include "commands/CommandGroup.h"
+#include "MotorData.h"
 
 class Robot : public libIterativeRobot::RobotBase {
   private:

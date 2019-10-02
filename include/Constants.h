@@ -3,7 +3,7 @@
  * @brief Provides constants used throughout the entire code. Contains user-readable motor names
  */
 
- #include "abstractBaseClasses/Motor.h"
+#include "abstractBaseClasses/Motor.h"
 
 #ifndef CONSTANTS_H_
 #define CONSTANTS_H_

@@ -1,1 +1,0 @@
-prosv5 mut | tee result.text

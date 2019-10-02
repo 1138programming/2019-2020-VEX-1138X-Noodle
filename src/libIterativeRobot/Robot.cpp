@@ -8,11 +8,14 @@
 #include "libIterativeRobot/commands/StopIntake.h"
 #include "libIterativeRobot/commands/DriveWithJoy.h"
 #include "libIterativeRobot/commands/BaseLinearMovement.h"
+#include "libIterativeRobot/commands/GetData.h"
+#include "libIterativeRobot/commands/TuneLinearProfile.h"
 #include "libIterativeRobot/commands/AnglerControl.h"
 #include "libIterativeRobot/commands/IntakeControl.h"
 #include "libIterativeRobot/commands/MoveAnglerFor.h"
 #include "libIterativeRobot/commands/MoveAnglerTo.h"
 
+#include "libIterativeRobot/commands/LambdaGroup.h"
 #include "libIterativeRobot/commands/AutonGroup1.h"
 #include "libIterativeRobot/commands/AutonGroup2.h"
 
@@ -97,7 +100,17 @@ void Robot::autonPeriodic() {
 }
 
 void Robot::teleopInit() {
-  BaseLinearMovement* c = new BaseLinearMovement(1000, 1000);
+  //BaseLinearMovement* c = new BaseLinearMovement(3000, 3000);
+  //GetData* c = new GetData();
+  TuneLinearProfile* leftBackprop = new TuneLinearProfile(base->getLeftProfiler(), LeftFrontBaseData, base, 3000);
+  TuneLinearProfile* rightBackprop = new TuneLinearProfile(base->getRightProfiler(), RightFrontBaseData, base, 3000);
+  libIterativeRobot::LambdaGroup* c = new libIterativeRobot::LambdaGroup();
+
+  for (int i = 0; i < 100; i++) {
+    c->addSequentialCommand(leftBackprop);
+    c->addParallelCommand(rightBackprop);
+  }
+
   c->run();
 }
 

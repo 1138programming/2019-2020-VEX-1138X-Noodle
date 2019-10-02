@@ -33,6 +33,10 @@ void LinearProfiler::setMaxAccel(int maxAccel) {
   this->maxAccel = maxAccel;
 }
 
+void LinearProfiler::setThreshold(int threshold) {
+  this->posPID->setThreshold(threshold);
+}
+
 void LinearProfiler::setTarget(int target) {
   this->target = target;
 }
@@ -76,36 +80,56 @@ void LinearProfiler::init() {
 
   if (target > initial) {
     dir = 1;
+    t_accel = maxAccel;
   } else {
     dir = -1;
+    t_accel = -maxAccel;
   }
 
   pidSetpoint = initial;
   posPID->setSetpoint((int)pidSetpoint);
   posPID->enable();
+
+  dt = 0;
+  vel = 0;
+  accel = 0;
+  lastTime = pros::millis() - 10;
+  lastPos = initial;
+  lastVel = 0;
 }
 
 void LinearProfiler::update() {
-  printf("%p: PID setpoint is %f, sensor value is %d, vel is %f, accel is %f\n", this, pidSetpoint, getSensorValue(), vel, accel);
+  std::uint32_t time = pros::millis();
+
+  dt = int(time - lastTime);
+  vel = (double)(getSensorValue() - lastPos) / dt;
+  accel = (vel - lastVel) / dt;
+
+  lastTime = time;
+  lastPos = getSensorValue();
+  lastVel = vel;
+
+  //printf("%p: target pos: %f, target t_vel: %f, target t_accel: %f, pos: %d, t_vel: %f\n", this, pidSetpoint, t_vel, t_accel, getSensorValue(), ((double)deltaPos / dt));
+  printf("%p: %f, %f, %f, %d, %f\n", this, pidSetpoint, t_vel, t_accel, getSensorValue(), vel);
 
   if (fabs(pidSetpoint) < flatPoint) {
-    accel = maxAccel * dir;
+    t_accel = maxAccel * dir;
   } else if (fabs(pidSetpoint) < deccelPoint) {
-    accel = 0;
+    t_accel = 0;
   } else {
-    accel = -maxAccel * dir;
+    t_accel = -maxAccel * dir;
   }
 
-  vel += accel;
-  if (fabs(vel) > maxVel) {
-    vel = maxVel * dir;
+  t_vel += t_accel * dt;
+  if (fabs(t_vel) > maxVel) {
+    t_vel = maxVel * dir;
   }
-  if (vel * dir < 0) {
-    vel = 0;
-    accel = 0;
+  if (t_vel * dir < 0) {
+    t_vel = 0;
+    t_accel = 0;
   }
 
-  pidSetpoint += vel;
+  pidSetpoint += t_vel * dt;
 
   posPID->setSetpoint((int)pidSetpoint);
 
@@ -114,7 +138,7 @@ void LinearProfiler::update() {
 
 bool LinearProfiler::atTarget() {
   if (abs(getSensorValue()) > deccelPoint) {
-    return (vel == 0 && posPID->atSetpoint());
+    return (t_vel == 0 && posPID->atSetpoint());
   }
   return false;
 }
@@ -125,4 +149,32 @@ void LinearProfiler::stop() {
 
 int LinearProfiler::getOutput() {
   return posPID->getOutput();
+}
+
+int LinearProfiler::getTargetPos() {
+  return (int)pidSetpoint;
+}
+
+double LinearProfiler::getTargetVel() {
+  return t_vel;
+}
+
+double LinearProfiler::getTargetAccel() {
+  return t_accel;
+}
+
+int LinearProfiler::getPos() {
+  return getSensorValue();
+}
+
+double LinearProfiler::getVel() {
+  return vel;
+}
+
+double LinearProfiler::getAccel() {
+  return accel;
+}
+
+int LinearProfiler::getDeltaTime() {
+  return dt;
 }

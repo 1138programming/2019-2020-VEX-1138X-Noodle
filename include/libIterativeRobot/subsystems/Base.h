@@ -19,12 +19,16 @@ class Base : public libIterativeRobot::Subsystem {
   public:
     void initDefaultCommand();
     void moveAtSpeed(int leftSpeed, int rightSpeed);
+    int getLeftSensorValue();
+    int getRightSensorValue();
     void setLinearTarget(int leftTarget, int rightTarget);
     void setLinearTargetRelative(int leftTarget, int rightTarget);
     void initLinearMovement();
     void updateLinearMovement();
     bool atLinearTarget();
     void stopLinearMovement();
+    LinearProfiler* getLeftProfiler();
+    LinearProfiler* getRightProfiler();
     Base();
 };
 
