@@ -43,8 +43,8 @@ Robot::Robot() {
   // Define buttons and channels
   libIterativeRobot::JoystickChannel* LeftYMain = new libIterativeRobot::JoystickChannel(mainController, pros::E_CONTROLLER_ANALOG_LEFT_Y);
   libIterativeRobot::JoystickChannel* RightXMain = new libIterativeRobot::JoystickChannel(mainController, pros::E_CONTROLLER_ANALOG_RIGHT_X);
-  libIterativeRobot::JoystickChannel* LeftYPartner = new libIterativeRobot::JoystickChannel(mainController, pros::E_CONTROLLER_ANALOG_LEFT_Y);
-  libIterativeRobot::JoystickChannel* RightYPartner = new libIterativeRobot::JoystickChannel(mainController, pros::E_CONTROLLER_ANALOG_RIGHT_Y);
+  libIterativeRobot::JoystickChannel* LeftYPartner = new libIterativeRobot::JoystickChannel(partnerController, pros::E_CONTROLLER_ANALOG_LEFT_Y);
+  libIterativeRobot::JoystickChannel* RightYPartner = new libIterativeRobot::JoystickChannel(partnerController, pros::E_CONTROLLER_ANALOG_RIGHT_Y);
 
   // Add commands to be run to buttons
   LeftYMain->setThreshold(50);
