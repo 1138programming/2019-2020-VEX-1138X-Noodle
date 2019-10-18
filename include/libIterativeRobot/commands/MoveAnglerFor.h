@@ -1,5 +1,5 @@
-#ifndef _COMMANDS_MOVEARMFOR_H_
-#define _COMMANDS_MOVEARMFOR_H_
+#ifndef _COMMANDS_MOVEANGLERFOR_H_
+#define _COMMANDS_MOVEANGLERFOR_H_
 
 #include "libIterativeRobot/commands/Command.h"
 
@@ -19,4 +19,4 @@ class MoveAnglerFor: public libIterativeRobot::Command {
     unsigned int startTime;
 };
 
-#endif // _COMMANDS_MOVEARMFOR_H_
+#endif // _COMMANDS_MOVEANGLERFOR_H_

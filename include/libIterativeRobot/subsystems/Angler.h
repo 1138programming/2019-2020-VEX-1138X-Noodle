@@ -1,5 +1,5 @@
-#ifndef _SUBSYSTEMS_ARM_H_
-#define _SUBSYSTEMS_ARM_H_
+#ifndef _SUBSYSTEMS_ANGLER_H_
+#define _SUBSYSTEMS_ANGLER_H_
 
 #include "./Subsystem.h"
 #include "api.h"
@@ -25,4 +25,4 @@ class Angler : public libIterativeRobot::Subsystem {
     Angler();
 };
 
-#endif // _SUBSYSTEMS_ARM_H_
+#endif // _SUBSYSTEMS_ANGLER_H_

@@ -17,6 +17,8 @@ bool TuneLinearProfile::canRun() {
 }
 
 void TuneLinearProfile::initialize() {
+  printf("Linear profile tuner starting\n");
+
   profiler->init();
   profiler->setTargetRelative(target);
   dP = 0;
@@ -32,6 +34,8 @@ void TuneLinearProfile::initialize() {
 }
 
 void TuneLinearProfile::execute() {
+  printf("Executing linear profile tuner\n");
+
   profiler->update();
 
   int dt = profiler->getDeltaTime();
@@ -56,6 +60,8 @@ void TuneLinearProfile::execute() {
 }
 
 bool TuneLinearProfile::isFinished() {
+  printf("Linear profile tuner is finished\n");
+
   return profiler->atTarget();
 }
 
@@ -70,6 +76,7 @@ void TuneLinearProfile::blocked() {
 }
 
 void TuneLinearProfile::adjustConstants() {
+  printf("%x: dP %f, dI %f, dD %f, loss %d\n", this, learning_rate * dP, learning_rate * dI, learning_rate * dD, loss);
   profiler->kP += -dP * learning_rate;
   profiler->kI += -dI * learning_rate;
   profiler->kD += -dD * learning_rate;

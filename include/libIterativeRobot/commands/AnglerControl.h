@@ -1,5 +1,5 @@
-#ifndef _COMMANDS_ARMCONTROL_H_
-#define _COMMANDS_ARMCONTROL_H_
+#ifndef _COMMANDS_ANGLERCONTROL_H_
+#define _COMMANDS_ANGLERCONTROL_H_
 
 #include "libIterativeRobot/commands/Command.h"
 
@@ -17,4 +17,4 @@ class AnglerControl: public libIterativeRobot::Command {
     bool Up;
 };
 
-#endif // _COMMANDS_ARMCONTROL_H_
+#endif // _COMMANDS_ANGLERCONTROL_H_

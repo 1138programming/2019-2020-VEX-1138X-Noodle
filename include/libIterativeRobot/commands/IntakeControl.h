@@ -1,5 +1,5 @@
-#ifndef _COMMANDS_CLAWCONTROL_H_
-#define _COMMANDS_CLAWCONTROL_H_
+#ifndef _COMMANDS_INTAKECONTROL_H_
+#define _COMMANDS_INTAKECONTROL_H_
 
 #include "libIterativeRobot/commands/Command.h"
 
@@ -17,4 +17,4 @@ class IntakeControl: public libIterativeRobot::Command {
     bool Open;
 };
 
-#endif // _COMMANDS_CLAWCONTROL_H_
+#endif // _COMMANDS_INTAKECONTROL_H_

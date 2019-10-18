@@ -23,7 +23,7 @@ class TuneLinearProfile: public libIterativeRobot::Command {
     libIterativeRobot::Subsystem* subsystem;
     int target;
 
-    double learning_rate = 0.1;
+    double learning_rate = 0.00001;
 
     double dP = 0;
     double dI = 0;

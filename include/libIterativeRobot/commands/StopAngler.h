@@ -1,5 +1,5 @@
-#ifndef _COMMANDS_STOPARM_H_
-#define _COMMANDS_STOPARM_H_
+#ifndef _COMMANDS_STOPANGLER_H_
+#define _COMMANDS_STOPANGLER_H_
 
 #include "libIterativeRobot/commands/Command.h"
 
@@ -16,4 +16,4 @@ class StopAngler: public libIterativeRobot::Command {
   private:
 };
 
-#endif // _COMMANDS_STOPARM_H_
+#endif // _COMMANDS_STOPANGLER_H_

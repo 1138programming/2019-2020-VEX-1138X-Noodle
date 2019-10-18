@@ -3,7 +3,6 @@
 
 #include "main.h"
 #include "RobotBase.h"
-#include "subsystems/Base.h"
 #include "commands/CommandGroup.h"
 #include "MotorData.h"
 
@@ -23,8 +22,9 @@ class Robot : public libIterativeRobot::RobotBase {
     static Robot* getInstance();
 
     // Pointers to every subsystem on the robot:
-    static Base* base;
     static Angler*  angler;
+    static Arm* arm;
+    static Base* base;
     static Intake* intake;
 
     static AutonChooser* autonChooser;

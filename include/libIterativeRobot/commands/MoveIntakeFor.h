@@ -1,5 +1,5 @@
-#ifndef _COMMANDS_MOVECLAWFOR_H_
-#define _COMMANDS_MOVECLAWFOR_H_
+#ifndef _COMMANDS_MOVEINTAKEFOR_H_
+#define _COMMANDS_MOVEINTAKEFOR_H_
 
 #include "libIterativeRobot/commands/Command.h"
 
@@ -19,4 +19,4 @@ class MoveIntakeFor: public libIterativeRobot::Command {
     unsigned int startTime;
 };
 
-#endif // _COMMANDS_MOVECLAWFOR_H_
+#endif // _COMMANDS_MOVEINTAKEFOR_H_

@@ -23,12 +23,15 @@ const int anglerPort = 1;
 const int leftIntakeMotorPort = 10;
 const int rightIntakeMotorPort = 9;
 
+const int armMotorPort = 11;
+
 const std::uint8_t bumperPort = 'a';
 
 // Motor gearsets
 const pros::motor_gearset_e_t baseMotorGearset = pros::E_MOTOR_GEARSET_18;
 const pros::motor_gearset_e_t anglerMotorGearset = pros::E_MOTOR_GEARSET_18;
 const pros::motor_gearset_e_t intakeMotorGearset = pros::E_MOTOR_GEARSET_18;
+const pros::motor_gearset_e_t armMotorGearset = pros::E_MOTOR_GEARSET_06;
 
 // Global configurations
 const pros::motor_encoder_units_e_t globalEncoderUnits = pros::E_MOTOR_ENCODER_COUNTS;

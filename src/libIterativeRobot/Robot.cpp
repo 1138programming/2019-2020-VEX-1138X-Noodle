@@ -12,6 +12,7 @@
 #include "libIterativeRobot/commands/TuneLinearProfile.h"
 #include "libIterativeRobot/commands/AnglerControl.h"
 #include "libIterativeRobot/commands/IntakeControl.h"
+#include "libIterativeRobot/commands/ArmControl.h"
 #include "libIterativeRobot/commands/MoveAnglerFor.h"
 #include "libIterativeRobot/commands/MoveAnglerTo.h"
 
@@ -21,9 +22,10 @@
 
 Robot* Robot::instance = 0;
 
-Base*  Robot::base = 0;
-Angler*   Robot::angler = 0;
-Intake*  Robot::intake = 0;
+Angler* Robot::angler = 0;
+Arm* Robot::arm = 0;
+Base* Robot::base = 0;
+Intake* Robot::intake = 0;
 
 AutonChooser* Robot::autonChooser = 0;
 
@@ -37,6 +39,7 @@ Robot::Robot() {
   base = new Base();
   angler  = new Angler();
   intake = new Intake();
+  arm = new Arm();
 
   autonChooser = AutonChooser::getInstance();
 
@@ -50,8 +53,8 @@ Robot::Robot() {
   libIterativeRobot::JoystickChannel* LeftX = new libIterativeRobot::JoystickChannel(mainController, pros::E_CONTROLLER_ANALOG_LEFT_X);
   libIterativeRobot::JoystickButton* AnglerDown = new libIterativeRobot::JoystickButton(mainController, pros::E_CONTROLLER_DIGITAL_R1);
   libIterativeRobot::JoystickButton* AnglerUp = new libIterativeRobot::JoystickButton(mainController, pros::E_CONTROLLER_DIGITAL_R2);
-  libIterativeRobot::JoystickButton* IntakeOpen = new libIterativeRobot::JoystickButton(mainController, pros::E_CONTROLLER_DIGITAL_L1);
-  libIterativeRobot::JoystickButton* IntakeClose = new libIterativeRobot::JoystickButton(mainController, pros::E_CONTROLLER_DIGITAL_L2);
+  libIterativeRobot::JoystickButton* IntakeOpen = new libIterativeRobot::JoystickButton(mainController, pros::E_CONTROLLER_DIGITAL_L2);
+  libIterativeRobot::JoystickButton* IntakeClose = new libIterativeRobot::JoystickButton(mainController, pros::E_CONTROLLER_DIGITAL_L1);
   libIterativeRobot::JoystickButton* AnglerToStart = new libIterativeRobot::JoystickButton(mainController, pros::E_CONTROLLER_DIGITAL_DOWN);
   libIterativeRobot::JoystickButton* AnglerToHorizontal = new libIterativeRobot::JoystickButton(mainController, pros::E_CONTROLLER_DIGITAL_RIGHT);
   libIterativeRobot::JoystickButton* AnglerToTop = new libIterativeRobot::JoystickButton(mainController, pros::E_CONTROLLER_DIGITAL_UP);
@@ -63,6 +66,10 @@ Robot::Robot() {
   DriveWithJoy* driveCommand = new DriveWithJoy();
   LeftX->whilePastThreshold(driveCommand);
   LeftY->whilePastThreshold(driveCommand);
+
+  RightY->setThreshold(20);
+  ArmControl* armControl = new ArmControl();
+  RightY->whilePastThreshold(armControl);
 
   AnglerUp->whileHeld(new AnglerControl(true));
   AnglerDown->whileHeld(new AnglerControl(false));
@@ -102,16 +109,19 @@ void Robot::autonPeriodic() {
 void Robot::teleopInit() {
   //BaseLinearMovement* c = new BaseLinearMovement(3000, 3000);
   //GetData* c = new GetData();
+
+  //TuneLinearProfile* c = new TuneLinearProfile(base->getLeftProfiler(), LeftFrontBaseData, base, 3000);
+
+  /*libIterativeRobot::LambdaGroup* c = new libIterativeRobot::LambdaGroup();
   TuneLinearProfile* leftBackprop = new TuneLinearProfile(base->getLeftProfiler(), LeftFrontBaseData, base, 3000);
   TuneLinearProfile* rightBackprop = new TuneLinearProfile(base->getRightProfiler(), RightFrontBaseData, base, 3000);
-  libIterativeRobot::LambdaGroup* c = new libIterativeRobot::LambdaGroup();
 
-  for (int i = 0; i < 100; i++) {
+  for (int i = 0; i < 1; i++) {
     c->addSequentialCommand(leftBackprop);
     c->addParallelCommand(rightBackprop);
-  }
+  }*/
 
-  c->run();
+  //c->run();
 }
 
 void Robot::teleopPeriodic() {

@@ -1,5 +1,5 @@
-#ifndef _COMMANDS_STOPCLAW_H_
-#define _COMMANDS_STOPCLAW_H_
+#ifndef _COMMANDS_STOPINTAKE_H_
+#define _COMMANDS_STOPINTAKE_H_
 
 #include "libIterativeRobot/commands/Command.h"
 
@@ -16,4 +16,4 @@ class StopIntake: public libIterativeRobot::Command {
   private:
 };
 
-#endif // _COMMANDS_STOPCLAW_H_
+#endif // _COMMANDS_STOPINTAKE_H_
