@@ -11,6 +11,7 @@
 #include "libIterativeRobot/commands/GetData.h"
 #include "libIterativeRobot/commands/TuneLinearProfile.h"
 #include "libIterativeRobot/commands/AnglerControl.h"
+#include "libIterativeRobot/commands/MoveAnglerTo.h"
 #include "libIterativeRobot/commands/IntakeControl.h"
 #include "libIterativeRobot/commands/ArmControl.h"
 #include "libIterativeRobot/commands/MoveAnglerFor.h"
@@ -70,6 +71,9 @@ Robot::Robot() {
   RightY->setThreshold(20);
   ArmControl* armControl = new ArmControl();
   RightY->whilePastThreshold(armControl);
+
+  MoveAnglerTo* anglerToCollectingPos = new MoveAnglerTo(angler->kCollectingPosition);
+  RightY->whenPassingThresholdForward(anglerToCollectingPos);
 
   AnglerUp->whileHeld(new AnglerControl(true));
   AnglerDown->whileHeld(new AnglerControl(false));

@@ -5,7 +5,7 @@ Angler::Angler() {
   // Get angler motors
   anglerMotor = Motor::getMotor(anglerPort, anglerMotorGearset);
 
-  anglerController = new PIDController(anglerMotor, 0.32, 0, 0.05);
+  anglerController = new PIDController(anglerMotor, 0.32, 0, 0);
 
   bumper = new pros::ADIDigitalIn(bumperPort);
 }

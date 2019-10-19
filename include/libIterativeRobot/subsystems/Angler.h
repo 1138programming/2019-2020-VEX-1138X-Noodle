@@ -6,7 +6,7 @@
 
 class Angler : public libIterativeRobot::Subsystem {
   private:
-    // Angler motors
+    // Angler motor
     Motor* anglerMotor;
 
     PIDController* anglerController;
@@ -14,6 +14,8 @@ class Angler : public libIterativeRobot::Subsystem {
     pros::ADIDigitalIn* bumper;
 
   public:
+    const int kCollectingPosition = 115;
+
     void initDefaultCommand();
     void move(int speed);
     void setSetpoint(int setpoint);

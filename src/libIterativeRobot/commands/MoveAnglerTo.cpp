@@ -29,14 +29,14 @@ bool MoveAnglerTo::isFinished() {
 
 void MoveAnglerTo::end() {
   // Code that runs when isFinished() returns true.
-  //Robot::angler->lock();
+  Robot::angler->disablePID();
 }
 
 void MoveAnglerTo::interrupted() {
   // Code that runs when this command is interrupted by another one
   // with a higher priority.
+  Robot::angler->disablePID();
 }
 
 void MoveAnglerTo::blocked() {
-
 }
