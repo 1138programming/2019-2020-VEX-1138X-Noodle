@@ -1,5 +1,5 @@
 #include "main.h"
-#include "libIterativeRobot/commands/StopBase.h"
+#include "libIterativeRobot/commands/Base/StopBase.h"
 
 Base::Base() {
   // Set up motors

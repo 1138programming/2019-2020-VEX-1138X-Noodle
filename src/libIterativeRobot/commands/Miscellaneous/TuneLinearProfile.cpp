@@ -1,4 +1,4 @@
-#include "libIterativeRobot/commands/TuneLinearProfile.h"
+#include "libIterativeRobot/commands/Miscellaneous/TuneLinearProfile.h"
 #include "libIterativeRobot/Robot.h"
 #include "Constants.h"
 

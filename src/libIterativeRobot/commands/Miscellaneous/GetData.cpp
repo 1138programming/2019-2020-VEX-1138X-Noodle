@@ -1,4 +1,4 @@
-#include "libIterativeRobot/commands/GetData.h"
+#include "libIterativeRobot/commands/Miscellaneous/GetData.h"
 #include "libIterativeRobot/Robot.h"
 #include "Constants.h"
 

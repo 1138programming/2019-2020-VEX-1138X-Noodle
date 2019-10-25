@@ -1,4 +1,4 @@
-#include "libIterativeRobot/commands/Delay.h"
+#include "libIterativeRobot/commands/Miscellaneous/Delay.h"
 #include "libIterativeRobot/Robot.h"
 #include "Constants.h"
 

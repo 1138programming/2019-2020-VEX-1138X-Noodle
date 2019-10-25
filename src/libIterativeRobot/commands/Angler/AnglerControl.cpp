@@ -1,4 +1,4 @@
-#include "libIterativeRobot/commands/AnglerControl.h"
+#include "libIterativeRobot/commands/Angler/AnglerControl.h"
 #include "libIterativeRobot/Robot.h"
 #include "Constants.h"
 
@@ -22,9 +22,9 @@ void AnglerControl::initialize() {
 void AnglerControl::execute() {
   //printf("Angler control running\n");
   if (this->Up)
-    Robot::angler->move(K50MotorSpeed);
+    Robot::angler->move(50);
   else
-    Robot::angler->move(-K50MotorSpeed);
+    Robot::angler->move(-50);
 }
 
 bool AnglerControl::isFinished() {

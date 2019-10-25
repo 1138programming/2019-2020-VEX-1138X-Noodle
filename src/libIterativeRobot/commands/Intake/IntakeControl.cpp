@@ -1,4 +1,4 @@
-#include "libIterativeRobot/commands/IntakeControl.h"
+#include "libIterativeRobot/commands/Intake/IntakeControl.h"
 #include "libIterativeRobot/Robot.h"
 #include "Constants.h"
 

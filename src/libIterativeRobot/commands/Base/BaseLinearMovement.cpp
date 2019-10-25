@@ -1,4 +1,4 @@
-#include "libIterativeRobot/commands/BaseLinearMovement.h"
+#include "libIterativeRobot/commands/Base/BaseLinearMovement.h"
 #include "libIterativeRobot/Robot.h"
 
 BaseLinearMovement::BaseLinearMovement(int leftTarget, int rightTarget, bool absolute) {

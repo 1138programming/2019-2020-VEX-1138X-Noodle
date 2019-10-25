@@ -1,4 +1,4 @@
-#include "libIterativeRobot/commands/ArmControl.h"
+#include "libIterativeRobot/commands/Arm/ArmControl.h"
 #include "libIterativeRobot/Robot.h"
 #include "Constants.h"
 
@@ -14,11 +14,14 @@ bool ArmControl::canRun() {
 void ArmControl::initialize() {
   // Perform any initialization steps for this command here, not in the
   // constructor
+  printf("ArmControl init\n");
   armSpeed = Robot::mainController->get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_Y);
+  Robot::arm->disablePID();
 }
 
 void ArmControl::execute() {
   Robot::arm->move(armSpeed);
+  printf("Arm position is %d\n", Robot::arm->getSensorValue());
 }
 
 bool ArmControl::isFinished() {
@@ -27,13 +30,15 @@ bool ArmControl::isFinished() {
 
 void ArmControl::end() {
   // Code that runs when isFinished() returns true.
+  //Robot::arm->lock();
 }
 
 void ArmControl::interrupted() {
   // Code that runs when this command is interrupted by another one
   // with a higher priority.
+  //Robot::arm->lock();
 }
 
 void ArmControl::blocked() {
-
+  //Robot::arm->lock();
 }

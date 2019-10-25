@@ -3,23 +3,24 @@
 #include "libIterativeRobot/events/JoystickButton.h"
 #include "libIterativeRobot/events/JoystickChannel.h"
 
-#include "libIterativeRobot/commands/StopBase.h"
-#include "libIterativeRobot/commands/StopAngler.h"
-#include "libIterativeRobot/commands/StopIntake.h"
-#include "libIterativeRobot/commands/DriveWithJoy.h"
-#include "libIterativeRobot/commands/BaseLinearMovement.h"
-#include "libIterativeRobot/commands/GetData.h"
-#include "libIterativeRobot/commands/TuneLinearProfile.h"
-#include "libIterativeRobot/commands/AnglerControl.h"
-#include "libIterativeRobot/commands/MoveAnglerTo.h"
-#include "libIterativeRobot/commands/IntakeControl.h"
-#include "libIterativeRobot/commands/ArmControl.h"
-#include "libIterativeRobot/commands/MoveAnglerFor.h"
-#include "libIterativeRobot/commands/MoveAnglerTo.h"
+#include "libIterativeRobot/commands/Base/StopBase.h"
+#include "libIterativeRobot/commands/Angler/StopAngler.h"
+#include "libIterativeRobot/commands/Intake/StopIntake.h"
+#include "libIterativeRobot/commands/Base/DriveWithJoy.h"
+#include "libIterativeRobot/commands/Base/BaseLinearMovement.h"
+#include "libIterativeRobot/commands/Miscellaneous/GetData.h"
+#include "libIterativeRobot/commands/Miscellaneous/TuneLinearProfile.h"
+#include "libIterativeRobot/commands/Angler/AnglerControl.h"
+#include "libIterativeRobot/commands/Angler/MoveAnglerTo.h"
+#include "libIterativeRobot/commands/Intake/IntakeControl.h"
+#include "libIterativeRobot/commands/Arm/ArmControl.h"
+#include "libIterativeRobot/commands/Arm/MoveArmTo.h"
+#include "libIterativeRobot/commands/Angler/MoveAnglerFor.h"
+#include "libIterativeRobot/commands/Angler/MoveAnglerTo.h"
 
 #include "libIterativeRobot/commands/LambdaGroup.h"
-#include "libIterativeRobot/commands/AutonGroup1.h"
-#include "libIterativeRobot/commands/AutonGroup2.h"
+#include "libIterativeRobot/commands/Auton/AutonGroup1.h"
+#include "libIterativeRobot/commands/Auton/AutonGroup2.h"
 
 Robot* Robot::instance = 0;
 
@@ -52,6 +53,8 @@ Robot::Robot() {
   libIterativeRobot::JoystickChannel* LeftY = new libIterativeRobot::JoystickChannel(mainController, pros::E_CONTROLLER_ANALOG_LEFT_Y);
   libIterativeRobot::JoystickChannel* RightX = new libIterativeRobot::JoystickChannel(mainController, pros::E_CONTROLLER_ANALOG_RIGHT_X);
   libIterativeRobot::JoystickChannel* LeftX = new libIterativeRobot::JoystickChannel(mainController, pros::E_CONTROLLER_ANALOG_LEFT_X);
+  libIterativeRobot::JoystickButton* ArmToLowTower = new libIterativeRobot::JoystickButton(mainController, pros::E_CONTROLLER_DIGITAL_B);
+  libIterativeRobot::JoystickButton* ArmToMidTower = new libIterativeRobot::JoystickButton(mainController, pros::E_CONTROLLER_DIGITAL_A);
   libIterativeRobot::JoystickButton* AnglerDown = new libIterativeRobot::JoystickButton(mainController, pros::E_CONTROLLER_DIGITAL_R1);
   libIterativeRobot::JoystickButton* AnglerUp = new libIterativeRobot::JoystickButton(mainController, pros::E_CONTROLLER_DIGITAL_R2);
   libIterativeRobot::JoystickButton* IntakeOpen = new libIterativeRobot::JoystickButton(mainController, pros::E_CONTROLLER_DIGITAL_L2);
@@ -72,8 +75,11 @@ Robot::Robot() {
   ArmControl* armControl = new ArmControl();
   RightY->whilePastThreshold(armControl);
 
-  MoveAnglerTo* anglerToCollectingPos = new MoveAnglerTo(angler->kCollectingPosition);
-  RightY->whenPassingThresholdForward(anglerToCollectingPos);
+  //MoveAnglerTo* anglerToCollectingPos = new MoveAnglerTo(angler->kCollectingPosition);
+  //RightY->whenPassingThresholdForward(anglerToCollectingPos);
+
+  ArmToLowTower->whenPressed(new MoveArmTo(Arm::lowTowerPos));
+  ArmToMidTower->whenPressed(new MoveArmTo(Arm::midTowerPos));
 
   AnglerUp->whileHeld(new AnglerControl(true));
   AnglerDown->whileHeld(new AnglerControl(false));

@@ -1,5 +1,5 @@
 #include "main.h"
-#include "libIterativeRobot/commands/StopIntake.h"
+#include "libIterativeRobot/commands/Intake/StopIntake.h"
 
 Intake::Intake() {
   // Get intake motors

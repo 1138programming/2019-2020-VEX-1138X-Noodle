@@ -1,4 +1,4 @@
-#include "libIterativeRobot/commands/DriveForTime.h"
+#include "libIterativeRobot/commands/Base/DriveForTime.h"
 #include "libIterativeRobot/Robot.h"
 #include "Constants.h"
 
@@ -6,7 +6,7 @@ DriveForTime::DriveForTime(int leftSideSpeed, int rightSideSpeed, unsigned int d
   this->leftSideSpeed = leftSideSpeed;
   this->rightSideSpeed = rightSideSpeed;
   this->duration = duration;
-  
+
   requires(Robot::base);
   this->priority = 2;
 }
@@ -41,5 +41,5 @@ void DriveForTime::interrupted() {
 }
 
 void DriveForTime::blocked() {
-  
+
 }

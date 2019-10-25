@@ -1,38 +1,38 @@
-#include "libIterativeRobot/commands/StopArm.h"
+#include "libIterativeRobot/commands/Intake/StopIntake.h"
 #include "libIterativeRobot/Robot.h"
 #include "Constants.h"
 
-StopArm::StopArm() {
+StopIntake::StopIntake() {
   //requires(Robot::intake);
   //this->priority = DefaultCommandPriority; // Lowest priority
 }
 
-bool StopArm::canRun() {
+bool StopIntake::canRun() {
   return true; // This is the default value anyways, so this method can be removed
 }
 
-void StopArm::initialize() {
+void StopIntake::initialize() {
   // Perform any initialization steps for this command here, not in the
   // constructor
-  Robot::arm->move(0);
+  Robot::intake->move(0);
 }
 
-void StopArm::execute() {
+void StopIntake::execute() {
 }
 
-bool StopArm::isFinished() {
+bool StopIntake::isFinished() {
   return false;
 }
 
-void StopArm::end() {
+void StopIntake::end() {
   // Code that runs when isFinished() returns true.
 }
 
-void StopArm::interrupted() {
+void StopIntake::interrupted() {
   // Code that runs when this command is interrupted by another one
   // with a higher priority.
 }
 
-void StopArm::blocked() {
+void StopIntake::blocked() {
 
 }
