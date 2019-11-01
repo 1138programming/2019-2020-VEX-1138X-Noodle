@@ -6,6 +6,14 @@ MoveArmTo::MoveArmTo(int target = 0) {
   requires(Robot::arm);
   this->priority = 1;
   this->target = target;
+  this->duration = 0;
+}
+
+MoveArmTo::MoveArmTo(int target, unsigned int duration) {
+  requires(Robot::arm);
+  this->priority = 1;
+  this->target = target;
+  this->duration = duration;
 }
 
 bool MoveArmTo::canRun() {
@@ -17,6 +25,7 @@ void MoveArmTo::initialize() {
   // constructor
   Robot::arm->enablePID();
   Robot::arm->setSetpoint(target);
+  startTime = pros::millis();
 }
 
 void MoveArmTo::execute() {
@@ -24,7 +33,11 @@ void MoveArmTo::execute() {
 }
 
 bool MoveArmTo::isFinished() {
-  return Robot::arm->atSetpoint();
+  if (duration == 0) {
+    return Robot::arm->atSetpoint();
+  } else {
+    return Robot::arm->atSetpoint() || pros::millis() > (startTime + duration);
+  }
 }
 
 void MoveArmTo::end() {

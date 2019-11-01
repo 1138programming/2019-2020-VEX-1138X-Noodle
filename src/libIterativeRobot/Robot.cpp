@@ -10,6 +10,7 @@
 #include "libIterativeRobot/commands/Base/BaseLinearMovement.h"
 #include "libIterativeRobot/commands/Miscellaneous/GetData.h"
 #include "libIterativeRobot/commands/Miscellaneous/TuneLinearProfile.h"
+#include "libIterativeRobot/commands/Miscellaneous/FlipOut.h"
 #include "libIterativeRobot/commands/Angler/AnglerControl.h"
 #include "libIterativeRobot/commands/Angler/MoveAnglerTo.h"
 #include "libIterativeRobot/commands/Intake/IntakeControl.h"
@@ -78,8 +79,8 @@ Robot::Robot() {
   //MoveAnglerTo* anglerToCollectingPos = new MoveAnglerTo(angler->kCollectingPosition);
   //RightY->whenPassingThresholdForward(anglerToCollectingPos);
 
-  ArmToLowTower->whenPressed(new MoveArmTo(Arm::lowTowerPos));
-  ArmToMidTower->whenPressed(new MoveArmTo(Arm::midTowerPos));
+  ArmToLowTower->whenPressed(new MoveArmTo(Arm::kLowTowerPos));
+  ArmToMidTower->whenPressed(new MoveArmTo(Arm::kMidTowerPos));
 
   AnglerUp->whileHeld(new AnglerControl(true));
   AnglerDown->whileHeld(new AnglerControl(false));
@@ -105,9 +106,11 @@ void Robot::robotInit() {
   //autonChooser->addAutonCommand(new AutonGroup1(), "Auton test 1");
   //autonChooser->addAutonCommand(new BaseLinearMovement(1000, 1000), "Linear movement test");
   autonChooser->addAutonCommand(new AutonGroup1(), "Auton 1");
+  autonChooser->addAutonCommand(new FlipOut(), "FlipOut");
 }
 
 void Robot::autonInit() {
+  printf("Auton init, auton command is %x\n", autonChooser->getAutonCommand());
   autonChooser->uninit();
   autonChooser->getAutonCommand()->run();
 }
@@ -132,6 +135,8 @@ void Robot::teleopInit() {
     c->addParallelCommand(rightBackprop);
   }*/
 
+  autonChooser->init();
+  //FlipOut* c = new FlipOut();
   //c->run();
 }
 

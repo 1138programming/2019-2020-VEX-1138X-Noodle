@@ -5,7 +5,7 @@ Angler::Angler() {
   // Get angler motors
   anglerMotor = Motor::getMotor(anglerPort, anglerMotorGearset);
 
-  anglerController = new PIDController(anglerMotor, 0.32, 0, 0);
+  anglerController = new PIDController(anglerMotor, 0.4, 0, 0);
 
   bumper = new pros::ADIDigitalIn(bumperPort);
 }
@@ -29,6 +29,7 @@ void Angler::move(int speed) {
     } else if (speed < 0) {
       anglerMotor->setSpeed(-K50MotorSpeed);
     }
+    anglerMotor->resetEncoder();
     //pros::delay(500);
     //printf("Motor speed reversed.");
   }
@@ -36,6 +37,10 @@ void Angler::move(int speed) {
   {
     anglerMotor->setSpeed(speed);
   }
+}
+
+int Angler::getSensorValue() {
+  return (int)anglerMotor->getEncoderValue();
 }
 
 void Angler::setSetpoint(int setpoint) {

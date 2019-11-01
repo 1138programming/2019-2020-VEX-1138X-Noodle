@@ -25,6 +25,8 @@ void AnglerControl::execute() {
     Robot::angler->move(50);
   else
     Robot::angler->move(-50);
+
+  printf("Angler at %d\n", Robot::angler->getSensorValue());
 }
 
 bool AnglerControl::isFinished() {

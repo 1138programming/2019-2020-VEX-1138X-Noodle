@@ -4,7 +4,7 @@
 Arm::Arm() {
   // Get intake motors
   armMotor = Motor::getMotor(armMotorPort, armMotorGearset);
-  armController = new PIDController(armMotor, 0.6, 0, 0);
+  armController = new PIDController(armMotor, 0.7, 0, 0);
   armController->setThreshold(25);
 }
 

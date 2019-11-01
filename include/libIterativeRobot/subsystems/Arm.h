@@ -10,8 +10,8 @@ class Arm : public libIterativeRobot::Subsystem {
     Motor* armMotor;
     PIDController* armController;
   public:
-    static const int lowTowerPos = 2500;
-    static const int midTowerPos = 3000;
+    static const int kLowTowerPos = 2500;
+    static const int kMidTowerPos = 3000;
 
     void initDefaultCommand();
     void move(int speed);

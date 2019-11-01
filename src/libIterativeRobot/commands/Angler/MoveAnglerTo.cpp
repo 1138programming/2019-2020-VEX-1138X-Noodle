@@ -2,10 +2,20 @@
 #include "libIterativeRobot/Robot.h"
 #include "Constants.h"
 
-MoveAnglerTo::MoveAnglerTo(int target = 0) {
+MoveAnglerTo::MoveAnglerTo(int target) {
   requires(Robot::angler);
   this->priority = 1;
   this->target = target;
+  this->duration = 0;
+  printf("%x: wtf\n", this);
+}
+
+MoveAnglerTo::MoveAnglerTo(int target, int duration) {
+  requires(Robot::angler);
+  this->priority = 1;
+  this->target = target;
+  this->duration = duration;
+  printf("%x: Target %d, duration %d\n", this->target, this->duration, this);
 }
 
 bool MoveAnglerTo::canRun() {
@@ -17,14 +27,20 @@ void MoveAnglerTo::initialize() {
   // constructor
   Robot::angler->enablePID();
   Robot::angler->setSetpoint(target);
+  startTime = pros::millis();
 }
 
 void MoveAnglerTo::execute() {
   //printf("Moving angler to: %d\n", target);
+  printf("Moving angler, position is %d, time is %d, duration is %d\n", Robot::angler->getSensorValue(), pros::millis() - startTime, duration);
 }
 
 bool MoveAnglerTo::isFinished() {
-  return Robot::angler->atSetpoint();
+  if (duration == 0) {
+    return Robot::angler->atSetpoint();
+  } else {
+    return Robot::angler->atSetpoint() || (pros::millis() > (startTime + duration));
+  }
 }
 
 void MoveAnglerTo::end() {
