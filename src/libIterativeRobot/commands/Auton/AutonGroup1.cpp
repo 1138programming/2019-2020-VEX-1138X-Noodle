@@ -7,6 +7,7 @@
 #include "libIterativeRobot/commands/Angler/MoveAnglerFor.h"
 #include "libIterativeRobot/commands/Angler/MoveAnglerTo.h"
 #include "libIterativeRobot/commands/Base/DriveForTime.h"
+#include "libIterativeRobot/commands/Miscellaneous/Flipout()"
 
 AutonGroup1::AutonGroup1() {
   /*addSequentialCommand(new DriveForTime(-KMaxMotorSpeed, -KMaxMotorSpeed, 1000));
@@ -21,7 +22,9 @@ AutonGroup1::AutonGroup1() {
   addSequentialCommand(new DriveForTime(-KMaxMotorSpeed, -KMaxMotorSpeed, 500));
   addParallelCommand(new MoveIntakeFor(500, KMaxMotorSpeed));*/
 
+  addSequentialCommand(new FlipOut());
   addSequentialCommand(new MoveAnglerTo(Robot::angler->kCollectingPosition));
+  //addParallelCommand(new mov)
   /*addSequentialCommand(new MoveIntakeFor(5000, KMaxMotorSpeed));
   addSequentialCommand(new Delay(500));
   addParallelCommand(new MoveIntakeFor(500, KMaxMotorSpeed));
