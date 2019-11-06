@@ -25,11 +25,11 @@ LinearProfiler::LinearProfiler(Motor* outputMotor) {
   posPID = new PIDController(outputMotor, kP, kI, kD);
 }
 
-void LinearProfiler::setMaxVel(int maxVel) {
+void LinearProfiler::setMaxVel(double maxVel) {
   this->maxVel = maxVel;
 }
 
-void LinearProfiler::setMaxAccel(int maxAccel) {
+void LinearProfiler::setMaxAccel(double maxAccel) {
   this->maxAccel = maxAccel;
 }
 

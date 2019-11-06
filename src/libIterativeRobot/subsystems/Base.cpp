@@ -73,6 +73,16 @@ void Base::stopLinearMovement() {
   rightProfiler->stop();
 }
 
+void Base::setMaxVel(double maxVel) {
+  leftProfiler->setMaxVel(maxVel);
+  rightProfiler->setMaxVel(maxVel);
+}
+
+void Base::setMaxAccel(double maxAccel) {
+  leftProfiler->setMaxVel(maxAccel);
+  rightProfiler->setMaxVel(maxAccel);
+}
+
 LinearProfiler* Base::getLeftProfiler() {
   return leftProfiler;
 }

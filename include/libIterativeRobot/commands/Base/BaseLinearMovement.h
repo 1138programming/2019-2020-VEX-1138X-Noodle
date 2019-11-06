@@ -12,10 +12,15 @@ class BaseLinearMovement : public libIterativeRobot::Command {
     void end();
     void interrupted();
     void blocked();
-    BaseLinearMovement(int leftTarget, int rightTarget, bool absolute = false);
+    BaseLinearMovement(int leftTarget, int rightTarget);
+    BaseLinearMovement(int leftTarget, int rightTarget, double maxVel, double maxAccel);
+    BaseLinearMovement(int leftTarget, int rightTarget, bool absolute);
+    BaseLinearMovement(int leftTarget, int rightTarget, double maxVel, double maxAccel, bool absolute);
   private:
     int leftTarget;
     int rightTarget;
+    double maxVel;
+    double maxAccel;
     bool absolute;
 };
 

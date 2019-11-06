@@ -1,15 +1,20 @@
 #include "libIterativeRobot/commands/Base/BaseLinearMovement.h"
 #include "libIterativeRobot/Robot.h"
 
-BaseLinearMovement::BaseLinearMovement(int leftTarget, int rightTarget, bool absolute) {
+BaseLinearMovement::BaseLinearMovement(int leftTarget, int rightTarget, double maxVel, double maxAccel, bool absolute) {
   this->leftTarget = leftTarget;
   this->rightTarget = rightTarget;
+  this->maxVel = maxVel;
+  this->maxAccel = maxAccel;
   this->absolute = absolute;
 
   this->priority = 3;
-
   requires(Robot::base);
 }
+
+BaseLinearMovement::BaseLinearMovement(int leftTarget, int rightTarget) : BaseLinearMovement(leftTarget, rightTarget, Robot::base->kDefaultMaxVel, Robot::base->kDefaultMaxAccel, false) {};
+BaseLinearMovement::BaseLinearMovement(int leftTarget, int rightTarget, double maxVel, double maxAccel) : BaseLinearMovement(leftTarget, rightTarget, maxVel, maxAccel, false) {};
+BaseLinearMovement::BaseLinearMovement(int leftTarget, int rightTarget, bool absolute) : BaseLinearMovement(leftTarget, rightTarget, Robot::base->kDefaultMaxVel, Robot::base->kDefaultMaxAccel, absolute) {};
 
 bool BaseLinearMovement::canRun() {
   //printf("Checking if linear movement can run\n");
@@ -24,6 +29,8 @@ void BaseLinearMovement::initialize() {
     Robot::base->setLinearTargetRelative(leftTarget, rightTarget);
   }
 
+  Robot::base->setMaxVel(maxVel);
+  Robot::base->setMaxAccel(maxAccel);
   Robot::base->initLinearMovement();
 }
 

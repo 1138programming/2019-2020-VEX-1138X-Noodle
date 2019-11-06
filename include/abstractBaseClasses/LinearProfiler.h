@@ -41,8 +41,8 @@ class LinearProfiler {
     LinearProfiler(Motor* outputMotor);
 
     // Functions to set constants
-    void setMaxVel(int maxVel);
-    void setMaxAccel(int maxAccel);
+    void setMaxVel(double maxVel);
+    void setMaxAccel(double maxAccel);
     void setThreshold(int threshold);
 
     // Target functions
