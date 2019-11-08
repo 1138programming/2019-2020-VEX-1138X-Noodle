@@ -107,13 +107,12 @@ void Robot::robotInit() {
   //autonChooser->addAutonCommand(new AutonGroup1(), "Auton test 1");
   //autonChooser->addAutonCommand(new BaseLinearMovement(1000, 1000), "Linear movement test");
   autonChooser->addAutonCommand(new JohnsCode(), "JohnsCode");
-  autonChooser->addAutonCommand(new JohnsCode(), "Still JohnsCode");
+  autonChooser->addAutonCommand(new FlipOut(), "FlipOut");
 }
 
 void Robot::autonInit() {
   printf("Auton init, auton command is %x\n", autonChooser->getAutonCommand());
   autonChooser->uninit();
-  //autonChooser->getAutonCommand()->run();
   autonChooser->runAuton();
 }
 

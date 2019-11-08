@@ -4,10 +4,12 @@
 #include "libIterativeRobot/commands/Angler/MoveAnglerTo.h"
 
 FlipOut::FlipOut() {
-  addSequentialCommand(new MoveAnglerTo(-2500, 1000));
+  /*addSequentialCommand(new MoveAnglerTo(-2500, 1000));
   addSequentialCommand(new MoveArmFor(300, 127));
   addSequentialCommand(new MoveArmTo(0, 1000));
   addSequentialCommand(new MoveArmFor(300, 127));
   addSequentialCommand(new MoveArmTo(0, 1000));
-  addSequentialCommand(new MoveAnglerTo(0));
+  addSequentialCommand(new MoveAnglerTo(0));*/
+  addSequentialCommand(new MoveArmFor (1000, KMaxMotorSpeed));
+  addSequentialCommand(new MoveArmFor (1500, -70));
 }
