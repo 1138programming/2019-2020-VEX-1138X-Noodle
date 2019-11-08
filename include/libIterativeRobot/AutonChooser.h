@@ -27,6 +27,7 @@ class AutonChooser {
     static void uninit();
     static void addAutonCommand(libIterativeRobot::Command* command, const char* name);
     static libIterativeRobot::Command* getAutonCommand();
+    static void runAuton();
 
     static AutonChooser* getInstance();
 };
