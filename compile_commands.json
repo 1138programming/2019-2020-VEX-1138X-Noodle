@@ -1183,11 +1183,11 @@
             "-fdiagnostics-color",
             "--std=gnu++17",
             "-o",
-            "bin/libIterativeRobot/Robot.cpp.o",
-            "src\\libIterativeRobot\\Robot.cpp"
+            "bin/libIterativeRobot/AutonChooser.cpp.o",
+            "src\\libIterativeRobot\\AutonChooser.cpp"
         ],
         "directory": "C:\\Users\\JHBennett22\\Desktop\\Robotics\\Programing\\Noodle",
-        "file": "src\\libIterativeRobot\\Robot.cpp"
+        "file": "src\\libIterativeRobot\\AutonChooser.cpp"
     },
     {
         "arguments": [
@@ -1218,11 +1218,11 @@
             "-fdiagnostics-color",
             "--std=gnu++17",
             "-o",
-            "bin/libIterativeRobot/AutonChooser.cpp.o",
-            "src\\libIterativeRobot\\AutonChooser.cpp"
+            "bin/libIterativeRobot/Robot.cpp.o",
+            "src\\libIterativeRobot\\Robot.cpp"
         ],
         "directory": "C:\\Users\\JHBennett22\\Desktop\\Robotics\\Programing\\Noodle",
-        "file": "src\\libIterativeRobot\\AutonChooser.cpp"
+        "file": "src\\libIterativeRobot\\Robot.cpp"
     },
     {
         "arguments": [

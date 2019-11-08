@@ -113,7 +113,8 @@ void Robot::robotInit() {
 void Robot::autonInit() {
   printf("Auton init, auton command is %x\n", autonChooser->getAutonCommand());
   autonChooser->uninit();
-  autonChooser->getAutonCommand()->run();
+  //autonChooser->getAutonCommand()->run();
+  autonChooser->runAuton();
 }
 
 void Robot::autonPeriodic() {
