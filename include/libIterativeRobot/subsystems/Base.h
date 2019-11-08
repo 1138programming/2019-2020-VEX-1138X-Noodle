@@ -17,8 +17,8 @@ class Base : public libIterativeRobot::Subsystem {
     LinearProfiler* rightProfiler;
 
   public:
-    static const int kDefaultMaxAccel = 0.17;
-    static const int kDefaultMaxVel = 10.0;
+    static const double kDefaultMaxAccel;
+    static const double kDefaultMaxVel;
 
     void initDefaultCommand();
     void moveAtSpeed(int leftSpeed, int rightSpeed);

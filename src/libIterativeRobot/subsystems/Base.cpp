@@ -1,6 +1,9 @@
 #include "main.h"
 #include "libIterativeRobot/commands/Base/StopBase.h"
 
+const double Base::kDefaultMaxAccel = 0.17;
+const double Base::kDefaultMaxVel = 10.0;
+
 Base::Base() {
   // Set up motors
   frontLeftMotor = Motor::getMotor(frontLeftBasePort, baseMotorGearset);
@@ -74,13 +77,15 @@ void Base::stopLinearMovement() {
 }
 
 void Base::setMaxVel(double maxVel) {
+  //printf("Setting maxVel to %f\n", maxVel);
   leftProfiler->setMaxVel(maxVel);
   rightProfiler->setMaxVel(maxVel);
 }
 
 void Base::setMaxAccel(double maxAccel) {
-  leftProfiler->setMaxVel(maxAccel);
-  rightProfiler->setMaxVel(maxAccel);
+  //printf("Setting maxAccel to %f\n", maxAccel);
+  leftProfiler->setMaxAccel(maxAccel);
+  rightProfiler->setMaxAccel(maxAccel);
 }
 
 LinearProfiler* Base::getLeftProfiler() {

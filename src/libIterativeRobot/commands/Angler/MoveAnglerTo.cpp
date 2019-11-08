@@ -15,7 +15,7 @@ MoveAnglerTo::MoveAnglerTo(int target, int duration) {
   this->priority = 1;
   this->target = target;
   this->duration = duration;
-  printf("%x: Target %d, duration %d\n", this->target, this->duration, this);
+  printf("%x: Target %d, duration %d\n", this, this->target, this->duration);
 }
 
 bool MoveAnglerTo::canRun() {

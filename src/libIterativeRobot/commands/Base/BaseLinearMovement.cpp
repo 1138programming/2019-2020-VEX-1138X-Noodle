@@ -8,6 +8,8 @@ BaseLinearMovement::BaseLinearMovement(int leftTarget, int rightTarget, double m
   this->maxAccel = maxAccel;
   this->absolute = absolute;
 
+  printf("BaseLinearMovement: %d %d %f %f\n", leftTarget, rightTarget, maxVel, maxAccel);
+
   this->priority = 3;
   requires(Robot::base);
 }
@@ -22,7 +24,8 @@ bool BaseLinearMovement::canRun() {
 }
 
 void BaseLinearMovement::initialize() {
-  printf("Init linear movement\n");
+  printf("Init linear movement: %d %d %f %f\n", leftTarget, rightTarget, maxVel, maxAccel);
+
   if (absolute) {
     Robot::base->setLinearTarget(leftTarget, rightTarget);
   } else {

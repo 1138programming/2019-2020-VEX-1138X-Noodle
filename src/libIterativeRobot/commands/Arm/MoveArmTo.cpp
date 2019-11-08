@@ -2,14 +2,14 @@
 #include "libIterativeRobot/Robot.h"
 #include "Constants.h"
 
-MoveArmTo::MoveArmTo(int target = 0) {
+MoveArmTo::MoveArmTo(int target) {
   requires(Robot::arm);
   this->priority = 1;
   this->target = target;
   this->duration = 0;
 }
 
-MoveArmTo::MoveArmTo(int target, unsigned int duration) {
+MoveArmTo::MoveArmTo(int target, int duration) {
   requires(Robot::arm);
   this->priority = 1;
   this->target = target;

@@ -111,6 +111,7 @@ void LinearProfiler::update() {
 
   //printf("%p: target pos: %f, target t_vel: %f, target t_accel: %f, pos: %d, t_vel: %f\n", this, pidSetpoint, t_vel, t_accel, getSensorValue(), ((double)deltaPos / dt));
   printf("%p: %f, %f, %f, %d, %f\n", this, pidSetpoint, t_vel, t_accel, getSensorValue(), vel);
+  //printf("%p: %f %f\n", maxVel, maxAccel);
 
   if (fabs(pidSetpoint) < flatPoint) {
     t_accel = maxAccel * dir;
