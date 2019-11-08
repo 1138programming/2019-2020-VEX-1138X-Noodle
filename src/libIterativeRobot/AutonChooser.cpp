@@ -77,6 +77,12 @@ libIterativeRobot::Command* AutonChooser::getAutonCommand() {
   return autonCommands[autonIndex];
 }
 
+void AutonChooser::runAuton() {
+  if (autonCommands[autonIndex] != NULL) {
+    autonCommands[autonIndex]->run();
+  }
+}
+
 AutonChooser* AutonChooser::getInstance() {
   if (instance == 0) {
     instance = new AutonChooser();
