@@ -7,7 +7,7 @@
 #include "libIterativeRobot/commands/Angler/MoveAnglerFor.h"
 #include "libIterativeRobot/commands/Angler/MoveAnglerTo.h"
 #include "libIterativeRobot/commands/Base/DriveForTime.h"
-#include "libIterativeRobot/commands/Miscellaneous/Flipout()"
+#include "libIterativeRobot/commands/Miscellaneous/FlipOut.h"
 
 AutonGroup1::AutonGroup1() {
   /*addSequentialCommand(new DriveForTime(-KMaxMotorSpeed, -KMaxMotorSpeed, 1000));
