@@ -23,6 +23,7 @@
 #include "libIterativeRobot/commands/Auton/AutonGroup1.h"
 #include "libIterativeRobot/commands/Auton/AutonGroup2.h"
 #include "libIterativeRobot/commands/Auton/JohnsCode.h"
+#include "libIterativeRobot/commands/Auton/OtherSide.h"
 
 Robot* Robot::instance = 0;
 
@@ -104,8 +105,9 @@ Robot::Robot() {
 void Robot::robotInit() {
   printf("Robot created.\n");
   autonChooser->addAutonCommand(new JohnsCode(), "JohnsCode");
-  autonChooser->addAutonCommand(new AutonGroup1(), "AutonGroup1");
-  autonChooser->addAutonCommand(new FlipOut(), "FlipOut");
+  autonChooser->addAutonCommand(new OtherSide(), "OtherSide");
+  //autonChooser->addAutonCommand(new AutonGroup1(), "AutonGroup1");
+  //autonChooser->addAutonCommand(new FlipOut(), "FlipOut");
 }
 
 void Robot::autonInit() {

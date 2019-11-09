@@ -1,4 +1,4 @@
-#include "libIterativeRobot/commands/Auton/JohnsCode.h"
+#include "libIterativeRobot/commands/Auton/OtherSide.h"
 #include "libIterativeRobot/commands/Auton/AutonGroup1.h"
 #include "libIterativeRobot/commands/Auton/AutonGroup2.h"
 #include "libIterativeRobot/commands/Miscellaneous/Delay.h"
@@ -12,7 +12,7 @@
 #include "libIterativeRobot/commands/Arm/MoveArmFor.h"
 #include "libIterativeRobot/commands/LambdaGroup.h"
 
-JohnsCode::JohnsCode() { //* Negative is forward
+OtherSide::OtherSide() { //* Negative is forward
   //libIterativeRobot::LambdaGroup* slipOffRubber = new libIterativeRobot::LambdaGroup();
   //slipOffRubber->addSequentialCommand(new MoveAnglerTo(-1800, KMaxMotorSpeed, 1500));
   //slipOffRubber->addSequentialCommand(new MoveAnglerTo(0, KMaxMotorSpeed, 1500));
@@ -23,7 +23,7 @@ JohnsCode::JohnsCode() { //* Negative is forward
   //addParallelCommand(slipOffRubber);
   addParallelCommand(new MoveIntakeFor(5000, KMaxMotorSpeed));
   addSequentialCommand(new DriveForTime(KMaxMotorSpeed*0.25, KMaxMotorSpeed*0.25, 1700));
-  addSequentialCommand(new DriveForTime(KMaxMotorSpeed*0.25, -KMaxMotorSpeed*0.25, 1350));
+  addSequentialCommand(new DriveForTime(-KMaxMotorSpeed*0.25, KMaxMotorSpeed*0.25, 1350));
   addSequentialCommand(new DriveForTime(-KMaxMotorSpeed*0.25, -KMaxMotorSpeed*0.25, 1600));
   addSequentialCommand(new MoveAnglerTo(-2200, 85, 2000));
   addSequentialCommand(new MoveIntakeFor(1500, -KMaxMotorSpeed));
