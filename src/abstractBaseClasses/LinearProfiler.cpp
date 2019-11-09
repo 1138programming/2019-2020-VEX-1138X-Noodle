@@ -43,6 +43,7 @@ void LinearProfiler::setTarget(int target) {
 
 void LinearProfiler::setTargetRelative(int target) {
   this->target = getSensorValue() + target;
+  printf("%p: target is %d\n", this, this->target);
 }
 
 int LinearProfiler::getTarget() {
@@ -96,6 +97,8 @@ void LinearProfiler::init() {
   lastTime = pros::millis() - 10;
   lastPos = initial;
   lastVel = 0;
+
+  printf("%p: init %d %d %d %d %d %d\n", this, initial, distance, midpoint, flatPoint, midpoint, target);
 }
 
 void LinearProfiler::update() {

@@ -11,5 +11,5 @@
 
 AutonGroup1::AutonGroup1() {
   //addSequentialCommand(new MoveAnglerTo(0, 1000));
-  addSequentialCommand(new BaseLinearMovement(1000, 1000));
+  addSequentialCommand(new BaseLinearMovement(10000, 10000, 1, 0.02));
 }

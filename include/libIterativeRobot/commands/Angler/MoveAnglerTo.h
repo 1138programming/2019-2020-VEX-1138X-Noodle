@@ -13,10 +13,12 @@ class MoveAnglerTo: public libIterativeRobot::Command {
     void interrupted();
     void blocked();
     MoveAnglerTo(int target);
-    MoveAnglerTo(int target, int duration);
+    MoveAnglerTo(int target, int maxSpeed);
+    MoveAnglerTo(int target, int maxSpeed, int duration);
   private:
     int target = 0;
     int duration;
+    int maxSpeed;
     int startTime;
 };
 

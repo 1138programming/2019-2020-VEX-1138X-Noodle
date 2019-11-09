@@ -5,7 +5,7 @@ Angler::Angler() {
   // Get angler motors
   anglerMotor = Motor::getMotor(anglerPort, anglerMotorGearset);
 
-  anglerController = new PIDController(anglerMotor, 0.4, 0, 0);
+  anglerController = new PIDController(anglerMotor, 0.6, 0, 0);
 
   bumper = new pros::ADIDigitalIn(bumperPort);
 }
@@ -65,4 +65,8 @@ void Angler::disablePID() {
 
 void Angler::enablePID() {
   anglerController->enable();
+}
+
+void Angler::setMaxSpeed(int maxSpeed) {
+  anglerController->setOutputRange(-maxSpeed, maxSpeed);
 }

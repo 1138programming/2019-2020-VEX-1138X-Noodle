@@ -25,6 +25,7 @@ class Angler : public libIterativeRobot::Subsystem {
     void lock();
     void disablePID();
     void enablePID();
+    void setMaxSpeed(int maxSpeed);
     Angler();
 };
 

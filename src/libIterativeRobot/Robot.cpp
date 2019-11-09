@@ -103,9 +103,6 @@ Robot::Robot() {
 
 void Robot::robotInit() {
   printf("Robot created.\n");
-  //autonChooser->addAutonCommand(new AutonGroup1(), "AutonGroup1");
-  //autonChooser->addAutonCommand(new AutonGroup1(), "Auton test 1");
-  //autonChooser->addAutonCommand(new BaseLinearMovement(1000, 1000), "Linear movement test");
   autonChooser->addAutonCommand(new JohnsCode(), "JohnsCode");
   autonChooser->addAutonCommand(new AutonGroup1(), "AutonGroup1");
   autonChooser->addAutonCommand(new FlipOut(), "FlipOut");
