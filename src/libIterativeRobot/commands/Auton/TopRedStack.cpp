@@ -11,5 +11,7 @@
 #include "libIterativeRobot/commands/Arm/MoveArmFor.h"
 
 TopRedStack::TopRedStack() {
-
+addSequentialCommand(new DriveForTime(KMaxMotorSpeed, KMaxMotorSpeed, 1000));
+addSequentialCommand(new Delay(500));
+addSequentialCommand(new DriveForTime(-KMaxMotorSpeed, -KMaxMotorSpeed, 1000));
 }
