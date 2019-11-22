@@ -21,15 +21,15 @@ OtherSide::OtherSide() { //*Negitive is forward
   addSequentialCommand(new MoveArmFor(1100, -KMaxMotorSpeed));
   addParallelCommand(new DriveForTime(-KMaxMotorSpeed*0.25, -KMaxMotorSpeed*0.25, 3400));
   //addParallelCommand(slipOffRubber);
-  addParallelCommand(new MoveIntakeFor(4900, KMaxMotorSpeed));
-  addSequentialCommand(new DriveForTime(KMaxMotorSpeed*0.50, KMaxMotorSpeed*0.50, 1000));
-  addSequentialCommand(new DriveForTime(KMaxMotorSpeed*0.25, -KMaxMotorSpeed*0.25, 1325));
+  addParallelCommand(new MoveIntakeFor(4600, KMaxMotorSpeed));
+  addSequentialCommand(new DriveForTime(KMaxMotorSpeed*0.50, KMaxMotorSpeed*0.50, 950));
+  addSequentialCommand(new DriveForTime(-KMaxMotorSpeed*0.25, KMaxMotorSpeed*0.25, 13));
   addSequentialCommand(new DriveForTime(-KMaxMotorSpeed*0.25, -KMaxMotorSpeed*0.25, 1600));
   addSequentialCommand(new MoveAnglerTo(-2200, 85, 2000));
   addParallelCommand(new MoveIntakeFor(1000, -50));
   addSequentialCommand(new MoveIntakeFor(1500, -KMaxMotorSpeed));
   addParallelCommand(new Delay(500));
   addSequentialCommand(new MoveIntakeFor(1000, -KMaxMotorSpeed));
-  addSequentialCommand(new DriveForTime(KMaxMotorSpeed, KMaxMotorSpeed, 1000));
+  addSequentialCommand(new DriveForTime(KMaxMotorSpeed, KMaxMotorSpeed, 950));
   
 }
