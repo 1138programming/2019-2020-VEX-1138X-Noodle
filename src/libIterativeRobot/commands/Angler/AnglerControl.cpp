@@ -22,9 +22,9 @@ void AnglerControl::initialize() {
 void AnglerControl::execute() {
   //printf("Angler control running\n");
   if (this->Up)
-    Robot::angler->move(75);
+    Robot::angler->move(85);
   else
-    Robot::angler->move(-75);
+    Robot::angler->move(-85);
 
   printf("Angler at %d\n", Robot::angler->getSensorValue());
 }
