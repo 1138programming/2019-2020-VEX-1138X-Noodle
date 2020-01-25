@@ -23,6 +23,10 @@ void Angler::move(int speed) {
     anglerMotor->setSpeed(speed);
 }
 
+void Angler::encoderReset(){
+  anglerMotor->resetEncoder();
+}
+
 int Angler::getSensorValue() {
   return (int)anglerMotor->getEncoderValue();
 }
@@ -45,6 +49,7 @@ void Angler::lock() {
 
 void Angler::disablePID() {
   anglerController->disable();
+  anglerMotor->resetEncoder();
 }
 
 void Angler::enablePID() {

@@ -61,6 +61,7 @@ void MoveAnglerTo::end() {
   // Code that runs when isFinished() returns true.
   Robot::angler->disablePID();
   Robot::angler->setMaxSpeed(KMaxMotorSpeed);
+  Robot::angler->encoderReset();
 }
 
 void MoveAnglerTo::interrupted() {
@@ -68,6 +69,7 @@ void MoveAnglerTo::interrupted() {
   // with a higher priority.
   Robot::angler->disablePID();
   Robot::angler->setMaxSpeed(KMaxMotorSpeed);
+  Robot::angler->encoderReset();
 }
 
 void MoveAnglerTo::blocked() {

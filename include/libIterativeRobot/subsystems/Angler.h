@@ -16,6 +16,7 @@ class Angler : public libIterativeRobot::Subsystem {
 
     void initDefaultCommand();
     void move(int speed);
+    void encoderReset();
     int getSensorValue();
     void setSetpoint(int setpoint);
     bool atSetpoint();

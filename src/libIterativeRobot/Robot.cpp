@@ -99,8 +99,8 @@ Robot::Robot() {
 
   AnglerToStart->whenPressed(new MoveAnglerTo(0));
   AnglerToHorizontal->whenPressed(new MoveAnglerTo(680));
-  AnglerToTop->whenPressed(new MoveAnglerTo(1520));
-  AnglerToBack->whenPressed(new MoveAnglerTo(2360));
+  AnglerToTop->whenPressed(new MoveAnglerTo(8000, 100));
+  AnglerToBack->whenPressed(new MoveAnglerTo(8000, 100));
 }
 
 void Robot::robotInit() {
