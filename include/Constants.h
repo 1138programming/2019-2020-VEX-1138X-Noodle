@@ -25,7 +25,9 @@ const int rightIntakeMotorPort = 9;
 
 const int armMotorPort = 11;
 
-const std::uint8_t bumperPort = 'a';
+const std::uint8_t bumperPort1 = 'g';
+
+const std::uint8_t bumperPort2 = 'h';
 
 // Motor gearsets
 const pros::motor_gearset_e_t baseMotorGearset = pros::E_MOTOR_GEARSET_18;

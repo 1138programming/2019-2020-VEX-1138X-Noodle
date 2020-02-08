@@ -11,13 +11,12 @@ class Angler : public libIterativeRobot::Subsystem {
 
     PIDController* anglerController;
 
-    pros::ADIDigitalIn* bumper;
-
   public:
     const int kCollectingPosition = -500;
 
     void initDefaultCommand();
     void move(int speed);
+    void encoderReset();
     int getSensorValue();
     void setSetpoint(int setpoint);
     bool atSetpoint();

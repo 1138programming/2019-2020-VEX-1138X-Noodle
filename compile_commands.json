@@ -15,7 +15,11 @@
             "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/include-fixed",
             "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include",
             "-iquote./include",
+<<<<<<< HEAD
             "-iquote./include/libIterativeRobot/commands/Miscellaneous/",
+=======
+            "-iquote./include/libIterativeRobot/subsystems/",
+>>>>>>> 548a1575c5408b7923f176bd52f7a9002bb7c548
             "-mcpu=cortex-a9",
             "-mfpu=neon-fp16",
             "-mfloat-abi=softfp",
@@ -28,11 +32,19 @@
             "-fdiagnostics-color",
             "--std=gnu++17",
             "-o",
+<<<<<<< HEAD
             "bin/libIterativeRobot/commands/Miscellaneous/TuneLinearProfile.cpp.o",
             "src\\libIterativeRobot\\commands\\Miscellaneous\\TuneLinearProfile.cpp"
         ],
         "directory": "C:\\Users\\JHBennett22\\Desktop\\Robotics\\Programing\\Noodle",
         "file": "src\\libIterativeRobot\\commands\\Miscellaneous\\TuneLinearProfile.cpp"
+=======
+            "bin/libIterativeRobot/subsystems/Arm.cpp.o",
+            "src\\libIterativeRobot\\subsystems\\Arm.cpp"
+        ],
+        "directory": "C:\\Users\\eeuser\\Documents\\VEX\\2019-2020-VEX-1138X-Noodle",
+        "file": "src\\libIterativeRobot\\subsystems\\Arm.cpp"
+>>>>>>> 548a1575c5408b7923f176bd52f7a9002bb7c548
     },
     {
         "arguments": [
@@ -50,7 +62,11 @@
             "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/include-fixed",
             "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include",
             "-iquote./include",
+<<<<<<< HEAD
             "-iquote./include/libIterativeRobot/commands/Base/",
+=======
+            "-iquote./include/libIterativeRobot/commands/Angler/",
+>>>>>>> 548a1575c5408b7923f176bd52f7a9002bb7c548
             "-mcpu=cortex-a9",
             "-mfpu=neon-fp16",
             "-mfloat-abi=softfp",
@@ -63,11 +79,19 @@
             "-fdiagnostics-color",
             "--std=gnu++17",
             "-o",
+<<<<<<< HEAD
             "bin/libIterativeRobot/commands/Base/StopBase.cpp.o",
             "src\\libIterativeRobot\\commands\\Base\\StopBase.cpp"
         ],
         "directory": "C:\\Users\\JHBennett22\\Desktop\\Robotics\\Programing\\Noodle",
         "file": "src\\libIterativeRobot\\commands\\Base\\StopBase.cpp"
+=======
+            "bin/libIterativeRobot/commands/Angler/StopAngler.cpp.o",
+            "src\\libIterativeRobot\\commands\\Angler\\StopAngler.cpp"
+        ],
+        "directory": "C:\\Users\\eeuser\\Documents\\VEX\\2019-2020-VEX-1138X-Noodle",
+        "file": "src\\libIterativeRobot\\commands\\Angler\\StopAngler.cpp"
+>>>>>>> 548a1575c5408b7923f176bd52f7a9002bb7c548
     },
     {
         "arguments": [
@@ -85,7 +109,11 @@
             "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/include-fixed",
             "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include",
             "-iquote./include",
+<<<<<<< HEAD
             "-iquote./include/./",
+=======
+            "-iquote./include/libIterativeRobot/commands/Arm/",
+>>>>>>> 548a1575c5408b7923f176bd52f7a9002bb7c548
             "-mcpu=cortex-a9",
             "-mfpu=neon-fp16",
             "-mfloat-abi=softfp",
@@ -98,11 +126,19 @@
             "-fdiagnostics-color",
             "--std=gnu++17",
             "-o",
+<<<<<<< HEAD
             "bin/initialize.cpp.o",
             "src\\initialize.cpp"
         ],
         "directory": "C:\\Users\\JHBennett22\\Desktop\\Robotics\\Programing\\Noodle",
         "file": "src\\initialize.cpp"
+=======
+            "bin/libIterativeRobot/commands/Arm/MoveArmTo.cpp.o",
+            "src\\libIterativeRobot\\commands\\Arm\\MoveArmTo.cpp"
+        ],
+        "directory": "C:\\Users\\eeuser\\Documents\\VEX\\2019-2020-VEX-1138X-Noodle",
+        "file": "src\\libIterativeRobot\\commands\\Arm\\MoveArmTo.cpp"
+>>>>>>> 548a1575c5408b7923f176bd52f7a9002bb7c548
     },
     {
         "arguments": [
@@ -120,7 +156,11 @@
             "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/include-fixed",
             "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include",
             "-iquote./include",
+<<<<<<< HEAD
             "-iquote./include/libIterativeRobot/commands/Auton/",
+=======
+            "-iquote./include/libIterativeRobot/commands/Arm/",
+>>>>>>> 548a1575c5408b7923f176bd52f7a9002bb7c548
             "-mcpu=cortex-a9",
             "-mfpu=neon-fp16",
             "-mfloat-abi=softfp",
@@ -133,11 +173,19 @@
             "-fdiagnostics-color",
             "--std=gnu++17",
             "-o",
+<<<<<<< HEAD
             "bin/libIterativeRobot/commands/Auton/JohnsCode.cpp.o",
             "src\\libIterativeRobot\\commands\\Auton\\JohnsCode.cpp"
         ],
         "directory": "C:\\Users\\JHBennett22\\Desktop\\Robotics\\Programing\\Noodle",
         "file": "src\\libIterativeRobot\\commands\\Auton\\JohnsCode.cpp"
+=======
+            "bin/libIterativeRobot/commands/Arm/MoveArmFor.cpp.o",
+            "src\\libIterativeRobot\\commands\\Arm\\MoveArmFor.cpp"
+        ],
+        "directory": "C:\\Users\\eeuser\\Documents\\VEX\\2019-2020-VEX-1138X-Noodle",
+        "file": "src\\libIterativeRobot\\commands\\Arm\\MoveArmFor.cpp"
+>>>>>>> 548a1575c5408b7923f176bd52f7a9002bb7c548
     },
     {
         "arguments": [
@@ -155,7 +203,11 @@
             "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/include-fixed",
             "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include",
             "-iquote./include",
+<<<<<<< HEAD
             "-iquote./include/libIterativeRobot/commands/Auton/",
+=======
+            "-iquote./include/libIterativeRobot/",
+>>>>>>> 548a1575c5408b7923f176bd52f7a9002bb7c548
             "-mcpu=cortex-a9",
             "-mfpu=neon-fp16",
             "-mfloat-abi=softfp",
@@ -168,11 +220,19 @@
             "-fdiagnostics-color",
             "--std=gnu++17",
             "-o",
+<<<<<<< HEAD
             "bin/libIterativeRobot/commands/Auton/AutonGroup1.cpp.o",
             "src\\libIterativeRobot\\commands\\Auton\\AutonGroup1.cpp"
         ],
         "directory": "C:\\Users\\JHBennett22\\Desktop\\Robotics\\Programing\\Noodle",
         "file": "src\\libIterativeRobot\\commands\\Auton\\AutonGroup1.cpp"
+=======
+            "bin/libIterativeRobot/AutonChooser.cpp.o",
+            "src\\libIterativeRobot\\AutonChooser.cpp"
+        ],
+        "directory": "C:\\Users\\eeuser\\Documents\\VEX\\2019-2020-VEX-1138X-Noodle",
+        "file": "src\\libIterativeRobot\\AutonChooser.cpp"
+>>>>>>> 548a1575c5408b7923f176bd52f7a9002bb7c548
     },
     {
         "arguments": [
@@ -203,11 +263,19 @@
             "-fdiagnostics-color",
             "--std=gnu++17",
             "-o",
+<<<<<<< HEAD
             "bin/libIterativeRobot/commands/Miscellaneous/GetData.cpp.o",
             "src\\libIterativeRobot\\commands\\Miscellaneous\\GetData.cpp"
         ],
         "directory": "C:\\Users\\JHBennett22\\Desktop\\Robotics\\Programing\\Noodle",
         "file": "src\\libIterativeRobot\\commands\\Miscellaneous\\GetData.cpp"
+=======
+            "bin/libIterativeRobot/commands/Miscellaneous/Delay.cpp.o",
+            "src\\libIterativeRobot\\commands\\Miscellaneous\\Delay.cpp"
+        ],
+        "directory": "C:\\Users\\eeuser\\Documents\\VEX\\2019-2020-VEX-1138X-Noodle",
+        "file": "src\\libIterativeRobot\\commands\\Miscellaneous\\Delay.cpp"
+>>>>>>> 548a1575c5408b7923f176bd52f7a9002bb7c548
     },
     {
         "arguments": [
@@ -225,7 +293,11 @@
             "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/include-fixed",
             "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include",
             "-iquote./include",
+<<<<<<< HEAD
             "-iquote./include/libIterativeRobot/commands/Arm/",
+=======
+            "-iquote./include/libIterativeRobot/subsystems/",
+>>>>>>> 548a1575c5408b7923f176bd52f7a9002bb7c548
             "-mcpu=cortex-a9",
             "-mfpu=neon-fp16",
             "-mfloat-abi=softfp",
@@ -238,11 +310,19 @@
             "-fdiagnostics-color",
             "--std=gnu++17",
             "-o",
+<<<<<<< HEAD
             "bin/libIterativeRobot/commands/Arm/StopArm.cpp.o",
             "src\\libIterativeRobot\\commands\\Arm\\StopArm.cpp"
         ],
         "directory": "C:\\Users\\JHBennett22\\Desktop\\Robotics\\Programing\\Noodle",
         "file": "src\\libIterativeRobot\\commands\\Arm\\StopArm.cpp"
+=======
+            "bin/libIterativeRobot/subsystems/Intake.cpp.o",
+            "src\\libIterativeRobot\\subsystems\\Intake.cpp"
+        ],
+        "directory": "C:\\Users\\eeuser\\Documents\\VEX\\2019-2020-VEX-1138X-Noodle",
+        "file": "src\\libIterativeRobot\\subsystems\\Intake.cpp"
+>>>>>>> 548a1575c5408b7923f176bd52f7a9002bb7c548
     },
     {
         "arguments": [
@@ -273,11 +353,19 @@
             "-fdiagnostics-color",
             "--std=gnu++17",
             "-o",
+<<<<<<< HEAD
             "bin/libIterativeRobot/commands/Intake/IntakeControl.cpp.o",
             "src\\libIterativeRobot\\commands\\Intake\\IntakeControl.cpp"
         ],
         "directory": "C:\\Users\\JHBennett22\\Desktop\\Robotics\\Programing\\Noodle",
         "file": "src\\libIterativeRobot\\commands\\Intake\\IntakeControl.cpp"
+=======
+            "bin/libIterativeRobot/commands/Intake/StopIntake.cpp.o",
+            "src\\libIterativeRobot\\commands\\Intake\\StopIntake.cpp"
+        ],
+        "directory": "C:\\Users\\eeuser\\Documents\\VEX\\2019-2020-VEX-1138X-Noodle",
+        "file": "src\\libIterativeRobot\\commands\\Intake\\StopIntake.cpp"
+>>>>>>> 548a1575c5408b7923f176bd52f7a9002bb7c548
     },
     {
         "arguments": [
@@ -308,11 +396,19 @@
             "-fdiagnostics-color",
             "--std=gnu++17",
             "-o",
+<<<<<<< HEAD
             "bin/libIterativeRobot/commands/Auton/BLUECODE.cpp.o",
             "src\\libIterativeRobot\\commands\\Auton\\BLUECODE.cpp"
         ],
         "directory": "C:\\Users\\JHBennett22\\Desktop\\Robotics\\Programing\\Noodle",
         "file": "src\\libIterativeRobot\\commands\\Auton\\BLUECODE.cpp"
+=======
+            "bin/libIterativeRobot/commands/Auton/Push.cpp.o",
+            "src\\libIterativeRobot\\commands\\Auton\\Push.cpp"
+        ],
+        "directory": "C:\\Users\\eeuser\\Documents\\VEX\\2019-2020-VEX-1138X-Noodle",
+        "file": "src\\libIterativeRobot\\commands\\Auton\\Push.cpp"
+>>>>>>> 548a1575c5408b7923f176bd52f7a9002bb7c548
     },
     {
         "arguments": [
@@ -330,7 +426,11 @@
             "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/include-fixed",
             "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include",
             "-iquote./include",
+<<<<<<< HEAD
             "-iquote./include/libIterativeRobot/commands/Arm/",
+=======
+            "-iquote./include/libIterativeRobot/commands/Miscellaneous/",
+>>>>>>> 548a1575c5408b7923f176bd52f7a9002bb7c548
             "-mcpu=cortex-a9",
             "-mfpu=neon-fp16",
             "-mfloat-abi=softfp",
@@ -343,11 +443,19 @@
             "-fdiagnostics-color",
             "--std=gnu++17",
             "-o",
+<<<<<<< HEAD
             "bin/libIterativeRobot/commands/Arm/MoveArmTo.cpp.o",
             "src\\libIterativeRobot\\commands\\Arm\\MoveArmTo.cpp"
         ],
         "directory": "C:\\Users\\JHBennett22\\Desktop\\Robotics\\Programing\\Noodle",
         "file": "src\\libIterativeRobot\\commands\\Arm\\MoveArmTo.cpp"
+=======
+            "bin/libIterativeRobot/commands/Miscellaneous/GetData.cpp.o",
+            "src\\libIterativeRobot\\commands\\Miscellaneous\\GetData.cpp"
+        ],
+        "directory": "C:\\Users\\eeuser\\Documents\\VEX\\2019-2020-VEX-1138X-Noodle",
+        "file": "src\\libIterativeRobot\\commands\\Miscellaneous\\GetData.cpp"
+>>>>>>> 548a1575c5408b7923f176bd52f7a9002bb7c548
     },
     {
         "arguments": [
@@ -365,7 +473,11 @@
             "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/include-fixed",
             "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include",
             "-iquote./include",
+<<<<<<< HEAD
             "-iquote./include/libIterativeRobot/",
+=======
+            "-iquote./include/./",
+>>>>>>> 548a1575c5408b7923f176bd52f7a9002bb7c548
             "-mcpu=cortex-a9",
             "-mfpu=neon-fp16",
             "-mfloat-abi=softfp",
@@ -378,11 +490,19 @@
             "-fdiagnostics-color",
             "--std=gnu++17",
             "-o",
+<<<<<<< HEAD
             "bin/libIterativeRobot/AutonChooser.cpp.o",
             "src\\libIterativeRobot\\AutonChooser.cpp"
         ],
         "directory": "C:\\Users\\JHBennett22\\Desktop\\Robotics\\Programing\\Noodle",
         "file": "src\\libIterativeRobot\\AutonChooser.cpp"
+=======
+            "bin/autonomous.cpp.o",
+            "src\\autonomous.cpp"
+        ],
+        "directory": "C:\\Users\\eeuser\\Documents\\VEX\\2019-2020-VEX-1138X-Noodle",
+        "file": "src\\autonomous.cpp"
+>>>>>>> 548a1575c5408b7923f176bd52f7a9002bb7c548
     },
     {
         "arguments": [
@@ -400,7 +520,11 @@
             "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/include-fixed",
             "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include",
             "-iquote./include",
+<<<<<<< HEAD
             "-iquote./include/libIterativeRobot/commands/Angler/",
+=======
+            "-iquote./include/libIterativeRobot/subsystems/",
+>>>>>>> 548a1575c5408b7923f176bd52f7a9002bb7c548
             "-mcpu=cortex-a9",
             "-mfpu=neon-fp16",
             "-mfloat-abi=softfp",
@@ -413,11 +537,19 @@
             "-fdiagnostics-color",
             "--std=gnu++17",
             "-o",
+<<<<<<< HEAD
             "bin/libIterativeRobot/commands/Angler/MoveAnglerFor.cpp.o",
             "src\\libIterativeRobot\\commands\\Angler\\MoveAnglerFor.cpp"
         ],
         "directory": "C:\\Users\\JHBennett22\\Desktop\\Robotics\\Programing\\Noodle",
         "file": "src\\libIterativeRobot\\commands\\Angler\\MoveAnglerFor.cpp"
+=======
+            "bin/libIterativeRobot/subsystems/Base.cpp.o",
+            "src\\libIterativeRobot\\subsystems\\Base.cpp"
+        ],
+        "directory": "C:\\Users\\eeuser\\Documents\\VEX\\2019-2020-VEX-1138X-Noodle",
+        "file": "src\\libIterativeRobot\\subsystems\\Base.cpp"
+>>>>>>> 548a1575c5408b7923f176bd52f7a9002bb7c548
     },
     {
         "arguments": [
@@ -435,7 +567,7 @@
             "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/include-fixed",
             "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include",
             "-iquote./include",
-            "-iquote./include/libIterativeRobot/commands/Arm/",
+            "-iquote./include/abstractBaseClasses/",
             "-mcpu=cortex-a9",
             "-mfpu=neon-fp16",
             "-mfloat-abi=softfp",
@@ -448,11 +580,19 @@
             "-fdiagnostics-color",
             "--std=gnu++17",
             "-o",
+<<<<<<< HEAD
             "bin/libIterativeRobot/commands/Arm/MoveArmFor.cpp.o",
             "src\\libIterativeRobot\\commands\\Arm\\MoveArmFor.cpp"
         ],
         "directory": "C:\\Users\\JHBennett22\\Desktop\\Robotics\\Programing\\Noodle",
         "file": "src\\libIterativeRobot\\commands\\Arm\\MoveArmFor.cpp"
+=======
+            "bin/abstractBaseClasses/LinearProfiler.cpp.o",
+            "src\\abstractBaseClasses\\LinearProfiler.cpp"
+        ],
+        "directory": "C:\\Users\\eeuser\\Documents\\VEX\\2019-2020-VEX-1138X-Noodle",
+        "file": "src\\abstractBaseClasses\\LinearProfiler.cpp"
+>>>>>>> 548a1575c5408b7923f176bd52f7a9002bb7c548
     },
     {
         "arguments": [
@@ -470,7 +610,11 @@
             "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/include-fixed",
             "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include",
             "-iquote./include",
+<<<<<<< HEAD
             "-iquote./include/libIterativeRobot/",
+=======
+            "-iquote./include/libIterativeRobot/commands/Auton/",
+>>>>>>> 548a1575c5408b7923f176bd52f7a9002bb7c548
             "-mcpu=cortex-a9",
             "-mfpu=neon-fp16",
             "-mfloat-abi=softfp",
@@ -483,11 +627,19 @@
             "-fdiagnostics-color",
             "--std=gnu++17",
             "-o",
+<<<<<<< HEAD
             "bin/libIterativeRobot/Robot.cpp.o",
             "src\\libIterativeRobot\\Robot.cpp"
         ],
         "directory": "C:\\Users\\JHBennett22\\Desktop\\Robotics\\Programing\\Noodle",
         "file": "src\\libIterativeRobot\\Robot.cpp"
+=======
+            "bin/libIterativeRobot/commands/Auton/REDCODE.cpp.o",
+            "src\\libIterativeRobot\\commands\\Auton\\REDCODE.cpp"
+        ],
+        "directory": "C:\\Users\\eeuser\\Documents\\VEX\\2019-2020-VEX-1138X-Noodle",
+        "file": "src\\libIterativeRobot\\commands\\Auton\\REDCODE.cpp"
+>>>>>>> 548a1575c5408b7923f176bd52f7a9002bb7c548
     },
     {
         "arguments": [
@@ -505,7 +657,11 @@
             "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/include-fixed",
             "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include",
             "-iquote./include",
+<<<<<<< HEAD
             "-iquote./include/libIterativeRobot/commands/Auton/",
+=======
+            "-iquote./include/./",
+>>>>>>> 548a1575c5408b7923f176bd52f7a9002bb7c548
             "-mcpu=cortex-a9",
             "-mfpu=neon-fp16",
             "-mfloat-abi=softfp",
@@ -518,11 +674,19 @@
             "-fdiagnostics-color",
             "--std=gnu++17",
             "-o",
+<<<<<<< HEAD
             "bin/libIterativeRobot/commands/Auton/TopRedStack.cpp.o",
             "src\\libIterativeRobot\\commands\\Auton\\TopRedStack.cpp"
         ],
         "directory": "C:\\Users\\JHBennett22\\Desktop\\Robotics\\Programing\\Noodle",
         "file": "src\\libIterativeRobot\\commands\\Auton\\TopRedStack.cpp"
+=======
+            "bin/initialize.cpp.o",
+            "src\\initialize.cpp"
+        ],
+        "directory": "C:\\Users\\eeuser\\Documents\\VEX\\2019-2020-VEX-1138X-Noodle",
+        "file": "src\\initialize.cpp"
+>>>>>>> 548a1575c5408b7923f176bd52f7a9002bb7c548
     },
     {
         "arguments": [
@@ -553,11 +717,19 @@
             "-fdiagnostics-color",
             "--std=gnu++17",
             "-o",
+<<<<<<< HEAD
             "bin/libIterativeRobot/commands/Miscellaneous/Delay.cpp.o",
             "src\\libIterativeRobot\\commands\\Miscellaneous\\Delay.cpp"
         ],
         "directory": "C:\\Users\\JHBennett22\\Desktop\\Robotics\\Programing\\Noodle",
         "file": "src\\libIterativeRobot\\commands\\Miscellaneous\\Delay.cpp"
+=======
+            "bin/libIterativeRobot/commands/Miscellaneous/FlipOut.cpp.o",
+            "src\\libIterativeRobot\\commands\\Miscellaneous\\FlipOut.cpp"
+        ],
+        "directory": "C:\\Users\\eeuser\\Documents\\VEX\\2019-2020-VEX-1138X-Noodle",
+        "file": "src\\libIterativeRobot\\commands\\Miscellaneous\\FlipOut.cpp"
+>>>>>>> 548a1575c5408b7923f176bd52f7a9002bb7c548
     },
     {
         "arguments": [
@@ -575,7 +747,11 @@
             "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/include-fixed",
             "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include",
             "-iquote./include",
+<<<<<<< HEAD
             "-iquote./include/libIterativeRobot/subsystems/",
+=======
+            "-iquote./include/libIterativeRobot/commands/Base/",
+>>>>>>> 548a1575c5408b7923f176bd52f7a9002bb7c548
             "-mcpu=cortex-a9",
             "-mfpu=neon-fp16",
             "-mfloat-abi=softfp",
@@ -588,11 +764,19 @@
             "-fdiagnostics-color",
             "--std=gnu++17",
             "-o",
+<<<<<<< HEAD
             "bin/libIterativeRobot/subsystems/Arm.cpp.o",
             "src\\libIterativeRobot\\subsystems\\Arm.cpp"
         ],
         "directory": "C:\\Users\\JHBennett22\\Desktop\\Robotics\\Programing\\Noodle",
         "file": "src\\libIterativeRobot\\subsystems\\Arm.cpp"
+=======
+            "bin/libIterativeRobot/commands/Base/BaseLinearMovement.cpp.o",
+            "src\\libIterativeRobot\\commands\\Base\\BaseLinearMovement.cpp"
+        ],
+        "directory": "C:\\Users\\eeuser\\Documents\\VEX\\2019-2020-VEX-1138X-Noodle",
+        "file": "src\\libIterativeRobot\\commands\\Base\\BaseLinearMovement.cpp"
+>>>>>>> 548a1575c5408b7923f176bd52f7a9002bb7c548
     },
     {
         "arguments": [
@@ -610,7 +794,11 @@
             "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/include-fixed",
             "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include",
             "-iquote./include",
+<<<<<<< HEAD
             "-iquote./include/libIterativeRobot/commands/Miscellaneous/",
+=======
+            "-iquote./include/libIterativeRobot/commands/Auton/",
+>>>>>>> 548a1575c5408b7923f176bd52f7a9002bb7c548
             "-mcpu=cortex-a9",
             "-mfpu=neon-fp16",
             "-mfloat-abi=softfp",
@@ -623,11 +811,19 @@
             "-fdiagnostics-color",
             "--std=gnu++17",
             "-o",
+<<<<<<< HEAD
             "bin/libIterativeRobot/commands/Miscellaneous/FlipOut.cpp.o",
             "src\\libIterativeRobot\\commands\\Miscellaneous\\FlipOut.cpp"
         ],
         "directory": "C:\\Users\\JHBennett22\\Desktop\\Robotics\\Programing\\Noodle",
         "file": "src\\libIterativeRobot\\commands\\Miscellaneous\\FlipOut.cpp"
+=======
+            "bin/libIterativeRobot/commands/Auton/RedTopPush.cpp.o",
+            "src\\libIterativeRobot\\commands\\Auton\\RedTopPush.cpp"
+        ],
+        "directory": "C:\\Users\\eeuser\\Documents\\VEX\\2019-2020-VEX-1138X-Noodle",
+        "file": "src\\libIterativeRobot\\commands\\Auton\\RedTopPush.cpp"
+>>>>>>> 548a1575c5408b7923f176bd52f7a9002bb7c548
     },
     {
         "arguments": [
@@ -658,11 +854,19 @@
             "-fdiagnostics-color",
             "--std=gnu++17",
             "-o",
+<<<<<<< HEAD
             "bin/abstractBaseClasses/Motor.cpp.o",
             "src\\abstractBaseClasses\\Motor.cpp"
         ],
         "directory": "C:\\Users\\JHBennett22\\Desktop\\Robotics\\Programing\\Noodle",
         "file": "src\\abstractBaseClasses\\Motor.cpp"
+=======
+            "bin/abstractBaseClasses/PIDController.cpp.o",
+            "src\\abstractBaseClasses\\PIDController.cpp"
+        ],
+        "directory": "C:\\Users\\eeuser\\Documents\\VEX\\2019-2020-VEX-1138X-Noodle",
+        "file": "src\\abstractBaseClasses\\PIDController.cpp"
+>>>>>>> 548a1575c5408b7923f176bd52f7a9002bb7c548
     },
     {
         "arguments": [
@@ -680,7 +884,7 @@
             "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/include-fixed",
             "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include",
             "-iquote./include",
-            "-iquote./include/libIterativeRobot/subsystems/",
+            "-iquote./include/libIterativeRobot/commands/Base/",
             "-mcpu=cortex-a9",
             "-mfpu=neon-fp16",
             "-mfloat-abi=softfp",
@@ -693,11 +897,19 @@
             "-fdiagnostics-color",
             "--std=gnu++17",
             "-o",
+<<<<<<< HEAD
             "bin/libIterativeRobot/subsystems/Angler.cpp.o",
             "src\\libIterativeRobot\\subsystems\\Angler.cpp"
         ],
         "directory": "C:\\Users\\JHBennett22\\Desktop\\Robotics\\Programing\\Noodle",
         "file": "src\\libIterativeRobot\\subsystems\\Angler.cpp"
+=======
+            "bin/libIterativeRobot/commands/Base/StopBase.cpp.o",
+            "src\\libIterativeRobot\\commands\\Base\\StopBase.cpp"
+        ],
+        "directory": "C:\\Users\\eeuser\\Documents\\VEX\\2019-2020-VEX-1138X-Noodle",
+        "file": "src\\libIterativeRobot\\commands\\Base\\StopBase.cpp"
+>>>>>>> 548a1575c5408b7923f176bd52f7a9002bb7c548
     },
     {
         "arguments": [
@@ -715,7 +927,11 @@
             "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/include-fixed",
             "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include",
             "-iquote./include",
+<<<<<<< HEAD
             "-iquote./include/libIterativeRobot/subsystems/",
+=======
+            "-iquote./include/libIterativeRobot/commands/Auton/",
+>>>>>>> 548a1575c5408b7923f176bd52f7a9002bb7c548
             "-mcpu=cortex-a9",
             "-mfpu=neon-fp16",
             "-mfloat-abi=softfp",
@@ -728,11 +944,19 @@
             "-fdiagnostics-color",
             "--std=gnu++17",
             "-o",
+<<<<<<< HEAD
             "bin/libIterativeRobot/subsystems/Intake.cpp.o",
             "src\\libIterativeRobot\\subsystems\\Intake.cpp"
         ],
         "directory": "C:\\Users\\JHBennett22\\Desktop\\Robotics\\Programing\\Noodle",
         "file": "src\\libIterativeRobot\\subsystems\\Intake.cpp"
+=======
+            "bin/libIterativeRobot/commands/Auton/JohnsCode.cpp.o",
+            "src\\libIterativeRobot\\commands\\Auton\\JohnsCode.cpp"
+        ],
+        "directory": "C:\\Users\\eeuser\\Documents\\VEX\\2019-2020-VEX-1138X-Noodle",
+        "file": "src\\libIterativeRobot\\commands\\Auton\\JohnsCode.cpp"
+>>>>>>> 548a1575c5408b7923f176bd52f7a9002bb7c548
     },
     {
         "arguments": [
@@ -750,7 +974,11 @@
             "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/include-fixed",
             "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include",
             "-iquote./include",
+<<<<<<< HEAD
             "-iquote./include/libIterativeRobot/commands/Intake/",
+=======
+            "-iquote./include/libIterativeRobot/commands/Auton/",
+>>>>>>> 548a1575c5408b7923f176bd52f7a9002bb7c548
             "-mcpu=cortex-a9",
             "-mfpu=neon-fp16",
             "-mfloat-abi=softfp",
@@ -763,11 +991,19 @@
             "-fdiagnostics-color",
             "--std=gnu++17",
             "-o",
+<<<<<<< HEAD
             "bin/libIterativeRobot/commands/Intake/StopIntake.cpp.o",
             "src\\libIterativeRobot\\commands\\Intake\\StopIntake.cpp"
         ],
         "directory": "C:\\Users\\JHBennett22\\Desktop\\Robotics\\Programing\\Noodle",
         "file": "src\\libIterativeRobot\\commands\\Intake\\StopIntake.cpp"
+=======
+            "bin/libIterativeRobot/commands/Auton/BLUECODE.cpp.o",
+            "src\\libIterativeRobot\\commands\\Auton\\BLUECODE.cpp"
+        ],
+        "directory": "C:\\Users\\eeuser\\Documents\\VEX\\2019-2020-VEX-1138X-Noodle",
+        "file": "src\\libIterativeRobot\\commands\\Auton\\BLUECODE.cpp"
+>>>>>>> 548a1575c5408b7923f176bd52f7a9002bb7c548
     },
     {
         "arguments": [
@@ -785,7 +1021,11 @@
             "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/include-fixed",
             "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include",
             "-iquote./include",
+<<<<<<< HEAD
             "-iquote./include/libIterativeRobot/commands/Auton/",
+=======
+            "-iquote./include/libIterativeRobot/commands/Angler/",
+>>>>>>> 548a1575c5408b7923f176bd52f7a9002bb7c548
             "-mcpu=cortex-a9",
             "-mfpu=neon-fp16",
             "-mfloat-abi=softfp",
@@ -798,11 +1038,19 @@
             "-fdiagnostics-color",
             "--std=gnu++17",
             "-o",
+<<<<<<< HEAD
             "bin/libIterativeRobot/commands/Auton/REDCODE.cpp.o",
             "src\\libIterativeRobot\\commands\\Auton\\REDCODE.cpp"
         ],
         "directory": "C:\\Users\\JHBennett22\\Desktop\\Robotics\\Programing\\Noodle",
         "file": "src\\libIterativeRobot\\commands\\Auton\\REDCODE.cpp"
+=======
+            "bin/libIterativeRobot/commands/Angler/MoveAnglerFor.cpp.o",
+            "src\\libIterativeRobot\\commands\\Angler\\MoveAnglerFor.cpp"
+        ],
+        "directory": "C:\\Users\\eeuser\\Documents\\VEX\\2019-2020-VEX-1138X-Noodle",
+        "file": "src\\libIterativeRobot\\commands\\Angler\\MoveAnglerFor.cpp"
+>>>>>>> 548a1575c5408b7923f176bd52f7a9002bb7c548
     },
     {
         "arguments": [
@@ -820,7 +1068,11 @@
             "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/include-fixed",
             "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include",
             "-iquote./include",
+<<<<<<< HEAD
             "-iquote./include/libIterativeRobot/commands/Intake/",
+=======
+            "-iquote./include/libIterativeRobot/commands/Arm/",
+>>>>>>> 548a1575c5408b7923f176bd52f7a9002bb7c548
             "-mcpu=cortex-a9",
             "-mfpu=neon-fp16",
             "-mfloat-abi=softfp",
@@ -833,11 +1085,19 @@
             "-fdiagnostics-color",
             "--std=gnu++17",
             "-o",
+<<<<<<< HEAD
             "bin/libIterativeRobot/commands/Intake/MoveIntakeFor.cpp.o",
             "src\\libIterativeRobot\\commands\\Intake\\MoveIntakeFor.cpp"
         ],
         "directory": "C:\\Users\\JHBennett22\\Desktop\\Robotics\\Programing\\Noodle",
         "file": "src\\libIterativeRobot\\commands\\Intake\\MoveIntakeFor.cpp"
+=======
+            "bin/libIterativeRobot/commands/Arm/StopArm.cpp.o",
+            "src\\libIterativeRobot\\commands\\Arm\\StopArm.cpp"
+        ],
+        "directory": "C:\\Users\\eeuser\\Documents\\VEX\\2019-2020-VEX-1138X-Noodle",
+        "file": "src\\libIterativeRobot\\commands\\Arm\\StopArm.cpp"
+>>>>>>> 548a1575c5408b7923f176bd52f7a9002bb7c548
     },
     {
         "arguments": [
@@ -855,7 +1115,11 @@
             "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/include-fixed",
             "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include",
             "-iquote./include",
+<<<<<<< HEAD
             "-iquote./include/libIterativeRobot/subsystems/",
+=======
+            "-iquote./include/libIterativeRobot/commands/Auton/",
+>>>>>>> 548a1575c5408b7923f176bd52f7a9002bb7c548
             "-mcpu=cortex-a9",
             "-mfpu=neon-fp16",
             "-mfloat-abi=softfp",
@@ -868,11 +1132,19 @@
             "-fdiagnostics-color",
             "--std=gnu++17",
             "-o",
+<<<<<<< HEAD
             "bin/libIterativeRobot/subsystems/Base.cpp.o",
             "src\\libIterativeRobot\\subsystems\\Base.cpp"
         ],
         "directory": "C:\\Users\\JHBennett22\\Desktop\\Robotics\\Programing\\Noodle",
         "file": "src\\libIterativeRobot\\subsystems\\Base.cpp"
+=======
+            "bin/libIterativeRobot/commands/Auton/TopRedStack.cpp.o",
+            "src\\libIterativeRobot\\commands\\Auton\\TopRedStack.cpp"
+        ],
+        "directory": "C:\\Users\\eeuser\\Documents\\VEX\\2019-2020-VEX-1138X-Noodle",
+        "file": "src\\libIterativeRobot\\commands\\Auton\\TopRedStack.cpp"
+>>>>>>> 548a1575c5408b7923f176bd52f7a9002bb7c548
     },
     {
         "arguments": [
@@ -903,11 +1175,19 @@
             "-fdiagnostics-color",
             "--std=gnu++17",
             "-o",
+<<<<<<< HEAD
             "bin/libIterativeRobot/commands/Base/DriveForTime.cpp.o",
             "src\\libIterativeRobot\\commands\\Base\\DriveForTime.cpp"
         ],
         "directory": "C:\\Users\\JHBennett22\\Desktop\\Robotics\\Programing\\Noodle",
         "file": "src\\libIterativeRobot\\commands\\Base\\DriveForTime.cpp"
+=======
+            "bin/libIterativeRobot/commands/Auton/OtherSide.cpp.o",
+            "src\\libIterativeRobot\\commands\\Auton\\OtherSide.cpp"
+        ],
+        "directory": "C:\\Users\\eeuser\\Documents\\VEX\\2019-2020-VEX-1138X-Noodle",
+        "file": "src\\libIterativeRobot\\commands\\Auton\\OtherSide.cpp"
+>>>>>>> 548a1575c5408b7923f176bd52f7a9002bb7c548
     },
     {
         "arguments": [
@@ -925,7 +1205,11 @@
             "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/include-fixed",
             "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include",
             "-iquote./include",
+<<<<<<< HEAD
             "-iquote./include/abstractBaseClasses/",
+=======
+            "-iquote./include/libIterativeRobot/commands/Auton/",
+>>>>>>> 548a1575c5408b7923f176bd52f7a9002bb7c548
             "-mcpu=cortex-a9",
             "-mfpu=neon-fp16",
             "-mfloat-abi=softfp",
@@ -938,11 +1222,19 @@
             "-fdiagnostics-color",
             "--std=gnu++17",
             "-o",
+<<<<<<< HEAD
             "bin/abstractBaseClasses/PositionTracker.cpp.o",
             "src\\abstractBaseClasses\\PositionTracker.cpp"
         ],
         "directory": "C:\\Users\\JHBennett22\\Desktop\\Robotics\\Programing\\Noodle",
         "file": "src\\abstractBaseClasses\\PositionTracker.cpp"
+=======
+            "bin/libIterativeRobot/commands/Auton/AutonGroup1.cpp.o",
+            "src\\libIterativeRobot\\commands\\Auton\\AutonGroup1.cpp"
+        ],
+        "directory": "C:\\Users\\eeuser\\Documents\\VEX\\2019-2020-VEX-1138X-Noodle",
+        "file": "src\\libIterativeRobot\\commands\\Auton\\AutonGroup1.cpp"
+>>>>>>> 548a1575c5408b7923f176bd52f7a9002bb7c548
     },
     {
         "arguments": [
@@ -960,7 +1252,11 @@
             "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/include-fixed",
             "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include",
             "-iquote./include",
+<<<<<<< HEAD
             "-iquote./include/./",
+=======
+            "-iquote./include/libIterativeRobot/commands/Angler/",
+>>>>>>> 548a1575c5408b7923f176bd52f7a9002bb7c548
             "-mcpu=cortex-a9",
             "-mfpu=neon-fp16",
             "-mfloat-abi=softfp",
@@ -973,11 +1269,19 @@
             "-fdiagnostics-color",
             "--std=gnu++17",
             "-o",
+<<<<<<< HEAD
             "bin/autonomous.cpp.o",
             "src\\autonomous.cpp"
         ],
         "directory": "C:\\Users\\JHBennett22\\Desktop\\Robotics\\Programing\\Noodle",
         "file": "src\\autonomous.cpp"
+=======
+            "bin/libIterativeRobot/commands/Angler/AnglerControl.cpp.o",
+            "src\\libIterativeRobot\\commands\\Angler\\AnglerControl.cpp"
+        ],
+        "directory": "C:\\Users\\eeuser\\Documents\\VEX\\2019-2020-VEX-1138X-Noodle",
+        "file": "src\\libIterativeRobot\\commands\\Angler\\AnglerControl.cpp"
+>>>>>>> 548a1575c5408b7923f176bd52f7a9002bb7c548
     },
     {
         "arguments": [
@@ -995,7 +1299,11 @@
             "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/include-fixed",
             "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include",
             "-iquote./include",
+<<<<<<< HEAD
             "-iquote./include/libIterativeRobot/commands/Auton/",
+=======
+            "-iquote./include/./",
+>>>>>>> 548a1575c5408b7923f176bd52f7a9002bb7c548
             "-mcpu=cortex-a9",
             "-mfpu=neon-fp16",
             "-mfloat-abi=softfp",
@@ -1008,11 +1316,19 @@
             "-fdiagnostics-color",
             "--std=gnu++17",
             "-o",
+<<<<<<< HEAD
             "bin/libIterativeRobot/commands/Auton/RedTopPush.cpp.o",
             "src\\libIterativeRobot\\commands\\Auton\\RedTopPush.cpp"
         ],
         "directory": "C:\\Users\\JHBennett22\\Desktop\\Robotics\\Programing\\Noodle",
         "file": "src\\libIterativeRobot\\commands\\Auton\\RedTopPush.cpp"
+=======
+            "bin/opcontrol.cpp.o",
+            "src\\opcontrol.cpp"
+        ],
+        "directory": "C:\\Users\\eeuser\\Documents\\VEX\\2019-2020-VEX-1138X-Noodle",
+        "file": "src\\opcontrol.cpp"
+>>>>>>> 548a1575c5408b7923f176bd52f7a9002bb7c548
     },
     {
         "arguments": [
@@ -1043,11 +1359,19 @@
             "-fdiagnostics-color",
             "--std=gnu++17",
             "-o",
+<<<<<<< HEAD
             "bin/libIterativeRobot/commands/Base/BaseLinearMovement.cpp.o",
             "src\\libIterativeRobot\\commands\\Base\\BaseLinearMovement.cpp"
         ],
         "directory": "C:\\Users\\JHBennett22\\Desktop\\Robotics\\Programing\\Noodle",
         "file": "src\\libIterativeRobot\\commands\\Base\\BaseLinearMovement.cpp"
+=======
+            "bin/libIterativeRobot/commands/Miscellaneous/TuneLinearProfile.cpp.o",
+            "src\\libIterativeRobot\\commands\\Miscellaneous\\TuneLinearProfile.cpp"
+        ],
+        "directory": "C:\\Users\\eeuser\\Documents\\VEX\\2019-2020-VEX-1138X-Noodle",
+        "file": "src\\libIterativeRobot\\commands\\Miscellaneous\\TuneLinearProfile.cpp"
+>>>>>>> 548a1575c5408b7923f176bd52f7a9002bb7c548
     },
     {
         "arguments": [
@@ -1065,7 +1389,11 @@
             "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/include-fixed",
             "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include",
             "-iquote./include",
+<<<<<<< HEAD
             "-iquote./include/libIterativeRobot/commands/Arm/",
+=======
+            "-iquote./include/abstractBaseClasses/",
+>>>>>>> 548a1575c5408b7923f176bd52f7a9002bb7c548
             "-mcpu=cortex-a9",
             "-mfpu=neon-fp16",
             "-mfloat-abi=softfp",
@@ -1078,11 +1406,19 @@
             "-fdiagnostics-color",
             "--std=gnu++17",
             "-o",
+<<<<<<< HEAD
             "bin/libIterativeRobot/commands/Arm/ArmControl.cpp.o",
             "src\\libIterativeRobot\\commands\\Arm\\ArmControl.cpp"
         ],
         "directory": "C:\\Users\\JHBennett22\\Desktop\\Robotics\\Programing\\Noodle",
         "file": "src\\libIterativeRobot\\commands\\Arm\\ArmControl.cpp"
+=======
+            "bin/abstractBaseClasses/PositionTracker.cpp.o",
+            "src\\abstractBaseClasses\\PositionTracker.cpp"
+        ],
+        "directory": "C:\\Users\\eeuser\\Documents\\VEX\\2019-2020-VEX-1138X-Noodle",
+        "file": "src\\abstractBaseClasses\\PositionTracker.cpp"
+>>>>>>> 548a1575c5408b7923f176bd52f7a9002bb7c548
     },
     {
         "arguments": [
@@ -1100,7 +1436,11 @@
             "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/include-fixed",
             "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include",
             "-iquote./include",
+<<<<<<< HEAD
             "-iquote./include/./",
+=======
+            "-iquote./include/abstractBaseClasses/",
+>>>>>>> 548a1575c5408b7923f176bd52f7a9002bb7c548
             "-mcpu=cortex-a9",
             "-mfpu=neon-fp16",
             "-mfloat-abi=softfp",
@@ -1113,11 +1453,19 @@
             "-fdiagnostics-color",
             "--std=gnu++17",
             "-o",
+<<<<<<< HEAD
             "bin/opcontrol.cpp.o",
             "src\\opcontrol.cpp"
         ],
         "directory": "C:\\Users\\JHBennett22\\Desktop\\Robotics\\Programing\\Noodle",
         "file": "src\\opcontrol.cpp"
+=======
+            "bin/abstractBaseClasses/Motor.cpp.o",
+            "src\\abstractBaseClasses\\Motor.cpp"
+        ],
+        "directory": "C:\\Users\\eeuser\\Documents\\VEX\\2019-2020-VEX-1138X-Noodle",
+        "file": "src\\abstractBaseClasses\\Motor.cpp"
+>>>>>>> 548a1575c5408b7923f176bd52f7a9002bb7c548
     },
     {
         "arguments": [
@@ -1135,7 +1483,11 @@
             "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/include-fixed",
             "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include",
             "-iquote./include",
+<<<<<<< HEAD
             "-iquote./include/libIterativeRobot/commands/Auton/",
+=======
+            "-iquote./include/libIterativeRobot/commands/Arm/",
+>>>>>>> 548a1575c5408b7923f176bd52f7a9002bb7c548
             "-mcpu=cortex-a9",
             "-mfpu=neon-fp16",
             "-mfloat-abi=softfp",
@@ -1148,11 +1500,19 @@
             "-fdiagnostics-color",
             "--std=gnu++17",
             "-o",
+<<<<<<< HEAD
             "bin/libIterativeRobot/commands/Auton/AutonGroup2.cpp.o",
             "src\\libIterativeRobot\\commands\\Auton\\AutonGroup2.cpp"
         ],
         "directory": "C:\\Users\\JHBennett22\\Desktop\\Robotics\\Programing\\Noodle",
         "file": "src\\libIterativeRobot\\commands\\Auton\\AutonGroup2.cpp"
+=======
+            "bin/libIterativeRobot/commands/Arm/ArmControl.cpp.o",
+            "src\\libIterativeRobot\\commands\\Arm\\ArmControl.cpp"
+        ],
+        "directory": "C:\\Users\\eeuser\\Documents\\VEX\\2019-2020-VEX-1138X-Noodle",
+        "file": "src\\libIterativeRobot\\commands\\Arm\\ArmControl.cpp"
+>>>>>>> 548a1575c5408b7923f176bd52f7a9002bb7c548
     },
     {
         "arguments": [
@@ -1186,7 +1546,11 @@
             "bin/libIterativeRobot/commands/Base/DriveWithJoy.cpp.o",
             "src\\libIterativeRobot\\commands\\Base\\DriveWithJoy.cpp"
         ],
+<<<<<<< HEAD
         "directory": "C:\\Users\\JHBennett22\\Desktop\\Robotics\\Programing\\Noodle",
+=======
+        "directory": "C:\\Users\\eeuser\\Documents\\VEX\\2019-2020-VEX-1138X-Noodle",
+>>>>>>> 548a1575c5408b7923f176bd52f7a9002bb7c548
         "file": "src\\libIterativeRobot\\commands\\Base\\DriveWithJoy.cpp"
     },
     {
@@ -1205,7 +1569,11 @@
             "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/include-fixed",
             "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include",
             "-iquote./include",
+<<<<<<< HEAD
             "-iquote./include/libIterativeRobot/commands/Angler/",
+=======
+            "-iquote./include/libIterativeRobot/commands/Intake/",
+>>>>>>> 548a1575c5408b7923f176bd52f7a9002bb7c548
             "-mcpu=cortex-a9",
             "-mfpu=neon-fp16",
             "-mfloat-abi=softfp",
@@ -1218,11 +1586,19 @@
             "-fdiagnostics-color",
             "--std=gnu++17",
             "-o",
+<<<<<<< HEAD
             "bin/libIterativeRobot/commands/Angler/MoveAnglerTo.cpp.o",
             "src\\libIterativeRobot\\commands\\Angler\\MoveAnglerTo.cpp"
         ],
         "directory": "C:\\Users\\JHBennett22\\Desktop\\Robotics\\Programing\\Noodle",
         "file": "src\\libIterativeRobot\\commands\\Angler\\MoveAnglerTo.cpp"
+=======
+            "bin/libIterativeRobot/commands/Intake/IntakeControl.cpp.o",
+            "src\\libIterativeRobot\\commands\\Intake\\IntakeControl.cpp"
+        ],
+        "directory": "C:\\Users\\eeuser\\Documents\\VEX\\2019-2020-VEX-1138X-Noodle",
+        "file": "src\\libIterativeRobot\\commands\\Intake\\IntakeControl.cpp"
+>>>>>>> 548a1575c5408b7923f176bd52f7a9002bb7c548
     },
     {
         "arguments": [
@@ -1240,7 +1616,11 @@
             "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/include-fixed",
             "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include",
             "-iquote./include",
+<<<<<<< HEAD
             "-iquote./include/./",
+=======
+            "-iquote./include/libIterativeRobot/commands/Base/",
+>>>>>>> 548a1575c5408b7923f176bd52f7a9002bb7c548
             "-mcpu=cortex-a9",
             "-mfpu=neon-fp16",
             "-mfloat-abi=softfp",
@@ -1253,11 +1633,19 @@
             "-fdiagnostics-color",
             "--std=gnu++17",
             "-o",
+<<<<<<< HEAD
             "bin/common.cpp.o",
             "src\\common.cpp"
         ],
         "directory": "C:\\Users\\JHBennett22\\Desktop\\Robotics\\Programing\\Noodle",
         "file": "src\\common.cpp"
+=======
+            "bin/libIterativeRobot/commands/Base/DriveForTime.cpp.o",
+            "src\\libIterativeRobot\\commands\\Base\\DriveForTime.cpp"
+        ],
+        "directory": "C:\\Users\\eeuser\\Documents\\VEX\\2019-2020-VEX-1138X-Noodle",
+        "file": "src\\libIterativeRobot\\commands\\Base\\DriveForTime.cpp"
+>>>>>>> 548a1575c5408b7923f176bd52f7a9002bb7c548
     },
     {
         "arguments": [
@@ -1288,11 +1676,19 @@
             "-fdiagnostics-color",
             "--std=gnu++17",
             "-o",
+<<<<<<< HEAD
             "bin/abstractBaseClasses/LinearProfiler.cpp.o",
             "src\\abstractBaseClasses\\LinearProfiler.cpp"
         ],
         "directory": "C:\\Users\\JHBennett22\\Desktop\\Robotics\\Programing\\Noodle",
         "file": "src\\abstractBaseClasses\\LinearProfiler.cpp"
+=======
+            "bin/libIterativeRobot/commands/Auton/AutonGroup2.cpp.o",
+            "src\\libIterativeRobot\\commands\\Auton\\AutonGroup2.cpp"
+        ],
+        "directory": "C:\\Users\\eeuser\\Documents\\VEX\\2019-2020-VEX-1138X-Noodle",
+        "file": "src\\libIterativeRobot\\commands\\Auton\\AutonGroup2.cpp"
+>>>>>>> 548a1575c5408b7923f176bd52f7a9002bb7c548
     },
     {
         "arguments": [
@@ -1310,7 +1706,11 @@
             "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/include-fixed",
             "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include",
             "-iquote./include",
+<<<<<<< HEAD
             "-iquote./include/libIterativeRobot/commands/Auton/",
+=======
+            "-iquote./include/./",
+>>>>>>> 548a1575c5408b7923f176bd52f7a9002bb7c548
             "-mcpu=cortex-a9",
             "-mfpu=neon-fp16",
             "-mfloat-abi=softfp",
@@ -1323,11 +1723,19 @@
             "-fdiagnostics-color",
             "--std=gnu++17",
             "-o",
+<<<<<<< HEAD
             "bin/libIterativeRobot/commands/Auton/Push.cpp.o",
             "src\\libIterativeRobot\\commands\\Auton\\Push.cpp"
         ],
         "directory": "C:\\Users\\JHBennett22\\Desktop\\Robotics\\Programing\\Noodle",
         "file": "src\\libIterativeRobot\\commands\\Auton\\Push.cpp"
+=======
+            "bin/common.cpp.o",
+            "src\\common.cpp"
+        ],
+        "directory": "C:\\Users\\eeuser\\Documents\\VEX\\2019-2020-VEX-1138X-Noodle",
+        "file": "src\\common.cpp"
+>>>>>>> 548a1575c5408b7923f176bd52f7a9002bb7c548
     },
     {
         "arguments": [
@@ -1345,7 +1753,11 @@
             "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/include-fixed",
             "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include",
             "-iquote./include",
+<<<<<<< HEAD
             "-iquote./include/libIterativeRobot/commands/Angler/",
+=======
+            "-iquote./include/libIterativeRobot/commands/Intake/",
+>>>>>>> 548a1575c5408b7923f176bd52f7a9002bb7c548
             "-mcpu=cortex-a9",
             "-mfpu=neon-fp16",
             "-mfloat-abi=softfp",
@@ -1358,11 +1770,19 @@
             "-fdiagnostics-color",
             "--std=gnu++17",
             "-o",
+<<<<<<< HEAD
             "bin/libIterativeRobot/commands/Angler/StopAngler.cpp.o",
             "src\\libIterativeRobot\\commands\\Angler\\StopAngler.cpp"
         ],
         "directory": "C:\\Users\\JHBennett22\\Desktop\\Robotics\\Programing\\Noodle",
         "file": "src\\libIterativeRobot\\commands\\Angler\\StopAngler.cpp"
+=======
+            "bin/libIterativeRobot/commands/Intake/MoveIntakeFor.cpp.o",
+            "src\\libIterativeRobot\\commands\\Intake\\MoveIntakeFor.cpp"
+        ],
+        "directory": "C:\\Users\\eeuser\\Documents\\VEX\\2019-2020-VEX-1138X-Noodle",
+        "file": "src\\libIterativeRobot\\commands\\Intake\\MoveIntakeFor.cpp"
+>>>>>>> 548a1575c5408b7923f176bd52f7a9002bb7c548
     },
     {
         "arguments": [
@@ -1380,7 +1800,11 @@
             "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/include-fixed",
             "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include",
             "-iquote./include",
+<<<<<<< HEAD
             "-iquote./include/abstractBaseClasses/",
+=======
+            "-iquote./include/libIterativeRobot/commands/Angler/",
+>>>>>>> 548a1575c5408b7923f176bd52f7a9002bb7c548
             "-mcpu=cortex-a9",
             "-mfpu=neon-fp16",
             "-mfloat-abi=softfp",
@@ -1393,11 +1817,19 @@
             "-fdiagnostics-color",
             "--std=gnu++17",
             "-o",
+<<<<<<< HEAD
             "bin/abstractBaseClasses/PIDController.cpp.o",
             "src\\abstractBaseClasses\\PIDController.cpp"
         ],
         "directory": "C:\\Users\\JHBennett22\\Desktop\\Robotics\\Programing\\Noodle",
         "file": "src\\abstractBaseClasses\\PIDController.cpp"
+=======
+            "bin/libIterativeRobot/commands/Angler/MoveAnglerTo.cpp.o",
+            "src\\libIterativeRobot\\commands\\Angler\\MoveAnglerTo.cpp"
+        ],
+        "directory": "C:\\Users\\eeuser\\Documents\\VEX\\2019-2020-VEX-1138X-Noodle",
+        "file": "src\\libIterativeRobot\\commands\\Angler\\MoveAnglerTo.cpp"
+>>>>>>> 548a1575c5408b7923f176bd52f7a9002bb7c548
     },
     {
         "arguments": [
@@ -1428,11 +1860,19 @@
             "-fdiagnostics-color",
             "--std=gnu++17",
             "-o",
+<<<<<<< HEAD
             "bin/libIterativeRobot/commands/Angler/AnglerControl.cpp.o",
             "src\\libIterativeRobot\\commands\\Angler\\AnglerControl.cpp"
         ],
         "directory": "C:\\Users\\JHBennett22\\Desktop\\Robotics\\Programing\\Noodle",
         "file": "src\\libIterativeRobot\\commands\\Angler\\AnglerControl.cpp"
+=======
+            "bin/libIterativeRobot/subsystems/Angler.cpp.o",
+            "src\\libIterativeRobot\\subsystems\\Angler.cpp"
+        ],
+        "directory": "C:\\Users\\eeuser\\Documents\\VEX\\2019-2020-VEX-1138X-Noodle",
+        "file": "src\\libIterativeRobot\\subsystems\\Angler.cpp"
+>>>>>>> 548a1575c5408b7923f176bd52f7a9002bb7c548
     },
     {
         "arguments": [
@@ -1450,7 +1890,7 @@
             "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/include-fixed",
             "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include",
             "-iquote./include",
-            "-iquote./include/libIterativeRobot/commands/Auton/",
+            "-iquote./include/libIterativeRobot/",
             "-mcpu=cortex-a9",
             "-mfpu=neon-fp16",
             "-mfloat-abi=softfp",
@@ -1463,10 +1903,18 @@
             "-fdiagnostics-color",
             "--std=gnu++17",
             "-o",
+<<<<<<< HEAD
             "bin/libIterativeRobot/commands/Auton/OtherSide.cpp.o",
             "src\\libIterativeRobot\\commands\\Auton\\OtherSide.cpp"
         ],
         "directory": "C:\\Users\\JHBennett22\\Desktop\\Robotics\\Programing\\Noodle",
         "file": "src\\libIterativeRobot\\commands\\Auton\\OtherSide.cpp"
+=======
+            "bin/libIterativeRobot/Robot.cpp.o",
+            "src\\libIterativeRobot\\Robot.cpp"
+        ],
+        "directory": "C:\\Users\\eeuser\\Documents\\VEX\\2019-2020-VEX-1138X-Noodle",
+        "file": "src\\libIterativeRobot\\Robot.cpp"
+>>>>>>> 548a1575c5408b7923f176bd52f7a9002bb7c548
     }
 ]
