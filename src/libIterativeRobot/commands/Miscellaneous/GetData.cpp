@@ -40,7 +40,7 @@ void GetData::execute() {
   // If the motor is done ramping up, start collecting data from the trials
   if (ramp > maxRamp) {
     // Run the base at the voltage
-    Robot::base->moveAtSpeed(voltage, voltage);
+    Robot::base->move(voltage, voltage);
 
     // Calculate velocity from deltas
     vel = (double)dpos / dt;
@@ -62,7 +62,7 @@ void GetData::execute() {
     }
   } else {
     // Ramp up the motor
-    Robot::base->moveAtSpeed(voltage, voltage);
+    Robot::base->move(voltage, voltage);
     ramp++;
   }
 }

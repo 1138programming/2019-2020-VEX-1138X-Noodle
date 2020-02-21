@@ -23,6 +23,7 @@ void MoveArmFor::initialize() {
 }
 
 void MoveArmFor::execute() {
+    printf("Moving arm: %d\n", pros::millis() - startTime);
     Robot::arm->move(speed);
 }
 

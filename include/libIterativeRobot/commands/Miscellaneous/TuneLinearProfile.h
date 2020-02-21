@@ -4,6 +4,7 @@
 #include "libIterativeRobot/commands/Command.h"
 #include "libIterativeRobot/subsystems/Subsystem.h"
 #include "abstractBaseClasses/LinearProfiler.h"
+#include "abstractBaseClasses/Motor.h"
 #include <vector>
 #include <cmath>
 
@@ -16,11 +17,11 @@ class TuneLinearProfile: public libIterativeRobot::Command {
     void end();
     void interrupted();
     void blocked();
-    TuneLinearProfile(LinearProfiler* profiler, const double* motorData, libIterativeRobot::Subsystem* subsystem, int target);
+    TuneLinearProfile(LinearProfiler* profiler, const double* motorData, Motor* motor, int target);
   private:
     LinearProfiler* profiler;
     const double* motorData;
-    libIterativeRobot::Subsystem* subsystem;
+    Motor* motor;
     int target;
 
     double learning_rate = 0.00001;

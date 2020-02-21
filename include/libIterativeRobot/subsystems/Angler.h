@@ -12,18 +12,17 @@ class Angler : public libIterativeRobot::Subsystem {
     PIDController* anglerController;
 
   public:
-    const int kCollectingPosition = -500;
+    static const double kCollectingPosition;
 
     void initDefaultCommand();
     void move(int speed);
     void encoderReset();
-    int getSensorValue();
-    void setSetpoint(int setpoint);
-    bool atSetpoint();
-    void loop();
+    double getSensorValue();
+    void setSetpoint(double setpoint);
     void lock();
-    void disablePID();
-    void enablePID();
+    void calculate();
+    bool atSetpoint();
+    void resetPID();
     void setMaxSpeed(int maxSpeed);
     Angler();
 };

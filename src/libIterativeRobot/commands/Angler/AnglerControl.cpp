@@ -4,8 +4,9 @@
 
 AnglerControl::AnglerControl(bool Up) {
   this->Up = Up;
-  requires(Robot::angler);
   this->priority = 2;
+
+  requires(Robot::angler);
 }
 
 bool AnglerControl::canRun() {
@@ -16,16 +17,15 @@ void AnglerControl::initialize() {
   // Perform any initialization steps for this command here, not in the
   // constructor
   // printf("Angler control initialized\n");
-  Robot::angler->disablePID();
 }
 
 void AnglerControl::execute() {
   //printf("Angler control running\n");
   if (this->Up) {
-    Robot::angler->move(-200);
+    Robot::angler->move(-KMaxMotorSpeed);
   }
   else {
-    Robot::angler->move(200);
+    Robot::angler->move(KMaxMotorSpeed);
   }
 
   printf("Angler at %d\n", Robot::angler->getSensorValue());
@@ -37,7 +37,6 @@ bool AnglerControl::isFinished() {
 
 void AnglerControl::end() {
   // Code that runs when isFinished() returns true.
-  //Robot::angler->lock();
 }
 
 void AnglerControl::interrupted() {
@@ -46,5 +45,4 @@ void AnglerControl::interrupted() {
 }
 
 void AnglerControl::blocked() {
-
 }

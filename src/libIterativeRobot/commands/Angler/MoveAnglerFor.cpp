@@ -18,11 +18,12 @@ void MoveAnglerFor::initialize() {
   // Perform any initialization steps for this command here, not in the
   // constructor
   printf("Initiating move angler\n");
-  pros::delay(1000);
+  //pros::delay(1000);
   startTime = pros::millis();
 }
 
 void MoveAnglerFor::execute() {
+    printf("Moving angler: %d\n", pros::millis() - startTime);
     Robot::angler->move(speed);
 }
 

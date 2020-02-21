@@ -16,20 +16,22 @@ class Base : public libIterativeRobot::Subsystem {
     LinearProfiler* leftProfiler;
     LinearProfiler* rightProfiler;
 
+    //pros::Imu* imu;
   public:
     static const double kDefaultMaxAccel;
     static const double kDefaultMaxVel;
 
     void initDefaultCommand();
-    void moveAtSpeed(int leftSpeed, int rightSpeed);
-    int getLeftSensorValue();
-    int getRightSensorValue();
-    void setLinearTarget(int leftTarget, int rightTarget);
-    void setLinearTargetRelative(int leftTarget, int rightTarget);
+    void move(int leftSpeed, int rightSpeed);
+    double getLeftSensorValue();
+    double getRightSensorValue();
+    //double getHeading();
+    void zeroEncoders();
+    void setLinearTarget(double leftTarget, double rightTarget);
+    void setLinearTargetRelative(double leftTarget, double rightTarget);
     void initLinearMovement();
-    void updateLinearMovement();
+    void calculateLinearMovement();
     bool atLinearTarget();
-    void stopLinearMovement();
     void setMaxVel(double maxVel);
     void setMaxAccel(double maxAccel);
     LinearProfiler* getLeftProfiler();

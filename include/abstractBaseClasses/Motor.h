@@ -34,6 +34,7 @@ class Motor {
     int slewedSpeed; // Speed of the motor taking its slew step into account
     int slewStep; // Maximum value that the motor's speed can increase or decrease by in one update cycle
     bool reversed = false;
+    bool reversedEncoder = false;
     int threshold = 5;
     bool slew = false;
 
@@ -67,6 +68,7 @@ class Motor {
     void disableSlewing();
     void setThreshold(int threshold); // Sets a threshold for the motor's speed
     void reverse(); // Reverses the motor
+    void reverseEncoder();
     void setEncoder(pros::ADIEncoder* encoder); // Sets an encoder to be used for v4 motors in place of a built in encoder
     void resetEncoder();
     void addFollower(Motor* motor); // Adds a follower to the motor

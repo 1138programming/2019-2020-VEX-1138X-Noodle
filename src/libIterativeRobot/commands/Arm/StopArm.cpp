@@ -15,11 +15,12 @@ void StopArm::initialize() {
   // constructor
   //Robot::arm->move(0);
   printf("Stop arm init\n");
-  Robot::arm->enablePID();
+  Robot::arm->resetPID();
   Robot::arm->lock();
 }
 
 void StopArm::execute() {
+  Robot::arm->calculate();
 }
 
 bool StopArm::isFinished() {
@@ -33,7 +34,6 @@ void StopArm::end() {
 void StopArm::interrupted() {
   // Code that runs when this command is interrupted by another one
   // with a higher priority.
-  Robot::arm->disablePID();
 }
 
 void StopArm::blocked() {

@@ -16,7 +16,6 @@ void ArmControl::initialize() {
   // constructor
   printf("ArmControl init\n");
   armSpeed = Robot::mainController->get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_Y);
-  Robot::arm->disablePID();
 }
 
 void ArmControl::execute() {

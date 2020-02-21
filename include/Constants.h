@@ -14,10 +14,10 @@
 #define MAX_FOLLOWERS 3
 
 // Motor ports
-const int frontLeftBasePort = 3;
-const int frontRightBasePort = 2;
-const int backLeftBasePort = 4;
-const int backRightBasePort = 5;
+const int frontLeftBasePort = 20;
+const int frontRightBasePort = 12;
+const int backLeftBasePort = 8;
+const int backRightBasePort = 1;
 
 const int anglerPort = 6;
 const int leftIntakeMotorPort = 10;
@@ -41,7 +41,7 @@ const pros::motor_brake_mode_e_t globalBrakeMode = pros::E_MOTOR_BRAKE_HOLD;
 const int globalSlewStep = 14;
 
 //Motor and encoder constants
-const int KMaxMotorSpeed = 200;
+const int KMaxMotorSpeed = 127;
 const int K50MotorSpeed = KMaxMotorSpeed*.50;
 const int KMaxJoystickValue = 127;
 const int encoderTicks = 360; // Encoder ticks in one revolution

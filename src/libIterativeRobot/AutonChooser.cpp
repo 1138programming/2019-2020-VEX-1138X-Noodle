@@ -30,7 +30,7 @@ lv_res_t AutonChooser::updateAutonName(lv_obj_t* btn) {
       autonIndex--;
   }
   printf("Auton is %d, size is %d\n", autonIndex, autonNames.size());
-  pros::delay(1000);
+  //pros::delay(1000);
   lv_label_set_text(autonName, autonNames[autonIndex]);
   return LV_RES_OK;
 }

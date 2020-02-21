@@ -15,13 +15,10 @@ void StopAngler::initialize() {
   // Perform any initialization steps for this command here, not in the
   // constructor
   Robot::angler->move(0);
-  //Robot::angler->lock();
-  //Robot::angler->enablePID();
 }
 
 void StopAngler::execute() {
   Robot::angler->move(0);
-  //printf("Stopping angler\n");
 }
 
 bool StopAngler::isFinished() {

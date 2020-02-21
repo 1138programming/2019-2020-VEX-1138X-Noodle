@@ -1,11 +1,13 @@
 #include "main.h"
 #include "libIterativeRobot/commands/Angler/StopAngler.h"
 
+const double Angler::kCollectingPosition = -500;
+
 Angler::Angler() {
   // Get angler motors
   anglerMotor = Motor::getMotor(anglerPort, anglerMotorGearset);
 
-  anglerController = new PIDController(anglerMotor, 0.6, 0, 0);
+  anglerController = new PIDController(0.6, 0, 0);
 }
 
 void Angler::initDefaultCommand() {
@@ -20,42 +22,37 @@ void Angler::initDefaultCommand() {
 //pros::ADIDigitalIn bumper ('a');
 void Angler::move(int speed) {
   //printf("Angler speed is %d\n", speed);
-    anglerMotor->setSpeed(speed);
+  anglerMotor->setSpeed(speed);
 }
 
 void Angler::encoderReset(){
   anglerMotor->resetEncoder();
 }
 
-int Angler::getSensorValue() {
-  return (int)anglerMotor->getEncoderValue();
+double Angler::getSensorValue() {
+  return anglerMotor->getEncoderValue();
 }
 
-void Angler::setSetpoint(int setpoint) {
+void Angler::setSetpoint(double setpoint) {
   anglerController->setSetpoint(setpoint);
+}
+
+void Angler::lock() {
+  anglerController->setSetpoint(getSensorValue());
+}
+
+void Angler::calculate() {
+  move((int)anglerController->calculate(getSensorValue()));
 }
 
 bool Angler::atSetpoint() {
   return anglerController->atSetpoint();
 }
 
-void Angler::loop() {
-  anglerController->loop();
-}
-
-void Angler::lock() {
-  anglerController->lock();
-}
-
-void Angler::disablePID() {
-  anglerController->disable();
-  anglerMotor->resetEncoder();
-}
-
-void Angler::enablePID() {
-  anglerController->enable();
+void Angler::resetPID() {
+  anglerController->reset();
 }
 
 void Angler::setMaxSpeed(int maxSpeed) {
-  anglerController->setOutputRange(-maxSpeed, maxSpeed);
+  anglerController->setOutputRange(-(double)maxSpeed, (double)maxSpeed);
 }

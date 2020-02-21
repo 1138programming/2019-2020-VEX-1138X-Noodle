@@ -17,7 +17,10 @@ void StopBase::initialize() {
 }
 
 void StopBase::execute() {
-  Robot::base->moveAtSpeed(0, 0);
+  //printf("Left: %f, Right: %f\n", Robot::base->getLeftSensorValue(), Robot::base->getRightSensorValue());
+  //Robot::base->move(KMaxMotorSpeed * 1, KMaxMotorSpeed * 1);
+  //printf("Heading %f\n", Robot::base->getHeading());
+  Robot::base->move(0, 0);
 }
 
 bool StopBase::isFinished() {

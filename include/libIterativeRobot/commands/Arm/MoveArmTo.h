@@ -12,10 +12,10 @@ class MoveArmTo: public libIterativeRobot::Command {
     void end();
     void interrupted();
     void blocked();
-    MoveArmTo(int target);
-    MoveArmTo(int target, int duration);
+    MoveArmTo(double target);
+    MoveArmTo(double target, int duration);
   private:
-    int target = 0;
+    double target = 0;
     int duration;
     int startTime;
 };

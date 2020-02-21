@@ -122,10 +122,12 @@ void Robot::autonInit() {
 
 void Robot::autonPeriodic() {
   Motor::periodicUpdate();
-  PIDController::loopAll();
 }
 
 void Robot::teleopInit() {
+  base->zeroEncoders();
+
+  BaseLinearMovement*c = new BaseLinearMovement(10000, 10000, 2, 0.005, true);
   //BaseLinearMovement* c = new BaseLinearMovement(3000, 3000);
   //GetData* c = new GetData();
 
@@ -141,14 +143,14 @@ void Robot::teleopInit() {
   }*/
 
   autonChooser->init();
+  //autonChooser->runAuton();
   //FlipOut* c = new FlipOut();
-  //c->run();
+  c->run();
 }
 
 void Robot::teleopPeriodic() {
   //printf("Teleop periodic\n");
   Motor::periodicUpdate();
-  PIDController::loopAll();
 }
 
 void Robot::disabledInit() {

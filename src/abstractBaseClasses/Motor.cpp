@@ -14,6 +14,7 @@ Motor::Motor(std::uint8_t port, pros::motor_gearset_e_t gearset) {
   slewedSpeed = 0;
   slewStep = globalSlewStep;
   reversed = false;
+  reversedEncoder = false;
   following = false;
   master = NULL;
 
@@ -71,15 +72,10 @@ Motor* Motor::getMotor(Port port) {
 // Sets the speed of the motor
 void Motor::setSpeed(int speed) {
   // If this motor is a follower, setSpeed does nothing
-  if (following)
+  if (following) {
     return;
+  }
 
-  // Set the speed of the follower motors to the same speed
-  // for (unsigned int i = 0; i < numFollowers; i++) {
-  //     if (followers[i] != NULL) {
-  //       followers[i]->speed = speed;
-  //     }
-  // }
   this->speed = speed;
   for (Motor* follower : followers) {
     follower->speed = speed;
@@ -112,6 +108,10 @@ void Motor::reverse() {
   if (motorType == v5) {
     v5Motor->set_reversed(reversed);
   }
+}
+
+void Motor::reverseEncoder() {
+  reversedEncoder = true;
 }
 
 void Motor::setEncoder(pros::ADIEncoder* encoder) {
@@ -166,11 +166,12 @@ int Motor::getPort() {
 }
 
 double Motor::getEncoderValue() {
+  int dir = reversedEncoder ? -1 : 1;
   if (motorType == v5) {
-    return v5Motor->get_position();
+    return v5Motor->get_position() * dir;
   } else {
     if (encoder != NULL)
-      return (double)encoder->get_value();
+      return (double)encoder->get_value() * dir;
   }
   return 0;
 }
@@ -210,15 +211,17 @@ int Motor::updateSlewRate(int targetSpeed) {
 
 void Motor::move() {
   if (motorType == v4) {
-    if (slew)
+    if (slew) {
       v4Motor->set_value(updateSlewRate(speed));
-    else
+    } else {
       v4Motor->set_value(speed);
+    }
   } else {
-    if (slew)
+    if (slew) {
       v5Motor->move(updateSlewRate(speed));
-    else
+    } else {
       v5Motor->move(speed);
+    }
   }
 }
 

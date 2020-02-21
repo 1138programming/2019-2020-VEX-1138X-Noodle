@@ -19,7 +19,7 @@ void DriveWithJoy::initialize() {
 }
 
 void DriveWithJoy::execute() {
-  Robot::base->moveAtSpeed(leftSideSpeed, rightSideSpeed);
+  Robot::base->move(leftSideSpeed, rightSideSpeed);
 }
 
 bool DriveWithJoy::isFinished() {

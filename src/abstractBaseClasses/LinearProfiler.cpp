@@ -1,29 +1,17 @@
 #include "abstractBaseClasses/LinearProfiler.h"
 
-LinearProfiler::LinearProfiler(Motor* outputMotor, double maxVel, double maxAccel, float kP, float kI, float kD) {
-  this->outputMotor = outputMotor;
+LinearProfiler::LinearProfiler(double maxVel, double maxAccel, double kP, double kI, double kD, double kFV, double kFA) {
   this->maxVel = maxVel;
   this->maxAccel = maxAccel;
-  this->kP = kP;
-  this->kI = kI;
-  this->kD = kD;
+  this->kFV = kFV;
+  this->kFA = kFA;
 
-  posPID = new PIDController(outputMotor, kP, kI, kD);
+  posPID = new PIDController(kP, kI, kD);
 }
 
-LinearProfiler::LinearProfiler(Motor* outputMotor, double maxVel, double maxAccel) {
-  this->outputMotor = outputMotor;
-  this->maxVel = maxVel;
-  this->maxAccel = maxAccel;
-
-  posPID = new PIDController(outputMotor, kP, kI, kD);
-}
-
-LinearProfiler::LinearProfiler(Motor* outputMotor) {
-  this->outputMotor = outputMotor;
-
-  posPID = new PIDController(outputMotor, kP, kI, kD);
-}
+LinearProfiler::LinearProfiler(double maxVel, double maxAccel, double kP, double kI, double kD) : LinearProfiler(maxVel, maxAccel, kP, kI, kD, 0, 0) {};
+LinearProfiler::LinearProfiler(double maxVel, double maxAccel) : LinearProfiler(maxVel, maxAccel, 1, 0, 0, 0, 0) {};
+LinearProfiler::LinearProfiler(double maxAccel) : LinearProfiler(std::numeric_limits<double>::max(), maxAccel, 1, 0, 0, 0, 0) {};
 
 void LinearProfiler::setMaxVel(double maxVel) {
   this->maxVel = maxVel;
@@ -33,65 +21,108 @@ void LinearProfiler::setMaxAccel(double maxAccel) {
   this->maxAccel = maxAccel;
 }
 
-void LinearProfiler::setThreshold(int threshold) {
-  this->posPID->setThreshold(threshold);
+void LinearProfiler::setContraints(double maxVel, double maxAccel) {
+  this->maxVel = maxVel;
+  this->maxAccel = maxAccel;
 }
 
-void LinearProfiler::setTarget(int target) {
-  this->target = target;
+void LinearProfiler::setP(double kP) {
+  posPID->setP(kP);
 }
 
-void LinearProfiler::setTargetRelative(int target) {
-  this->target = getSensorValue() + target;
+void LinearProfiler::setI(double kI) {
+  posPID->setI(kI);
 }
 
-int LinearProfiler::getTarget() {
-  return target;
+void LinearProfiler::setD(double kD) {
+  posPID->setD(kD);
 }
 
-void LinearProfiler::setSensorValue(int sensorValue) {
-  posPID->setSensorValue(sensorValue);
+void LinearProfiler::setVelocityFeedforward(double kFV) {
+  this->kFV = kFV;
 }
 
-int LinearProfiler::getSensorValue() {
-  return posPID->getSensorValue();
+void LinearProfiler::setAccelFeedforward(double kFA) {
+  this->kFA = kFA;
+}
+
+void LinearProfiler::setFeedforwardGains(double kFV, double kFA) {
+  this->kFV = kFV;
+  this->kFA = kFA;
+}
+
+void LinearProfiler::setGains(double kP, double kI, double kD, double kFV, double kFA) {
+  setP(kP);
+  setI(kP);
+  setD(kP);
+  setFeedforwardGains(kFV, kFA);
+}
+
+void LinearProfiler::setGains(double kP, double kI, double kD) {
+  setGains(kP, kI, kD, kFV, kFA);
+}
+
+void LinearProfiler::setOutputRange(double minOutput, double maxOutput) {
+  posPID->setOutputRange(minOutput, maxOutput);
+}
+
+void LinearProfiler::configIntegral(IntegralType integralType, bool integralZone) {
+  posPID->configIntegral(integralType, integralZone);
+}
+
+void LinearProfiler::setIntegralZoneRange(double integralZoneRange) {
+  posPID->setIntegralZoneRange(integralZoneRange);
+}
+
+void LinearProfiler::setTolerance(double positionTolerance, double velocityTolerance) {
+  this->posPID->setTolerance(positionTolerance, velocityTolerance);
+}
+
+void LinearProfiler::setTarget(double targetPos) {
+  this->targetPos = targetPos;
+}
+
+void LinearProfiler::setTargetRelative(double targetPos) {
+  this->targetPos = measurement + targetPos;
+}
+
+double LinearProfiler::getTarget() {
+  return targetPos;
+}
+
+double LinearProfiler::getP() {
+  return posPID->getP();
+}
+
+double LinearProfiler::getI() {
+  return posPID->getI();
+}
+
+double LinearProfiler::getD() {
+  return posPID->getD();
+}
+
+double LinearProfiler::getVelocityFeedforward() {
+  return kFV;
+}
+
+double LinearProfiler::getAccelFeedforward() {
+  return kFV;
 }
 
 PIDController* LinearProfiler::getPID() {
   return posPID;
 }
 
-void LinearProfiler::init() {
-  /*int initial = getSensorValue();
-  int distance = target - initial;
+void LinearProfiler::init(double measurement) {
+  this->measurement = measurement;
 
-  // The middle point on the path
-  int midpoint = abs(distance / 2) + initial;
-
-  // Calculates the point at which the acceleration should become 0
-  flatPoint = 0.5 * ((maxVel * maxVel) / maxAccel) + initial;
-
-  // Checks to see if the target distance is long enough to get to the max velocity
-  if (midpoint < flatPoint) {
-    deccelPoint = midpoint;
-  } else {
-    deccelPoint = (target - (flatPoint)) + initial;
-  }
-
-  if (target > initial) {
-    dir = 1;
-    t_accel = maxAccel;
-  } else {
-    dir = -1;
-    t_accel = -maxAccel;
-  }*/
-
-  initial = getSensorValue();
-  distance = abs(target - initial);
+  initialPos = measurement;
+  distance = fabs(targetPos - initialPos);
   midPoint = distance / 2;
-  flatPoint = (int)(0.5 * maxVel * maxVel / maxAccel);
+  flatPoint = (0.5 * maxVel * maxVel / maxAccel);
 
-  if (initial < target) {
+  if (initialPos < targetPos) {
     dir = 1;
     t_accel = maxAccel;
   } else {
@@ -107,50 +138,32 @@ void LinearProfiler::init() {
   }
 
   t_pos = 0;
-  pidSetpoint = initial;
+  pidSetpoint = initialPos;
   posPID->setSetpoint(pidSetpoint);
-  posPID->enable();
+  posPID->reset();
 
   dt = 0;
   vel = 0;
   accel = 0;
   lastTime = pros::millis() - 10;
-  lastPos = initial;
+  lastPos = initialPos;
   lastVel = 0;
 }
 
-void LinearProfiler::update() {
-  std::uint32_t time = pros::millis();
+double LinearProfiler::calculate(double measurement) {
+  this->measurement = measurement;
 
-  dt = int(time - lastTime);
-  vel = (double)(getSensorValue() - lastPos) / dt;
+  int time = (int)pros::millis();
+  dt = (double)(time - lastTime);
+
+  vel = (measurement - lastPos) / dt;
   accel = (vel - lastVel) / dt;
 
   lastTime = time;
-  lastPos = getSensorValue();
+  lastPos = measurement;
   lastVel = vel;
 
   //printf("%p: target pos: %f, target t_vel: %f, target t_accel: %f, pos: %d, t_vel: %f\n", this, pidSetpoint, t_vel, t_accel, getSensorValue(), ((double)deltaPos / dt));
-  printf("%p: %f, %f, %f, %d, %f\n", this, t_pos, t_vel, t_accel, getSensorValue(), vel);
-
-  /*if (fabs(pidSetpoint) < flatPoint) {
-    t_accel = maxAccel * dir;
-  } else if (fabs(pidSetpoint) < deccelPoint) {
-    t_accel = 0;
-  } else {
-    t_accel = -maxAccel * dir;
-  }
-
-  t_vel += t_accel * dt;
-  if (fabs(t_vel) > maxVel) {
-    t_vel = maxVel * dir;
-  }
-  if (t_vel * dir < 0) {
-    t_vel = 0;
-    t_accel = 0;
-  }
-
-  pidSetpoint += t_vel * dt;*/
 
   if (t_pos < flatPoint) {
     t_accel = maxAccel;
@@ -170,41 +183,36 @@ void LinearProfiler::update() {
   }
   t_pos += t_vel * dt;
 
-  pidSetpoint = dir * t_pos + initial;
+  pidSetpoint = dir * t_pos + initialPos;
   posPID->setSetpoint(pidSetpoint);
+  output = posPID->calculate(measurement) + (kFV * t_vel * dir) + (kFA * t_accel * dir);
 
-  //printf("%p: %d\n", this, (int)pidSetpoint);
+  printf("%p: %f, %f, %f, %f, %f, %f, %f, %f, %f\n", this, targetPos, t_pos, t_vel, t_accel, measurement, vel, accel, output, dt);
+
+  return output;
 }
 
 bool LinearProfiler::atTarget() {
-  if (abs(getSensorValue()) > deccelPoint) {
+  if (fabs(measurement) > deccelPoint) {
     return (t_vel == 0 && posPID->atSetpoint());
   }
   return false;
 }
 
-void LinearProfiler::stop() {
-  posPID->disable();
-}
-
-int LinearProfiler::getOutput() {
-  return posPID->getOutput();
-}
-
-int LinearProfiler::getTargetPos() {
-  return (int)pidSetpoint;
+double LinearProfiler::getTargetPos() {
+  return pidSetpoint;
 }
 
 double LinearProfiler::getTargetVel() {
-  return t_vel;
+  return t_vel * dir;
 }
 
 double LinearProfiler::getTargetAccel() {
-  return t_accel;
+  return t_accel * dir;
 }
 
-int LinearProfiler::getPos() {
-  return getSensorValue();
+double LinearProfiler::getPos() {
+  return measurement;
 }
 
 double LinearProfiler::getVel() {
@@ -215,6 +223,6 @@ double LinearProfiler::getAccel() {
   return accel;
 }
 
-int LinearProfiler::getDeltaTime() {
+double LinearProfiler::getDeltaTime() {
   return dt;
 }

@@ -22,7 +22,7 @@ void DriveForTime::initialize() {
 }
 
 void DriveForTime::execute() {
-  Robot::base->moveAtSpeed(leftSideSpeed, rightSideSpeed);
+  Robot::base->move(leftSideSpeed, rightSideSpeed);
 }
 
 bool DriveForTime::isFinished() {
@@ -31,13 +31,13 @@ bool DriveForTime::isFinished() {
 
 void DriveForTime::end() {
   // Code that runs when isFinished() returns true.
-  Robot::base->moveAtSpeed(0, 0);
+  Robot::base->move(0, 0);
 }
 
 void DriveForTime::interrupted() {
   // Code that runs when this command is interrupted by another one
   // with a higher priority.
-  Robot::base->moveAtSpeed(0, 0);
+  Robot::base->move(0, 0);
 }
 
 void DriveForTime::blocked() {

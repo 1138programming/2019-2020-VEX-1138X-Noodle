@@ -22,7 +22,7 @@ void MoveIntakeFor::initialize() {
 }
 
 void MoveIntakeFor::execute() {
-    printf("Moving intake\n");
+    printf("Moving intake: %d\n", pros::millis() - startTime);
     Robot::intake->move(speed);
 }
 

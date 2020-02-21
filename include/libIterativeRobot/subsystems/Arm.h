@@ -12,19 +12,18 @@ class Arm : public libIterativeRobot::Subsystem {
     pros::ADIDigitalIn* bumper1;
     pros::ADIDigitalIn* bumper2;
   public:
-    static const int kLowTowerPos = 2500;
-    static const int kMidTowerPos = 3000;
+    static const double kLowTowerPos;
+    static const double kMidTowerPos;
 
     void initDefaultCommand();
     void move(int speed);
-    int getSensorValue();
-    int getSetpointValue();
-    void setSetpoint(int setpoint);
-    bool atSetpoint();
-    void loop();
+    double getSensorValue();
+    void setSetpoint(double setpoint);
     void lock();
-    void disablePID();
-    void enablePID();
+    double getSetpoint();
+    void calculate();
+    bool atSetpoint();
+    void resetPID();
     Arm();
 };
 

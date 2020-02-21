@@ -1,11 +1,14 @@
 #include "main.h"
 #include "libIterativeRobot/commands/Arm/StopArm.h"
 
+const double Arm::kLowTowerPos = 2500;
+const double Arm::kMidTowerPos = 3000;
+
 Arm::Arm() {
   // Get intake motors
   armMotor = Motor::getMotor(armMotorPort, armMotorGearset);
-  armController = new PIDController(armMotor, 0.7, 0, 0);
-  armController->setThreshold(25);
+  armController = new PIDController(0.7, 0, 0);
+  armController->setTolerance(25, 10);
 
   bumper1 = new pros::ADIDigitalIn(bumperPort1);
   bumper2 = new pros::ADIDigitalIn(bumperPort2);
@@ -33,34 +36,30 @@ void Arm::move(int speed) {
   }
 }
 
-int Arm::getSensorValue() {
-  return (int)armMotor->getEncoderValue();
+double Arm::getSensorValue() {
+  return armMotor->getEncoderValue();
 }
 
-int Arm::getSetpointValue() {
-  return armController->getSensorValue();
-}
-
-void Arm::setSetpoint(int setpoint) {
+void Arm::setSetpoint(double setpoint) {
   armController->setSetpoint(setpoint);
+}
+
+void Arm::lock() {
+  armController->setSetpoint(getSensorValue());
+}
+
+double Arm::getSetpoint() {
+  return armController->getSetpoint();
+}
+
+void Arm::calculate() {
+  move((int)armController->calculate(getSensorValue()));
 }
 
 bool Arm::atSetpoint() {
   return armController->atSetpoint();
 }
 
-void Arm::loop() {
-  armController->loop();
-}
-
-void Arm::lock() {
-  armController->lock();
-}
-
-void Arm::disablePID() {
-  armController->disable();
-}
-
-void Arm::enablePID() {
-  armController->enable();
+void Arm::resetPID() {
+  armController->reset();
 }

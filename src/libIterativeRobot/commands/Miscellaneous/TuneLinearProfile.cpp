@@ -2,14 +2,12 @@
 #include "libIterativeRobot/Robot.h"
 #include "Constants.h"
 
-TuneLinearProfile::TuneLinearProfile(LinearProfiler* profiler, const double* motorData, libIterativeRobot::Subsystem* subsystem, int target) {
+TuneLinearProfile::TuneLinearProfile(LinearProfiler* profiler, const double* motorData, Motor* motor, int target) {
   this->profiler = profiler;
-  this->subsystem = subsystem;
+  this->motor = motor;
   this->target = target;
-  this->priority = 2;
   this->motorData = motorData;
-
-  requires(subsystem);
+  this->priority = 2;
 }
 
 bool TuneLinearProfile::canRun() {
@@ -19,7 +17,7 @@ bool TuneLinearProfile::canRun() {
 void TuneLinearProfile::initialize() {
   printf("Linear profile tuner starting\n");
 
-  profiler->init();
+  profiler->init(motor->getEncoderValue());
   profiler->setTargetRelative(target);
   dP = 0;
   dI = 0;
@@ -36,7 +34,7 @@ void TuneLinearProfile::initialize() {
 void TuneLinearProfile::execute() {
   printf("Executing linear profile tuner\n");
 
-  profiler->update();
+  int output = (int)profiler->calculate(motor->getEncoderValue());
 
   int dt = profiler->getDeltaTime();
 
@@ -53,10 +51,10 @@ void TuneLinearProfile::execute() {
   dI += coef * accError;
   dD += coef * dError;
 
-  loss += std::pow(error, 2);
+  loss += (error * error);
 
   lastError = error;
-  lastVoltage = profiler->getOutput();
+  lastVoltage = output;
 }
 
 bool TuneLinearProfile::isFinished() {
@@ -77,9 +75,9 @@ void TuneLinearProfile::blocked() {
 
 void TuneLinearProfile::adjustConstants() {
   printf("%x: dP %f, dI %f, dD %f, loss %d\n", this, learning_rate * dP, learning_rate * dI, learning_rate * dD, loss);
-  profiler->kP += -dP * learning_rate;
-  profiler->kI += -dI * learning_rate;
-  profiler->kD += -dD * learning_rate;
+  profiler->setP(profiler->getP() + (-dP * learning_rate));
+  profiler->setP(profiler->getI() + (-dI * learning_rate));
+  profiler->setP(profiler->getD() + (-dD * learning_rate));
 }
 
 double TuneLinearProfile::deltaMotor(const double* data, int voltage) {

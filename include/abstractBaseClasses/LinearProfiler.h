@@ -3,79 +3,95 @@
 
 #include "abstractBaseClasses/PIDController.h"
 #include "abstractBaseClasses/Motor.h"
+#include "abstractBaseClasses/IntegralType.h"
+#include <limits>
 
 class LinearProfiler {
   private:
-    Motor* outputMotor;
-    PIDController* posPID;
+    PIDController* posPID; // Internal position PID
 
-    std::uint32_t lastTime = 0;
-    int lastPos = 0;
-    double lastVel = 0;
+    int lastTime = 0;
+
+    double lastPos = 0; // Last position measurement
+    double lastVel = 0; // Last velocity measurement
 
     double vel = 0;
     double accel = 0;
 
-    int dt = 0;
+    double dt = 0;
 
-    double maxAccel = 0.01;
-    double maxVel = 3.0;
+    double measurement; // Current position measurement
+
+    double maxAccel = 1;
+    double maxVel = std::numeric_limits<double>::max();
 
     double t_accel = 0;
     double t_vel = 0;
     double t_pos = 0;
-    int pidSetpoint = 0;
+    double pidSetpoint = 0;
 
-    int initial = 0;
-    int flatPoint = 0;
-    int midPoint = 0;
-    int deccelPoint = 0;
-    int target = 0;
-    int distance = 0;
+    double initialPos = 0;
+    double flatPoint = 0;
+    double midPoint = 0;
+    double deccelPoint = 0;
+    double targetPos = 0;
+    double distance = 0;
 
     int dir = 0;
+
+    double kFV = 0; // Feedforward velocity gain
+    double kFA = 0; // Feedforward acceleration gain
+
+    double output = 0;
   protected:
   public:
-    float kP = 0.45;
-    float kI = 0;
-    float kD = 0;
-
-    LinearProfiler(Motor* outputMotor, double maxVel, double maxAccel, float kP, float kI, float kD);
-    LinearProfiler(Motor* outputMotor, double maxVel, double maxAccel);
-    LinearProfiler(Motor* outputMotor);
+    LinearProfiler(double maxVel, double maxAccel, double kP, double kI, double kD, double kFV, double kFA);
+    LinearProfiler(double maxVel, double maxAccel, double kP, double kI, double kD);
+    LinearProfiler(double maxVel, double maxAccel);
+    LinearProfiler(double maxAccel);
 
     // Functions to set constants
     void setMaxVel(double maxVel);
     void setMaxAccel(double maxAccel);
-    void setThreshold(int threshold);
+    void setContraints(double maxVel, double maxAccel);
+    void setP(double kP);
+    void setI(double kI);
+    void setD(double kD);
+    void setVelocityFeedforward(double kFV);
+    void setAccelFeedforward(double kFA);
+    void setFeedforwardGains(double kFV, double kFA);
+    void setGains(double kP, double kI, double kD, double kFV, double kFA);
+    void setGains(double kP, double kI, double kD);
+    void setOutputRange(double minOutput, double maxOutput);
+    void configIntegral(IntegralType integralType, bool integralZone);
+    void setIntegralZoneRange(double integralZoneRange);
+    void setTolerance(double positionTolerance, double velocityTolerance);
 
     // Target functions
-    void setTarget(int target);
-    void setTargetRelative(int target);
-    int getTarget();
-
-    // Sensor functions
-    void setSensorValue(int sensorValue);
-    int getSensorValue();
+    void setTarget(double target);
+    void setTargetRelative(double target);
+    double getTarget();
+    double getP();
+    double getI();
+    double getD();
+    double getVelocityFeedforward();
+    double getAccelFeedforward();
 
     // PID Functions
     PIDController* getPID();
 
-    // Functions that move the motor
-    void init();
-    void update();
+    void init(double measurement);
+    double calculate(double measurement);
     bool atTarget();
-    void stop();
 
     // Getters for internal variables
-    int getOutput();
-    int getTargetPos();
+    double getTargetPos();
     double getTargetVel();
     double getTargetAccel();
-    int getPos();
+    double getPos();
     double getVel();
     double getAccel();
-    int getDeltaTime();
+    double getDeltaTime();
 };
 
 #endif

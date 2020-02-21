@@ -12,7 +12,7 @@
 #include "libIterativeRobot/commands/Arm/MoveArmFor.h"
 #include "libIterativeRobot/commands/LambdaGroup.h"
 
-JohnsCode::JohnsCode() { //*Negitive is forward
+JohnsCode::JohnsCode() { //*Negative is forward
   addSequentialCommand(new MoveArmFor(700, KMaxMotorSpeed));
   addParallelCommand(new MoveIntakeFor(700, -KMaxMotorSpeed));
   addParallelCommand(new MoveAnglerFor(900, KMaxMotorSpeed));
@@ -29,6 +29,6 @@ JohnsCode::JohnsCode() { //*Negitive is forward
   addSequentialCommand(new MoveAnglerFor(2300, KMaxMotorSpeed));
   addSequentialCommand(new MoveIntakeFor(600, -KMaxMotorSpeed));
   addSequentialCommand(new DriveForTime(KMaxMotorSpeed, KMaxMotorSpeed, 500));
-  
-  
+
+
 }
