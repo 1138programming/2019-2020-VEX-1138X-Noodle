@@ -17,8 +17,8 @@ void Intake::initDefaultCommand() {
 
 /**
  * Move the intake
+ * 
  * @param speed - speed of the speed side
- * @param right - speed of the right side
  */
 
 void Intake::move(int speed) {

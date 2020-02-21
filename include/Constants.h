@@ -19,7 +19,7 @@ const int frontRightBasePort = 2;
 const int backLeftBasePort = 4;
 const int backRightBasePort = 5;
 
-const int anglerPort = 1;
+const int anglerPort = 6;
 const int leftIntakeMotorPort = 10;
 const int rightIntakeMotorPort = 9;
 

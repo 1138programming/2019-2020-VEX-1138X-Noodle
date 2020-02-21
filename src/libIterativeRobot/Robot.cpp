@@ -25,6 +25,8 @@
 #include "libIterativeRobot/commands/Auton/JohnsCode.h"
 #include "libIterativeRobot/commands/Auton/OtherSide.h"
 #include "libIterativeRobot/commands/Auton/TopRedStack.h"
+#include "libIterativeRobot/commands/Auton/REDCODE.h"
+#include "libIterativeRobot/commands/Auton/Push.h"
 
 Robot* Robot::instance = 0;
 
@@ -106,8 +108,8 @@ Robot::Robot() {
 void Robot::robotInit() {
   printf("Robot created.\n");
   autonChooser->addAutonCommand(new JohnsCode(), "JohnsCode");
-  autonChooser->addAutonCommand(new OtherSide(), "OtherSide");
-  autonChooser->addAutonCommand(new TopRedStack(), "TopRedstack" );
+  autonChooser->addAutonCommand(new REDCODE(), "REDCODE");
+  autonChooser->addAutonCommand(new Push(), "Push" );
   //autonChooser->addAutonCommand(new AutonGroup1(), "AutonGroup1");
   //autonChooser->addAutonCommand(new FlipOut(), "FlipOut");
 }

@@ -13,20 +13,21 @@
 #include "libIterativeRobot/commands/LambdaGroup.h"
 
 REDCODE::REDCODE() { //* Negative is forward
-  //libIterativeRobot::LambdaGroup* slipOffRubber = new libIterativeRobot::LambdaGroup();
-  //slipOffRubber->addSequentialCommand(new MoveAnglerTo(-1800, KMaxMotorSpeed, 1500));
-  //slipOffRubber->addSequentialCommand(new MoveAnglerTo(0, KMaxMotorSpeed, 1500));
-
-addSequentialCommand(new MoveArmFor(1000, KMaxMotorSpeed));addSequentialCommand(new MoveArmFor(1500, -70));
-addSequentialCommand(new DriveForTime(-KMaxMotorSpeed*0.35, -KMaxMotorSpeed*0.35, 3000));
+  addSequentialCommand(new MoveArmFor(700, KMaxMotorSpeed));
+  addParallelCommand(new MoveIntakeFor(700, -KMaxMotorSpeed));
+  addParallelCommand(new MoveAnglerFor(900, KMaxMotorSpeed));
+  addSequentialCommand(new MoveAnglerFor(900, -KMaxMotorSpeed));
+  addParallelCommand(new MoveIntakeFor(700, KMaxMotorSpeed));
+  addSequentialCommand(new MoveArmFor(700, -KMaxMotorSpeed));
+  addSequentialCommand(new DriveForTime(-KMaxMotorSpeed*0.25, -KMaxMotorSpeed*0.25, 3000));
 //addParallelCommand(slipOffRubber);
-addParallelCommand(new MoveIntakeFor(3700, KMaxMotorSpeed));
-addSequentialCommand(new DriveForTime(KMaxMotorSpeed, KMaxMotorSpeed, 1300));
-addSequentialCommand(new DriveForTime(-KMaxMotorSpeed*0.25, KMaxMotorSpeed*0.25, 1420));
-addSequentialCommand(new DriveForTime(-KMaxMotorSpeed*0.75, -KMaxMotorSpeed*0.75, 900));
-addSequentialCommand(new MoveAnglerTo(-2000, 70, 2000));
-addSequentialCommand(new MoveIntakeFor(1500, -KMaxMotorSpeed*0.5));
-addParallelCommand(new Delay(100));
-addSequentialCommand(new MoveIntakeFor(500, KMaxMotorSpeed));
-addParallelCommand(new DriveForTime(KMaxMotorSpeed*0.25, KMaxMotorSpeed*0.25, 1000));
+  addParallelCommand(new MoveIntakeFor(3050, KMaxMotorSpeed));
+  addSequentialCommand(new DriveForTime(KMaxMotorSpeed*0.45, KMaxMotorSpeed*0.45, 900));
+  addParallelCommand(new MoveIntakeFor(50, -KMaxMotorSpeed));
+  addSequentialCommand(new DriveForTime(-KMaxMotorSpeed*0.25, KMaxMotorSpeed*0.25, 1400));
+  addSequentialCommand(new DriveForTime(-KMaxMotorSpeed*0.40, -KMaxMotorSpeed*0.40, 1000));
+  addSequentialCommand(new MoveAnglerFor(2300, KMaxMotorSpeed));
+  addSequentialCommand(new MoveIntakeFor(600, -KMaxMotorSpeed));
+  addSequentialCommand(new DriveForTime(KMaxMotorSpeed, KMaxMotorSpeed, 500));
+  
 }
