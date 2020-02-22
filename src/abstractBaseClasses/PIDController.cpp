@@ -211,7 +211,7 @@ double PIDController::calculate(double measurement) {
 void PIDController::reset() {
   integral = 0;
   lastError = 0;
-  lastTime = pros::millis();
+  lastTime = pros::millis() - 10;
   oldestErrorIndex = 0;
   errorCache->clear();
 }

@@ -3,6 +3,7 @@
 
 const double Base::kDefaultMaxAccel = 0.005;
 const double Base::kDefaultMaxVel = 2; // Max is 3.6
+const double Base::kDefaultRotationSlewRate = 0.01;
 
 Base::Base() {
   // Set up motors
@@ -31,6 +32,11 @@ Base::Base() {
 
   leftProfiler->setTolerance(15, 1);
   rightProfiler->setTolerance(15, 1);
+
+  rotController = new PIDController(2, 0, 0, 0);
+  rotController->setTolerance(5, 1);
+
+  rotLimiter = new SlewRateLimiter(kDefaultRotationSlewRate);
 
   imu = new pros::Imu(14);
   imu->reset();
@@ -61,7 +67,16 @@ double Base::getRightSensorValue() {
 }
 
 double Base::getHeading() {
-  return imu->get_heading();
+  if (imu->is_calibrating()) {
+    printf("Imu is callibrating...\n");
+    return 0;
+  } else {
+    return imu->get_rotation();
+  }
+}
+
+bool Base::imuCallibrating() {
+  return imu->is_calibrating();
 }
 
 void Base::zeroEncoders() {
@@ -108,6 +123,39 @@ void Base::setMaxAccel(double maxAccel) {
   //printf("Setting maxAccel to %f\n", maxAccel);
   leftProfiler->setMaxAccel(maxAccel);
   rightProfiler->setMaxAccel(maxAccel);
+}
+
+void Base::setRotationTarget(double rotationTarget) {
+  rotController->setSetpoint(getHeading() + rotationTarget);
+}
+
+void Base::calculateRotation() {
+  if (imu->is_calibrating()) {
+    rotController->reset();
+    rotLimiter->reset();
+    //printf("Still callibrating...\n");
+  } else {
+    double output = rotLimiter->calculate(rotController->calculate(getHeading()));
+    printf("Error: %f, Output: %f\n", rotController->getError(), output);
+    move(output, -output);
+  }
+}
+
+bool Base::atRotationTarget() {
+  return rotController->atSetpoint();
+}
+
+void Base::resetRotation() {
+  rotController->reset();
+  rotLimiter->reset();
+}
+
+void Base::setMaxRotationSpeed(int maxSpeed) {
+  rotController->setOutputRange(-(double)maxSpeed, (double)maxSpeed);
+}
+
+void Base::setRotationSlewRate(double slewRate) {
+  rotLimiter->setRate(slewRate);
 }
 
 LinearProfiler* Base::getLeftProfiler() {

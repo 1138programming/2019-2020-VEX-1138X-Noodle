@@ -8,6 +8,7 @@
 #include "libIterativeRobot/commands/Intake/StopIntake.h"
 #include "libIterativeRobot/commands/Base/DriveWithJoy.h"
 #include "libIterativeRobot/commands/Base/BaseLinearMovement.h"
+#include "libIterativeRobot/commands/Base/RotateBase.h"
 #include "libIterativeRobot/commands/Miscellaneous/GetData.h"
 #include "libIterativeRobot/commands/Miscellaneous/TuneLinearProfile.h"
 #include "libIterativeRobot/commands/Miscellaneous/FlipOut.h"
@@ -127,7 +128,9 @@ void Robot::autonPeriodic() {
 void Robot::teleopInit() {
   base->zeroEncoders();
 
-  BaseLinearMovement*c = new BaseLinearMovement(5000, 5000, 2, 0.001, true);
+  //BaseLinearMovement* c = new BaseLinearMovement(5000, 5000, 2, 0.001, true);
+  //RotateBase* c = new RotateBase(180, 0.127, KMaxMotorSpeed, 100000);
+
   //BaseLinearMovement* c = new BaseLinearMovement(3000, 3000);
   //GetData* c = new GetData();
 
@@ -145,7 +148,7 @@ void Robot::teleopInit() {
   autonChooser->init();
   //autonChooser->runAuton();
   //FlipOut* c = new FlipOut();
-  c->run();
+  //c->run();
 }
 
 void Robot::teleopPeriodic() {
