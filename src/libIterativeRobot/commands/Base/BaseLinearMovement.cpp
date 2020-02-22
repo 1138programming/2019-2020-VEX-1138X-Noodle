@@ -32,13 +32,11 @@ void BaseLinearMovement::initialize() {
     Robot::base->setLinearTargetRelative(leftTarget, rightTarget);
   }
 
+  printf("Left: %f, Right: %f\n", Robot::base->getLeftSensorValue(), Robot::base->getRightSensorValue());
+
   Robot::base->setMaxVel(maxVel);
   Robot::base->setMaxAccel(maxAccel);
   Robot::base->initLinearMovement();
-
-  printf("Left: %f, Right: %f\n", Robot::base->getLeftSensorValue(), Robot::base->getRightSensorValue());
-
-  pros::delay(1000);
 }
 
 void BaseLinearMovement::execute() {

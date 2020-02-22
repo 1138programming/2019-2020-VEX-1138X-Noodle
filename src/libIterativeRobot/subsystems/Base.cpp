@@ -11,6 +11,11 @@ Base::Base() {
   backLeftMotor = Motor::getMotor(backLeftBasePort, baseMotorGearset);
   backRightMotor = Motor::getMotor(backRightBasePort, baseMotorGearset);
 
+  frontLeftMotor->getMotorObject()->set_brake_mode(pros::motor_brake_mode_e_t::E_MOTOR_BRAKE_COAST);
+  backLeftMotor->getMotorObject()->set_brake_mode(pros::motor_brake_mode_e_t::E_MOTOR_BRAKE_COAST);
+  frontRightMotor->getMotorObject()->set_brake_mode(pros::motor_brake_mode_e_t::E_MOTOR_BRAKE_COAST);
+  backRightMotor->getMotorObject()->set_brake_mode(pros::motor_brake_mode_e_t::E_MOTOR_BRAKE_COAST);
+
   backRightMotor->reverse();
   frontRightMotor->reverse();
   //frontRightMotor->reverseEncoder();
@@ -21,14 +26,14 @@ Base::Base() {
 
   //leftProfiler = new LinearProfiler(2, 0.017, 0.7, 0, 0, 0, 0);
   //rightProfiler = new LinearProfiler(2, 0.017, 0.7, 0, 0, 0, 0);
-  leftProfiler = new LinearProfiler(0.5, 0.001, 0.5, 0.005, 0.1, 35.27, 5000);
-  rightProfiler = new LinearProfiler(0.5, 0.001, 0.5, 0.005, 0.1, 35.27, 5000);
+  leftProfiler = new LinearProfiler(0.5, 0.001, 0.5, 0, 0, 35.27, 5000);
+  rightProfiler = new LinearProfiler(0.5, 0.001, 0.5, 0, 0, 35.27, 5000);
 
-  leftProfiler->setTolerance(50, 10);
-  rightProfiler->setTolerance(50, 10);
+  leftProfiler->setTolerance(15, 1);
+  rightProfiler->setTolerance(15, 1);
 
-  //imu = new pros::Imu(14);
-  //imu.reset();
+  imu = new pros::Imu(14);
+  imu->reset();
 }
 
 void Base::initDefaultCommand() {
@@ -55,9 +60,9 @@ double Base::getRightSensorValue() {
   return frontRightMotor->getEncoderValue();
 }
 
-//double Base::getHeading() {
-  //return imu->getHeading();
-//}
+double Base::getHeading() {
+  return imu->get_heading();
+}
 
 void Base::zeroEncoders() {
   printf("Resetting encoders\n");
@@ -86,6 +91,7 @@ void Base::initLinearMovement() {
 
 void Base::calculateLinearMovement() {
   move((int)leftProfiler->calculate(getLeftSensorValue()), (int)rightProfiler->calculate(getRightSensorValue()));
+  printf("Left: %f, Right: %f, Diff: %f\n", getLeftSensorValue(), getRightSensorValue(), getLeftSensorValue() - getRightSensorValue());
 }
 
 bool Base::atLinearTarget() {

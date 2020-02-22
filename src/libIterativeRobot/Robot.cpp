@@ -127,7 +127,7 @@ void Robot::autonPeriodic() {
 void Robot::teleopInit() {
   base->zeroEncoders();
 
-  BaseLinearMovement*c = new BaseLinearMovement(10000, 10000, 2, 0.005, true);
+  BaseLinearMovement*c = new BaseLinearMovement(5000, 5000, 2, 0.001, true);
   //BaseLinearMovement* c = new BaseLinearMovement(3000, 3000);
   //GetData* c = new GetData();
 

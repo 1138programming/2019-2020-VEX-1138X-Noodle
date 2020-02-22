@@ -153,15 +153,11 @@ void LinearProfiler::init(double measurement) {
 double LinearProfiler::calculate(double measurement) {
   this->measurement = measurement;
 
-  int time = (int)pros::millis();
+  std::uint32_t time = pros::millis();
   dt = (double)(time - lastTime);
 
   vel = (measurement - lastPos) / dt;
   accel = (vel - lastVel) / dt;
-
-  lastTime = time;
-  lastPos = measurement;
-  lastVel = vel;
 
   //printf("%p: target pos: %f, target t_vel: %f, target t_accel: %f, pos: %d, t_vel: %f\n", this, pidSetpoint, t_vel, t_accel, getSensorValue(), ((double)deltaPos / dt));
 
@@ -187,7 +183,11 @@ double LinearProfiler::calculate(double measurement) {
   posPID->setSetpoint(pidSetpoint);
   output = posPID->calculate(measurement) + (kFV * t_vel * dir) + (kFA * t_accel * dir);
 
-  printf("%p: %f, %f, %f, %f, %f, %f, %f, %f, %f\n", this, targetPos, t_pos, t_vel, t_accel, measurement, vel, accel, output, dt);
+  //printf("%p: %f, %f, %f, %f, %f, %f, %f, %f, %f\n", this, targetPos, t_pos, t_vel, t_accel, measurement, vel, accel, output, dt);
+
+  lastTime = time;
+  lastPos = measurement;
+  lastVel = vel;
 
   return output;
 }

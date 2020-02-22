@@ -10,7 +10,7 @@ class LinearProfiler {
   private:
     PIDController* posPID; // Internal position PID
 
-    int lastTime = 0;
+    std::uint32_t lastTime = 0;
 
     double lastPos = 0; // Last position measurement
     double lastVel = 0; // Last velocity measurement
