@@ -1,7 +1,7 @@
 #include "main.h"
 #include "libIterativeRobot/commands/Base/StopBase.h"
 
-const double Base::kDefaultMaxAccel = 0.005;
+const double Base::kDefaultMaxAccel = 0.127;
 const double Base::kDefaultMaxVel = 2; // Max is 3.6
 const double Base::kDefaultRotationSlewRate = 0.01;
 
@@ -35,6 +35,8 @@ Base::Base() {
 
   rotController = new PIDController(2, 0, 0, 0);
   rotController->setTolerance(5, 1);
+  rotController->configIntegral(IntegralType::Default, true);
+  rotController->setIntegralZoneRange(20);
 
   rotLimiter = new SlewRateLimiter(kDefaultRotationSlewRate);
 
@@ -54,6 +56,10 @@ void Base::initDefaultCommand() {
  */
 void Base::move(int leftSpeed, int rightSpeed) {
   //printf("Left speed: %d, Right speed: %d\n", leftSpeed, rightSpeed);
+  if (imuCallibrating()) {
+    leftSpeed = 0;
+    rightSpeed = 0;
+  }
   frontLeftMotor->setSpeed(leftSpeed);
   frontRightMotor->setSpeed(rightSpeed);
 }

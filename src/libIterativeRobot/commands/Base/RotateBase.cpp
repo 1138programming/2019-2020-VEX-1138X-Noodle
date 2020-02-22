@@ -25,6 +25,7 @@ void RotateBase::initialize() {
   Robot::base->resetRotation();
   Robot::base->setRotationTarget(rotationTarget);
   Robot::base->setRotationSlewRate(slewRate);
+  Robot::base->setMaxRotationSpeed(maxSpeed);
   startTime = pros::millis();
 }
 

@@ -4,6 +4,7 @@
 #include "./Subsystem.h"
 #include "abstractBaseClasses/LinearProfiler.h"
 #include "abstractBaseClasses/PIDController.h"
+#include "abstractBaseClasses/IntegralType.h"
 #include "abstractBaseClasses/SlewRateLimiter.h"
 #include "api.h"
 
