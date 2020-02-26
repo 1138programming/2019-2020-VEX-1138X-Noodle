@@ -52,5 +52,6 @@ const int exampleEncoderTopPort = 0;
 const int exampleEncoderBottomPort = 1;
 
 // Global things that we need
+const int imuPort = 20;
 
 #endif

@@ -36,10 +36,10 @@ JohnsCode::JohnsCode() { //*Negative is forward
     addSequentialCommand(new RotateBase(180, 0.127, KMaxMotorSpeed, 5000));
 
     The first number is the clockwise angle to rotate to relative to the base's current heading. For example, if you
-    set the target to 180 the base should do a half turn clockwise. If you then run the same command with a target of -190, 
+    set the target to 180 the base should do a half turn clockwise. If you then run the same command with a target of -190,
     it should rotate counterclockwise back to where it started
 
-    The second number is the slew rate. This is the rate at which the motor's speed can change in milliseconds. 
+    The second number is the slew rate. This is the rate at which the motor's speed can change in milliseconds.
     A rate of 0.127 means the base motors' speed will increase by 0.127 per second. A larger number here will accelerate
     the base faster when it rotates.
 

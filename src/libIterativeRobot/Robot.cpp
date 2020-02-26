@@ -132,6 +132,7 @@ void Robot::autonPeriodic() {
 void Robot::teleopInit() {
   //base->zeroEncoders();
 
+  RotateBase* c = new RotateBase(180, 0.127, KMaxMotorSpeed, 100000);
   //BaseLinearMovement* c = new BaseLinearMovement(5000, 5000, 2, 0.001, true);
   
   //BaseLinearMovement* c = new BaseLinearMovement(3000, 3000);
@@ -151,7 +152,7 @@ void Robot::teleopInit() {
   autonChooser->init();
   //autonChooser->runAuton();
   //FlipOut* c = new FlipOut();
-  //c->run();
+  c->run();
 }
 
 void Robot::teleopPeriodic() {

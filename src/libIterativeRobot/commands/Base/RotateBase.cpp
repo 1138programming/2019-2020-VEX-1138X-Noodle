@@ -35,7 +35,8 @@ void RotateBase::execute() {
 }
 
 bool RotateBase::isFinished() {
-  return (!Robot::base->imuCallibrating() && Robot::base->atRotationTarget()) || (pros::millis() - startTime > duration);
+  //return (!Robot::base->imuCallibrating() && Robot::base->atRotationTarget()) || (pros::millis() - startTime > duration);
+  return false;
 }
 
 void RotateBase::end() {

@@ -20,12 +20,12 @@ Base::Base() {
   frontRightMotor->getMotorObject()->set_brake_mode(pros::motor_brake_mode_e_t::E_MOTOR_BRAKE_COAST);
   backRightMotor->getMotorObject()->set_brake_mode(pros::motor_brake_mode_e_t::E_MOTOR_BRAKE_COAST);
 
-  frontLeftMotor->reverse();
-  backLeftMotor->reverse();
+  frontRightMotor->reverse();
+  backRightMotor->reverse();
   //backRightMotor->reverse();
   //frontRightMotor->reverse();
-  //frontRightMotor->reverseEncoder();
-  //frontLeftMotor->reverseEncoder();
+  frontRightMotor->reverseEncoder();
+  frontLeftMotor->reverseEncoder();
 
   frontLeftMotor->addFollower(backLeftMotor);
   frontRightMotor->addFollower(backRightMotor);
@@ -38,14 +38,15 @@ Base::Base() {
   leftProfiler->setTolerance(15, 1);
   rightProfiler->setTolerance(15, 1);
 
-  rotController = new PIDController(2, 0, 0, 0);
+  rotController = new PIDController(1.2, 0, 0.5, 0);
   rotController->setTolerance(5, 1);
   rotController->configIntegral(IntegralType::Default, true);
   rotController->setIntegralZoneRange(20);
+  rotController->setOutputDeadband(20, 5);
 
   rotLimiter = new SlewRateLimiter(kDefaultRotationSlewRate);
 
-  imu = new pros::Imu(14);
+  imu = new pros::Imu(imuPort);
   imu->reset();
 
   startTime = pros::millis();
