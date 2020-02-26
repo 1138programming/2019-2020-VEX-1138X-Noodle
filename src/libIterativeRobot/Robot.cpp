@@ -50,6 +50,20 @@ Robot::Robot() {
   intake = new Intake();
   arm = new Arm();
 
+  /**
+   * You can tune the base's rotation PID constants here. The numbers are the P, I, and D constants.
+   * Tune them in this order:
+   * 
+   * The P constant is the main one. If the robot is getting to the setpoint, try increasing it. If the robot overshoots its setpoint,
+   * decrease it.
+   * 
+   * The D constant decreases the overshoot and oscillations. You can have a slightly higher P value if you tune the D value correctly
+   * 
+   * The I constant gets rid of steady state error, or error that doesn't go away with just the P and D constants. For example,
+   * if the base doesn't get fully to its setpoint, you might need to increase the I constant. Most likely you won't have to though.
+   */
+  base->setRotationPIDConstants(0.6, 0, 0);
+
   autonChooser = AutonChooser::getInstance();
 
   mainController = new pros::Controller(pros::E_CONTROLLER_MASTER);
@@ -132,7 +146,7 @@ void Robot::autonPeriodic() {
 void Robot::teleopInit() {
   //base->zeroEncoders();
 
-  RotateBase* c = new RotateBase(180, 0.127, KMaxMotorSpeed, 100000);
+  //RotateBase* c = new RotateBase(180, 0.127, KMaxMotorSpeed, 100000);
   //BaseLinearMovement* c = new BaseLinearMovement(5000, 5000, 2, 0.001, true);
   
   //BaseLinearMovement* c = new BaseLinearMovement(3000, 3000);
@@ -152,7 +166,7 @@ void Robot::teleopInit() {
   autonChooser->init();
   //autonChooser->runAuton();
   //FlipOut* c = new FlipOut();
-  c->run();
+  //c->run();
 }
 
 void Robot::teleopPeriodic() {

@@ -52,6 +52,7 @@ class Base : public libIterativeRobot::Subsystem {
     void resetRotation();
     void setMaxRotationSpeed(int maxSpeed);
     void setRotationSlewRate(double slewRate);
+    void setRotationPIDConstants(double kP, double kI, double kD);
 
     Base();
 };

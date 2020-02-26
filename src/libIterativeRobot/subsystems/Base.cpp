@@ -38,7 +38,7 @@ Base::Base() {
   leftProfiler->setTolerance(15, 1);
   rightProfiler->setTolerance(15, 1);
 
-  rotController = new PIDController(1.2, 0, 0.5, 0);
+  rotController = new PIDController(0.6, 0, 0, 0);
   rotController->setTolerance(5, 1);
   rotController->configIntegral(IntegralType::Default, true);
   rotController->setIntegralZoneRange(20);
@@ -182,6 +182,10 @@ void Base::setMaxRotationSpeed(int maxSpeed) {
 
 void Base::setRotationSlewRate(double slewRate) {
   rotLimiter->setRate(slewRate);
+}
+
+void Base::setRotationPIDConstants(double kP, double kI, double kD) {
+  rotController->setGains(kP, kI, kD);
 }
 
 LinearProfiler* Base::getLeftProfiler() {
