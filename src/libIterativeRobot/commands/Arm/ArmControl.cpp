@@ -15,7 +15,7 @@ void ArmControl::initialize() {
   // Perform any initialization steps for this command here, not in the
   // constructor
   printf("ArmControl init\n");
-  armSpeed = Robot::mainController->get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_Y);
+  armSpeed = Robot::mainController->get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_Y)*2;
 }
 
 void ArmControl::execute() {

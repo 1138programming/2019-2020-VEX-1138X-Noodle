@@ -4,6 +4,9 @@
 const double Base::kDefaultMaxAccel = 0.127;
 const double Base::kDefaultMaxVel = 2; // Max is 3.6
 const double Base::kDefaultRotationSlewRate = 0.01;
+std::uint32_t startTime = 0;
+bool fiveSeconds = false;
+bool callibrated = false;
 
 Base::Base() {
   // Set up motors
@@ -17,8 +20,10 @@ Base::Base() {
   frontRightMotor->getMotorObject()->set_brake_mode(pros::motor_brake_mode_e_t::E_MOTOR_BRAKE_COAST);
   backRightMotor->getMotorObject()->set_brake_mode(pros::motor_brake_mode_e_t::E_MOTOR_BRAKE_COAST);
 
-  backRightMotor->reverse();
-  frontRightMotor->reverse();
+  frontLeftMotor->reverse();
+  backLeftMotor->reverse();
+  //backRightMotor->reverse();
+  //frontRightMotor->reverse();
   //frontRightMotor->reverseEncoder();
   //frontLeftMotor->reverseEncoder();
 
@@ -42,6 +47,10 @@ Base::Base() {
 
   imu = new pros::Imu(14);
   imu->reset();
+
+  startTime = pros::millis();
+  callibrated = false;
+  fiveSeconds = false;
 }
 
 void Base::initDefaultCommand() {
@@ -55,11 +64,11 @@ void Base::initDefaultCommand() {
  * @param right - speed of the right side
  */
 void Base::move(int leftSpeed, int rightSpeed) {
-  //printf("Left speed: %d, Right speed: %d\n", leftSpeed, rightSpeed);
   if (imuCallibrating()) {
     leftSpeed = 0;
     rightSpeed = 0;
   }
+  //printf("Left speed: %d, Right speed: %d\n", leftSpeed, rightSpeed);
   frontLeftMotor->setSpeed(leftSpeed);
   frontRightMotor->setSpeed(rightSpeed);
 }
@@ -73,16 +82,26 @@ double Base::getRightSensorValue() {
 }
 
 double Base::getHeading() {
-  if (imu->is_calibrating()) {
+  if (callibrated) {
+    return imu->get_rotation();
+  } else {
     printf("Imu is callibrating...\n");
     return 0;
-  } else {
-    return imu->get_rotation();
   }
 }
 
 bool Base::imuCallibrating() {
-  return imu->is_calibrating();
+  if (callibrated) {
+    return false;
+  } else {
+    if (fiveSeconds) {
+      return false;
+    } else {
+      fiveSeconds = (int)(pros::millis() - startTime) > 5000;
+      callibrated = !imu->is_calibrating();
+      return !callibrated;
+    }
+  }
 }
 
 void Base::zeroEncoders() {

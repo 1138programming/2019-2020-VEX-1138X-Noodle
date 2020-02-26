@@ -1,5 +1,6 @@
 #include "main.h"
 #include "libIterativeRobot/commands/Arm/StopArm.h"
+#include "libIterativeRobot/commands/Arm/ArmControl.h"
 
 const double Arm::kLowTowerPos = 2500;
 const double Arm::kMidTowerPos = 3000;
@@ -15,7 +16,14 @@ Arm::Arm() {
 }
 
 void Arm::initDefaultCommand() {
-  setDefaultCommand(new StopArm());
+  if (pros::E_CONTROLLER_DIGITAL_X > abs(20)) {
+    setDefaultCommand(new ArmControl());
+  }
+  else
+  {
+    setDefaultCommand(new StopArm());
+  }
+  
 }
 
 /**

@@ -19,7 +19,7 @@ void StopBase::initialize() {
 void StopBase::execute() {
   //printf("Left: %f, Right: %f\n", Robot::base->getLeftSensorValue(), Robot::base->getRightSensorValue());
   //Robot::base->move(KMaxMotorSpeed * 1, KMaxMotorSpeed * 1);
-  //printf("Heading %f\n", Robot::base->getHeading());
+  printf("Heading %f\n", Robot::base->getHeading());
   Robot::base->move(0, 0);
 }
 

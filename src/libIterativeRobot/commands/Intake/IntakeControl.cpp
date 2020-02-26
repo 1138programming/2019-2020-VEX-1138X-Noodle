@@ -18,7 +18,7 @@ void IntakeControl::initialize() {
   if (this->Open)
     Robot::intake->move(KMaxMotorSpeed);
   else
-    Robot::intake->move(-KMaxMotorSpeed*0.5);
+    Robot::intake->move(-KMaxMotorSpeed*0.75);
 }
 
 void IntakeControl::execute() {

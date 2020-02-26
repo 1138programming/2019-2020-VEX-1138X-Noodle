@@ -70,6 +70,7 @@ Robot::Robot() {
   libIterativeRobot::JoystickButton* AnglerToHorizontal = new libIterativeRobot::JoystickButton(mainController, pros::E_CONTROLLER_DIGITAL_RIGHT);
   libIterativeRobot::JoystickButton* AnglerToTop = new libIterativeRobot::JoystickButton(mainController, pros::E_CONTROLLER_DIGITAL_UP);
   libIterativeRobot::JoystickButton* AnglerToBack = new libIterativeRobot::JoystickButton(mainController, pros::E_CONTROLLER_DIGITAL_LEFT);
+  libIterativeRobot::JoystickButton* Turn180 = new libIterativeRobot::JoystickButton(mainController, pros::E_CONTROLLER_DIGITAL_X);
 
   // Add commands to be run to buttons
   LeftX->setThreshold(50);
@@ -104,6 +105,9 @@ Robot::Robot() {
   AnglerToHorizontal->whenPressed(new MoveAnglerTo(680));
   AnglerToTop->whenPressed(new MoveAnglerTo(8000, 100));
   AnglerToBack->whenPressed(new MoveAnglerTo(8000, 100));
+
+  //RotateBase* c = new RotateBase(180, 0.127, KMaxMotorSpeed, 100000);
+  //Turn180->whenPressed(c);
 }
 
 void Robot::robotInit() {
@@ -126,11 +130,10 @@ void Robot::autonPeriodic() {
 }
 
 void Robot::teleopInit() {
-  base->zeroEncoders();
+  //base->zeroEncoders();
 
   //BaseLinearMovement* c = new BaseLinearMovement(5000, 5000, 2, 0.001, true);
-  //RotateBase* c = new RotateBase(180, 0.127, KMaxMotorSpeed, 100000);
-
+  
   //BaseLinearMovement* c = new BaseLinearMovement(3000, 3000);
   //GetData* c = new GetData();
 

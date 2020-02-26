@@ -14,10 +14,10 @@
 #define MAX_FOLLOWERS 3
 
 // Motor ports
-const int frontLeftBasePort = 20;
-const int frontRightBasePort = 12;
-const int backLeftBasePort = 8;
-const int backRightBasePort = 1;
+const int frontLeftBasePort = 3;
+const int frontRightBasePort = 2;
+const int backLeftBasePort = 4;
+const int backRightBasePort = 5;
 
 const int anglerPort = 6;
 const int leftIntakeMotorPort = 10;
