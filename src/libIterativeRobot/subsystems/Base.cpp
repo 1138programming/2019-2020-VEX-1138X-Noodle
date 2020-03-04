@@ -1,12 +1,12 @@
 #include "main.h"
+#include "libIterativeRobot/Robot.h"
 #include "libIterativeRobot/commands/Base/StopBase.h"
 
 const double Base::kDefaultMaxAccel = 0.127;
 const double Base::kDefaultMaxVel = 2; // Max is 3.6
-const double Base::kDefaultRotationSlewRate = 0.01;
+const double Base::kDefaultRotationSlewRate = 0.01;   
 std::uint32_t startTime = 0;
 bool fiveSeconds = false;
-bool callibrated = false;
 
 Base::Base() {
   // Set up motors
@@ -38,7 +38,7 @@ Base::Base() {
   leftProfiler->setTolerance(15, 1);
   rightProfiler->setTolerance(15, 1);
 
-  rotController = new PIDController(0.6, 0, 0, 0);
+  rotController = new PIDController(0.6, 0.001, 0.5, 100);
   rotController->setTolerance(5, 1);
   rotController->configIntegral(IntegralType::Default, true);
   rotController->setIntegralZoneRange(20);
@@ -50,7 +50,6 @@ Base::Base() {
   imu->reset();
 
   startTime = pros::millis();
-  callibrated = false;
   fiveSeconds = false;
 }
 
@@ -68,6 +67,7 @@ void Base::move(int leftSpeed, int rightSpeed) {
   if (imuCallibrating()) {
     leftSpeed = 0;
     rightSpeed = 0;
+    printf("IMU Still calibrating\n");
   }
   //printf("Left speed: %d, Right speed: %d\n", leftSpeed, rightSpeed);
   frontLeftMotor->setSpeed(leftSpeed);
@@ -83,25 +83,26 @@ double Base::getRightSensorValue() {
 }
 
 double Base::getHeading() {
-  if (callibrated) {
+  if (!imu->is_calibrating()) {
     return imu->get_rotation();
   } else {
-    printf("Imu is callibrating...\n");
+    //printf("Imu is callibrating...\n");
     return 0;
   }
 }
 
 bool Base::imuCallibrating() {
-  if (callibrated) {
+  if (!imu->is_calibrating()) {
     return false;
   } else {
-    if (fiveSeconds) {
+    /*if (fiveSeconds) {
       return false;
     } else {
       fiveSeconds = (int)(pros::millis() - startTime) > 5000;
-      callibrated = !imu->is_calibrating();
-      return !callibrated;
-    }
+      !imu->is_calibrating() = !!imu->is_calibrating();
+      return !!imu->is_calibrating();
+    }*/
+    return true;
   }
 }
 
@@ -156,7 +157,7 @@ void Base::setRotationTarget(double rotationTarget) {
 }
 
 void Base::calculateRotation() {
-  if (imu->is_calibrating()) {
+  if (!imu->is_calibrating()) {
     rotController->reset();
     rotLimiter->reset();
     //printf("Still callibrating...\n");

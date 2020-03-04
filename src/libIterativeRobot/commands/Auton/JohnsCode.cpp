@@ -20,16 +20,16 @@ JohnsCode::JohnsCode() { //*Negative is forward
   addSequentialCommand(new MoveAnglerFor(900, -KMaxMotorSpeed));
   addParallelCommand(new MoveIntakeFor(700, KMaxMotorSpeed));
   addSequentialCommand(new MoveArmFor(700, -KMaxMotorSpeed));
-  addSequentialCommand(new DriveForTime(-KMaxMotorSpeed*0.25, -KMaxMotorSpeed*0.25, 3000));
+  addSequentialCommand(new DriveForTime(KMaxMotorSpeed*0.50, KMaxMotorSpeed*0.50, 3000)); 
 //addParallelCommand(slipOffRubber);
   addParallelCommand(new MoveIntakeFor(3050, KMaxMotorSpeed));
-  addSequentialCommand(new DriveForTime(KMaxMotorSpeed*0.45, KMaxMotorSpeed*0.45, 900));
+  addSequentialCommand(new DriveForTime(-KMaxMotorSpeed*0.50, -KMaxMotorSpeed*0.50, 900));
   addParallelCommand(new MoveIntakeFor(50, -KMaxMotorSpeed));
-  addSequentialCommand(new DriveForTime(KMaxMotorSpeed*0.25, -KMaxMotorSpeed*0.25, 1400));
-  addSequentialCommand(new DriveForTime(-KMaxMotorSpeed*0.40, -KMaxMotorSpeed*0.40, 1000));
+  addSequentialCommand(new DriveForTime(-KMaxMotorSpeed*0.30, KMaxMotorSpeed*0.30, 3000));
+  addSequentialCommand(new DriveForTime(KMaxMotorSpeed*0.40, KMaxMotorSpeed*0.40, 1000)); 
   addSequentialCommand(new MoveAnglerFor(2300, KMaxMotorSpeed));
   addSequentialCommand(new MoveIntakeFor(600, -KMaxMotorSpeed));
-  addSequentialCommand(new DriveForTime(KMaxMotorSpeed, KMaxMotorSpeed, 500));
+  addSequentialCommand(new DriveForTime(-KMaxMotorSpeed, -KMaxMotorSpeed, 500));
 
   /**
    * How to use RotateBase:
