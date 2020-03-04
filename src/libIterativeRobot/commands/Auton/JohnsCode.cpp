@@ -25,7 +25,7 @@ JohnsCode::JohnsCode() { //*Negative is forward
   addParallelCommand(new MoveIntakeFor(3050, KMaxMotorSpeed));
   addSequentialCommand(new DriveForTime(-KMaxMotorSpeed*0.50, -KMaxMotorSpeed*0.50, 900));
   addParallelCommand(new MoveIntakeFor(50, -KMaxMotorSpeed));
-  addSequentialCommand(new DriveForTime(-KMaxMotorSpeed*0.30, KMaxMotorSpeed*0.30, 3000));
+  addSequentialCommand(new DriveForTime(-KMaxMotorSpeed*0.30, KMaxMotorSpeed*0.30, 3000)); //* The TURN
   addSequentialCommand(new DriveForTime(KMaxMotorSpeed*0.40, KMaxMotorSpeed*0.40, 1000)); 
   addSequentialCommand(new MoveAnglerFor(2300, KMaxMotorSpeed));
   addSequentialCommand(new MoveIntakeFor(600, -KMaxMotorSpeed));
