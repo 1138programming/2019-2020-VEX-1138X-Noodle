@@ -130,7 +130,6 @@ void Robot::robotInit() {
   autonChooser->addAutonCommand(new JohnsCode(), "JohnsCode");
   autonChooser->addAutonCommand(new REDCODE(), "REDCODE");
   autonChooser->addAutonCommand(new Push(), "Push" );
-  autonChooser->addAutonCommand(new Skills(), "Skills");
   //autonChooser->addAutonCommand(new AutonGroup1(), "AutonGroup1");
   //autonChooser->addAutonCommand(new FlipOut(), "FlipOut");
 }
