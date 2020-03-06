@@ -22,13 +22,14 @@ JohnsCode::JohnsCode() { //*Negative is forward
   addSequentialCommand(new MoveArmFor(700, -KMaxMotorSpeed));
   addSequentialCommand(new DriveForTime(KMaxMotorSpeed*0.50, KMaxMotorSpeed*0.50, 3000)); 
 //addParallelCommand(slipOffRubber);
-  addParallelCommand(new MoveIntakeFor(3050, KMaxMotorSpeed));
-  addSequentialCommand(new DriveForTime(-KMaxMotorSpeed*0.50, -KMaxMotorSpeed*0.50, 900));
+  addParallelCommand(new MoveIntakeFor(3150, KMaxMotorSpeed));
+  addSequentialCommand(new DriveForTime(-KMaxMotorSpeed*0.50, -KMaxMotorSpeed*0.50, 950));
   addParallelCommand(new MoveIntakeFor(50, -KMaxMotorSpeed));
-  addSequentialCommand(new DriveForTime(-KMaxMotorSpeed*0.30, KMaxMotorSpeed*0.30, 3000)); //* The TURN
-  addSequentialCommand(new DriveForTime(KMaxMotorSpeed*0.40, KMaxMotorSpeed*0.40, 1000)); 
-  addSequentialCommand(new MoveAnglerFor(2300, KMaxMotorSpeed));
-  addSequentialCommand(new MoveIntakeFor(600, -KMaxMotorSpeed));
+  addSequentialCommand(new DriveForTime(KMaxMotorSpeed*0.45, -KMaxMotorSpeed*0.45, 1200)); //* The TURN
+  addParallelCommand(new MoveAnglerFor(400, KMaxMotorSpeed));
+  addSequentialCommand(new DriveForTime(KMaxMotorSpeed*0.50, KMaxMotorSpeed*0.50, 1050)); 
+  addSequentialCommand(new MoveAnglerFor(2400, KMaxMotorSpeed));
+  addSequentialCommand(new MoveIntakeFor(750, -KMaxMotorSpeed));
   addSequentialCommand(new DriveForTime(-KMaxMotorSpeed, -KMaxMotorSpeed, 500));
 
   /**

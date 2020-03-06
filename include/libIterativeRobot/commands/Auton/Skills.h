@@ -3,10 +3,10 @@
 
 #include "libIterativeRobot/commands/CommandGroup.h"
 
-class RedTopPush : public libIterativeRobot::CommandGroup {
+class Skills : public libIterativeRobot::CommandGroup {
   private:
   public:
-    RedTopPush();
+    Skills();
 };
 
-#endif // _COMMANDS_TOPREDSTACK_H_
+#endif // _COMMANDS_Skills_H_
