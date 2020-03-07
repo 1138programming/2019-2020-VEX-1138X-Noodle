@@ -14,12 +14,12 @@
 #include "libIterativeRobot/commands/LambdaGroup.h"
 
 JohnsCode::JohnsCode() { //*Negative is forward
-  addSequentialCommand(new MoveArmFor(700, KMaxMotorSpeed));
-  addParallelCommand(new MoveIntakeFor(700, -KMaxMotorSpeed));
-  addParallelCommand(new MoveAnglerFor(900, KMaxMotorSpeed));
-  addSequentialCommand(new MoveAnglerFor(900, -KMaxMotorSpeed));
-  addParallelCommand(new MoveIntakeFor(700, KMaxMotorSpeed));
-  addSequentialCommand(new MoveArmFor(700, -KMaxMotorSpeed));
+  addSequentialCommand(new MoveArmFor(2600, KMaxMotorSpeed));
+  addParallelCommand(new MoveIntakeFor(2600, -KMaxMotorSpeed));
+  addParallelCommand(new MoveAnglerFor(2650, KMaxMotorSpeed));
+  addSequentialCommand(new MoveAnglerFor(2700, -KMaxMotorSpeed));
+  addParallelCommand(new MoveIntakeFor(2700, KMaxMotorSpeed));
+  addSequentialCommand(new MoveArmFor(2650, -KMaxMotorSpeed));
   addSequentialCommand(new DriveForTime(KMaxMotorSpeed*0.50, KMaxMotorSpeed*0.50, 3000)); 
 //addParallelCommand(slipOffRubber);
   addParallelCommand(new MoveIntakeFor(3150, KMaxMotorSpeed));

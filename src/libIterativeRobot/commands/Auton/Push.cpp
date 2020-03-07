@@ -11,7 +11,7 @@
 
 Push::Push() {
   //addSequentialCommand(new MoveAnglerTo(0, 1000));
-  addSequentialCommand(new DriveForTime(KMaxMotorSpeed, KMaxMotorSpeed, 3000));
+  addSequentialCommand(new DriveForTime(KMaxMotorSpeed, KMaxMotorSpeed, 1000));
   addSequentialCommand(new Delay(500));
   addSequentialCommand(new DriveForTime(-KMaxMotorSpeed,-KMaxMotorSpeed,1000));
 }
